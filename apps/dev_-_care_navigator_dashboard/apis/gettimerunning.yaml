@@ -12,7 +12,7 @@ blocks:
           return updateTimeTrack.response[index].showTime;
 metadata:
   id: b27936a2-1094-450e-8d85-5eaae78e3ce1
-  name: isTimerRunning
+  name: getTimeRunning
   organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
 trigger:
   application:

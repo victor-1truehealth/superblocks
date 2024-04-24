@@ -1,0 +1,28 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: |+
+          /*
+           * You can use JavaScript Functions to:
+           *   1. Transform the output of previous Steps by referencing their output (ex. Step1.output)
+           *   2. Write business logic referencing UI components (ex. Table1.selectedRow.id)
+           *   3. Make http calls via axios
+           *
+           * Learn more in the docs: https://docs.superblocks.com/writing-code/backend-javascript
+           */
+
+          const index = updateTimeTrack.response.findIndex(item => item.patient_id == currentTrackeToStop.value);
+
+          return updateTimeTrack.response[index];
+
+
+
+metadata:
+  id: a80ca822-3c9e-45ac-aca9-4e23f2ccd54f
+  name: getPatientToStop
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e
