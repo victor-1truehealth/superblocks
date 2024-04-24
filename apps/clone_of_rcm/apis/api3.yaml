@@ -1,0 +1,19 @@
+blocks:
+  - name: Step1
+    step:
+      email:
+        emailAttachments: ""
+        emailBcc: ""
+        emailBody: ""
+        emailCc: ""
+        emailFrom: Superblocks <app@superblocksmail.com>
+        emailSubject: ""
+        emailTo: ""
+      integration: email
+metadata:
+  id: 241eef40-adc6-4450-9359-2fe627816d6b
+  name: API3
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

@@ -1,0 +1,18 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: SELECT * FROM FIVETRAN_DATABASE.TRUECARE.CCM_TIME_VIEW
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 1e0bdb04-4181-41ee-a4cb-50a5f4e877fd
+  name: getAllTimeTracked
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 91949d78-431b-4f5f-b349-0ad5f686f35e

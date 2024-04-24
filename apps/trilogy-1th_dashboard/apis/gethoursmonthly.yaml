@@ -1,0 +1,19 @@
+blocks:
+  - name: Step2
+    step:
+      integration: javascript
+      javascript:
+        body: |-
+          const data = getCNMinutes.response;
+
+          const totalDurationMins = Math.floor(data.reduce((acc, curr) => acc + curr.TOTAL_DURATION_MINS, 0)/60 * 10) / 10;
+
+          return totalDurationMins;
+metadata:
+  id: e755fe6f-d122-4905-8f7e-9767053450b6
+  name: getHoursMonthly
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4
+    options: {}

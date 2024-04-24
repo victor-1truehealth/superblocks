@@ -1,0 +1,67 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: |
+          /*
+           * You can use JavaScript Functions to:
+           *   1. Transform the output of previous Steps by referencing their output (ex. Step1.output)
+           *   2. Write business logic referencing UI components (ex. Table1.selectedRow.id)
+           *   3. Make http calls via axios
+           *
+           * Learn more in the docs: https://docs.superblocks.com/writing-code/backend-javascript
+           */
+
+          const list = getBloodPressureList.response;
+          const crisis = list.filter(l => l.Systolic >= 170);
+          const stage2 = list.filter(l => l.Systolic >= 140 && l.Systolic < 170 );
+          const stage1 = list.filter(l => l.Systolic >= 130 && l.Systolic < 140);
+          const elevated = list.filter(l => l.Systolic >= 120 && l.Systolic < 130);
+          const normal = list.filter(l => l.Systolic >= 100 && l.Systolic < 120);
+          const b_normal = list.filter(l => l.Systolic < 100);
+
+          function generateDataPlotly(_list, name, color) {
+          	return {
+                x: _list.map((l) => l.READING_TIME),
+                y: _list.map((l) => l.Systolic),
+                mode: "markers",
+                type: "scatter",
+          			name: name,
+          			showlegend: true,
+          			hovertemplate: "<b>%{text}</b>",
+          			text: _list.map((l) => `${(new Date(l.READING_TIME)).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} | ${l.Systolic}mmHg`),
+          			marker: {
+          				size: 10,
+          				color: color
+          			}
+              };
+          }
+
+          return {
+            data: [
+              generateDataPlotly(crisis, "Crisis", "#c02741"),
+              generateDataPlotly(stage2, "Stage 2", "#f47f20"),
+          		generateDataPlotly(stage1, "Stage 1", "#f4c224"),
+          		generateDataPlotly(elevated, "Elevated", "#e4d94c"),
+          		generateDataPlotly(normal, "Normal", "#5eb546"),
+          		generateDataPlotly(b_normal, "Below Normal", "#000000"),
+            ],
+            layout:  {
+          		title: 'Systolic',
+          		yaxis:{
+          			range: [0, 200],
+          		},
+          		legend: {
+          			traceorder: 'normal', // Determines the order at which legend items are displayed
+          			orientation: 'h' // Vertical orientation
+          		}
+          	}
+          };
+metadata:
+  id: b90b0ae9-225e-427b-9d06-d915283eb5da
+  name: getBloodPressureSystolicPlotly
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

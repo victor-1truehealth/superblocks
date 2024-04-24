@@ -1,0 +1,23 @@
+{
+  "apis": {
+    "0f1c60b9-298e-4bbe-a3fe-d0846ab380d2": "getEnrollments",
+    "24fd2a06-ad86-4e33-8fe6-04bba80d2e24": "getReimbursements",
+    "2a349f58-c6ae-46c0-bcc0-e9a69f93fc2b": "getNPEnrollmentsMonthly",
+    "2c8b163c-7388-4499-98bb-3058cc38db24": "getCurrentCharges",
+    "37de72c7-bc50-4794-906f-9d8c2e13bfa3": "getNPEnrollments",
+    "39608a8d-1696-4972-8211-68d7245adcff": "getSegueReimbursementsByCohort",
+    "44851b62-6e14-49bd-b189-1455daa2dc57": "getFacilities",
+    "46dc233d-d685-47e6-b414-c1d42ebc5441": "getPreviousMonthReimbursements",
+    "50b0a29f-ba71-47f8-b611-4705ad71a368": "getFacilityEnrollments",
+    "5b73294c-083f-4144-b42a-6adc5f1d9b84": "getLastMonthCharges",
+    "5dadb206-cb4b-4468-aca2-afee388c56f8": "getPatientsLast7Days",
+    "96b0aaf8-2e9a-46ea-9397-9ea801a16703": "getTimeAdherence",
+    "afef8803-0846-48f2-a15b-5e2ec11bf7aa": "getLatestBillings",
+    "c34ccfb7-f5b5-4b5e-981c-ae15c8e88cfc": "getNPs",
+    "c7240d96-c8e0-46b2-8454-9fc1c2e77307": "getEnrollments10Weeks",
+    "f74ced04-a505-4333-8afb-c035bb9cbf49": "getFacilityEnrollmentsMonthly"
+  },
+  "configType": "APPLICATION",
+  "defaultPageId": "0fb586ff-de35-44d6-b772-5af22d1b483d",
+  "id": "6f7f2952-ed63-4c34-9b08-d805ed3431d7"
+}

@@ -1,0 +1,26 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: |
+          const getTimeDifference = (start_time) => {
+            const startTime = moment(start_time, "ddd, DD MMM YYYY HH:mm:ss [GMT]");
+            const currentTime = moment();
+            const duration = moment.duration(currentTime.diff(startTime));
+            const hours = Math.floor(duration.asHours());
+            const minutes = Math.floor(duration.asMinutes()) % 60;
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+          };
+
+          for (let item of trackTimeDataArr.value) {
+          	item.showTime = getTimeDifference(item.start_time);
+          }
+          return trackTimeDataArr.value;
+metadata:
+  id: edb5266f-c066-4b7b-8b6f-16917df01519
+  name: updateTimeTrack
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

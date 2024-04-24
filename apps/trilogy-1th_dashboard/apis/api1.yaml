@@ -1,0 +1,25 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: |
+          /*
+           * You can use JavaScript Functions to:
+           *   1. Transform the output of previous Steps by referencing their output (ex. Step1.output)
+           *   2. Write business logic referencing UI components (ex. Table1.selectedRow.id)
+           *   3. Make http calls via axios
+           *
+           * Learn more in the docs: https://docs.superblocks.com/writing-code/backend-javascript
+           */
+
+          const obj = {str: "hello world"};
+          console.log(obj.str);
+          return obj;
+metadata:
+  id: 56d2c70d-f4ea-45ab-bd5e-bef8be296c80
+  name: API1
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4

@@ -1,0 +1,15 @@
+blocks:
+  - name: Variables1
+    variables:
+      items:
+        - key: myVar
+          mode: MODE_READWRITE
+          type: TYPE_SIMPLE
+          value: '{{"my variable value"}}'
+metadata:
+  id: cc7c10b6-fb1f-4872-9fd5-b2daa50704a7
+  name: API2
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 9823d11f-f535-4ca1-944b-46d06fe4df38

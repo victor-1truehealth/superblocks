@@ -1,0 +1,46 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+              PI.*,
+              TLBM.*,
+              CCM_Aggregated.MINUTES_LOGGED
+          FROM 
+              PROD_WAREHOUSE.PATIENT.INFORMATION PI
+          JOIN 
+              PROD_WAREHOUSE.PATIENT.TIME_LOG_BY_MONTH TLBM
+          ON 
+              PI.PATIENT_INDIVIDUAL_ID = TLBM.PATIENT_INDIVIDUAL_ID
+          LEFT JOIN (
+              SELECT 
+                  PATIENT_INDIVIDUAL_ID, 
+                  PROVIDER_NAME, 
+                  EXTRACT(YEAR FROM ENC_CREATED_TIME) AS YEAR, 
+                  EXTRACT(MONTH FROM ENC_CREATED_TIME) AS MONTH, 
+                  SUM(ENC_DURATION_MINS) AS MINUTES_LOGGED
+              FROM 
+                  FIVETRAN_DATABASE.TRUECARE.CCM_TIME_VIEW
+              GROUP BY 
+                  PATIENT_INDIVIDUAL_ID, 
+                  PROVIDER_NAME, 
+                  YEAR, 
+                  MONTH
+          ) CCM_Aggregated
+          ON 
+              PI.PATIENT_INDIVIDUAL_ID = CCM_Aggregated.PATIENT_INDIVIDUAL_ID AND
+              PI.CARE_NAVIGATOR = CCM_Aggregated.PROVIDER_NAME;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: e59e8c18-6f9e-4736-b28b-2d855d040c15
+  name: getInfoTimeAdherence
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 91949d78-431b-4f5f-b349-0ad5f686f35e

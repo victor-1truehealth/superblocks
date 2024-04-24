@@ -1,0 +1,29 @@
+blocks:
+  - name: getPatientCohortsByMonth
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT
+            PATIENT_INDIVIDUAL_ID,
+            PATIENT_FIRST_NAME,
+            PATIENT_LAST_NAME,
+            CREATED_ON,
+            TO_CHAR(DATEDIFF(month, CREATED_ON, CURRENT_DATE))
+          AS Months_Since_Created
+          FROM
+            FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: bd25ca9b-ed93-4003-909b-b2592b78c18f
+  name: getPatientCohorts
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: da5337d7-6202-4d18-bdba-9a54b3db0de2
+    options:
+      executeOnPageLoad: true

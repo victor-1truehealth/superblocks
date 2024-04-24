@@ -1,0 +1,23 @@
+{
+  "apis": {
+    "0c929eb6-942d-4a9d-974b-741166aee532": "API1",
+    "16692555-10e2-430e-9863-2fee20c518e1": "getReimbursementsCurrentMonth",
+    "241eef40-adc6-4450-9359-2fe627816d6b": "API3",
+    "3058f8f4-8287-4941-be2f-834d03afcf39": "getNew99457_99458Billings",
+    "5a9ffa20-e5d3-453f-8847-aea133122a0a": "getCohortAnalytics",
+    "5b8f684e-e555-466f-b8d7-b0dace5ed67f": "getPreviousBillings",
+    "6674c23c-742b-480d-a4c9-f9d0ef5468c7": "getReimbursementsLastMonth",
+    "84531c23-ed63-470b-ab92-08ed55b3479f": "getMismatchedPatients",
+    "9099632c-c3db-45b1-a6e4-080b92378c90": "getNormalizedBillingCodes",
+    "a4f6e0f9-11e0-46d6-90c1-d09608672ffa": "getReimbursementsAll",
+    "a5ff7866-e20b-4759-b6d6-bb4fd83069ec": "getAllPreviousBillings",
+    "a9cbff11-0f2b-4a85-ac18-df6180c0ff77": "getNormalizedBillingCharges",
+    "c26f72c4-b312-4a2a-8057-b0e4f31e646f": "getCustomers",
+    "d1f16cf9-214f-41fc-a8a1-54bc1b6020ea": "getNew99453_99454Billings",
+    "d2ffc3cd-ca90-4822-9e24-f0d4fb593586": "getInvoice",
+    "fff07e9d-a036-4aec-9685-9411004aecb4": "API2"
+  },
+  "configType": "APPLICATION",
+  "defaultPageId": "f73b90cd-8589-4212-8901-c859c0614ea1",
+  "id": "0628ed1a-5202-4cbe-829f-9b3976454a97"
+}

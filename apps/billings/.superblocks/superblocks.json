@@ -1,0 +1,9 @@
+{
+  "apis": {
+    "36621741-eed4-410a-9896-d5974871795b": "getCharges",
+    "c64bbda9-089a-49a8-bb8e-9339c87b1e93": "getPastCharges"
+  },
+  "configType": "APPLICATION",
+  "defaultPageId": "47b4dbae-0288-4fbf-98c6-c23b6bf912c6",
+  "id": "6a3c388b-9941-41c7-bf81-9e21f66a4089"
+}

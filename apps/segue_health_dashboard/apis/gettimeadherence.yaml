@@ -1,0 +1,41 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+            PI.*,
+            CASE 
+              WHEN DATEDIFF(day, PI.CREATED_ON, CURRENT_DATE()) < 30 THEN 0
+              ELSE DATEDIFF(month, PI.CREATED_ON, CURRENT_DATE())
+            END AS MONTHS_SINCE_CREATED,
+            TCMPTL.*,
+            PCTA.*,
+            20 - MOD(TCMPTL.FINAL_TOTAL_TIME_LOGGED, 20) AS TIME_LEFT
+          FROM 
+            PROD_WAREHOUSE.PATIENT.INFORMATION PI
+          LEFT JOIN 
+            FIVETRAN_DATABASE.TRUECARE.MONTHLY_PATIENT_TIME_LOGGED TCMPTL 
+          ON 
+            PI.Patient_Individual_ID = TCMPTL.Patient_Individual_ID
+          LEFT JOIN
+            FIVETRAN_DATABASE.TRUECARE.PATIENT_CCM_THRESHOLD_AND_ADHERENCE PCTA
+          ON 
+            PI.Patient_Individual_ID = PCTA.Patient_Individual_ID
+          WHERE
+            PI.LEAD_STAGE IN ('Active', 'Re-engage')
+            AND PI.LEAD_TYPE = 'Member'
+          	AND PI.CUSTOMER = 'Segue Health';
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 41d44451-fbab-4dd5-9803-95db81314701
+  name: getTimeAdherence
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cadc2a14-3c7a-4e58-a5ff-eb2b22e7bdf0

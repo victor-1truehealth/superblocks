@@ -1,0 +1,43 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+            PI.*,
+            TCMPTL.*,
+            PI.CCM_STAGE,
+            PI.RPM_STAGE,
+            CASE 
+              WHEN DATEDIFF(day, PI.CREATED_ON, CURRENT_DATE()) < 30 THEN 0
+              ELSE DATEDIFF(month, PI.CREATED_ON, CURRENT_DATE())
+            END AS MONTHS_SINCE_CREATED,
+            20 - MOD(TCMPTL.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED, 20) AS MINUTES_TO_NEXT_INTERVAL
+          FROM 
+            PROD_WAREHOUSE.PATIENT.INFORMATION PI
+          JOIN 
+            FIVETRAN_DATABASE.TRUECARE.MONTHLY_PATIENT_TIME_LOGGED TCMPTL 
+          ON 
+            PI.Patient_Individual_ID = TCMPTL.Patient_Individual_ID
+          WHERE 
+            PI.LEAD_STAGE IN ('Active', 'Re-engage')
+            AND PI.CUSTOMER IS NOT NULL
+            AND PI.CUSTOMER <> 'Sandbox'
+            AND (
+                (20 - MOD(TCMPTL.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED, 20)) < 6
+                OR (MONTHS_SINCE_CREATED = 0 AND TCMPTL.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED < 20)
+            )
+            AND TCMPTL.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED < 120;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: daab6ffa-64ef-4953-9383-a196b9b47a0e
+  name: getTimePrioritiesGlobal
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 91949d78-431b-4f5f-b349-0ad5f686f35e

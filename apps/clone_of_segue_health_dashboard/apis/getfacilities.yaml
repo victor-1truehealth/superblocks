@@ -1,0 +1,22 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT DISTINCT CUSTOMER_FACILITY
+          FROM PROD_WAREHOUSE.PATIENT.INFORMATION
+          WHERE CUSTOMER_FACILITY IS NOT NULL
+          ORDER BY CUSTOMER_FACILITY;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 44851b62-6e14-49bd-b189-1455daa2dc57
+  name: getFacilities
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 6f7f2952-ed63-4c34-9b08-d805ed3431d7

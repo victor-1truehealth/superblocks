@@ -1,0 +1,24 @@
+blocks:
+  - name: getPatientsLast7DaysQuery
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT *
+          FROM PROD_WAREHOUSE.PATIENT.INFORMATION
+          WHERE CREATED_ON < CURRENT_DATE
+          AND CREATED_ON >= CURRENT_DATE - INTERVAL '7 days'
+          AND LEAD_TYPE = 'Member'
+          AND CUSTOMER = 'Segue Health';
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 93c3fd72-c83b-43fe-81c3-e790f3cce23b
+  name: getPatientsLast7Days
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cadc2a14-3c7a-4e58-a5ff-eb2b22e7bdf0

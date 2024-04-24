@@ -1,0 +1,70 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          WITH MonthlyProcedures AS (
+              SELECT 
+                  EXTRACT(YEAR FROM RC.SRVC_DATE) AS Year,
+                  EXTRACT(MONTH FROM RC.SRVC_DATE) AS Month,
+                  RC.PROCEDURE,
+                  COUNT(*) AS TotalProcedures
+              FROM 
+                  FIVETRAN_DATABASE.SHARE_POINT.SEGUE_REIMBURSEMENTS_RPM_CHARGES RC
+              JOIN 
+                  FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA PD
+              ON 
+                  PD.PATIENT_DOB = CAST(RC.DOB AS DATE)
+              WHERE 
+                  PD.LEAD_STAGE IN ('Active', 'Re-engage')
+              GROUP BY 
+                  Year, Month, RC.PROCEDURE
+          ),
+          MonthlyActivePatients AS (
+              SELECT 
+                  Year,
+                  Month,
+                  SUM(ActivePatients) OVER (ORDER BY Year, Month) AS CumulativePatients
+              FROM (
+                  SELECT 
+                      EXTRACT(YEAR FROM PD.CREATED_ON) AS Year,
+                      EXTRACT(MONTH FROM PD.CREATED_ON) AS Month,
+                      COUNT(DISTINCT PD.PATIENT_INDIVIDUAL_ID) AS ActivePatients
+                  FROM 
+                      FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA PD
+                  WHERE 
+                      PD.LEAD_STAGE IN ('Active', 'Re-engage')
+                  GROUP BY 
+                      Year, Month
+              ) AS SubQuery
+          )
+          SELECT 
+              MP.Year, 
+              MP.Month, 
+              MP.PROCEDURE, 
+              MP.TotalProcedures, 
+              MAP.CumulativePatients AS TotalPatients, 
+              CAST(MP.TotalProcedures AS FLOAT) / MAP.CumulativePatients AS NormalizedAvgProcedures
+          FROM 
+              MonthlyProcedures MP
+          JOIN 
+              MonthlyActivePatients MAP
+          ON 
+              MP.Year = MAP.Year AND MP.Month = MAP.Month
+          ORDER BY 
+              MP.Year, 
+              MP.Month, 
+              MP.PROCEDURE;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 9099632c-c3db-45b1-a6e4-080b92378c90
+  name: getNormalizedBillingCodes
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

@@ -1,0 +1,56 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |
+          SELECT 
+              PI.*,
+              TLM.*,
+              RPMA.*,
+              -- Calculating MONTHS_SINCE_CREATED
+              CASE 
+                  WHEN DATEDIFF(day, PI.CREATED_ON, CURRENT_DATE()) < 30 THEN 0
+                  ELSE FLOOR(DATEDIFF(month, PI.CREATED_ON, CURRENT_DATE()))
+              END AS MONTHS_SINCE_CREATED,
+              -- Calculating TIME_LEFT
+              20 - MOD(COALESCE(TLM.TOTAL_TIME_LOGGED_ROUNDED, 0), 20) AS TIME_LEFT,
+              -- Adding new fields based on TIME_LOG table
+              TL.Latest_ENC_CREATED_TIME,
+              DATEDIFF(day, COALESCE(TL.Latest_ENC_CREATED_TIME, CURRENT_DATE()), CURRENT_DATE()) AS DAYS_FROM_LAST_ENC
+          FROM 
+              PROD_WAREHOUSE.PATIENT.INFORMATION PI
+          LEFT JOIN 
+              PROD_WAREHOUSE.PATIENT.TIME_LOG_BY_MONTH TLM
+          ON 
+              PI.PATIENT_INDIVIDUAL_ID = TLM.PATIENT_INDIVIDUAL_ID
+              AND EXTRACT(YEAR FROM TLM.MONTH_OF) = '{{dropdownMonth.selectedOptionValue}}'
+              AND EXTRACT(MONTH FROM TLM.MONTH_OF) = '{{dropdownYear.selectedOptionValue}}'
+          LEFT JOIN 
+              PROD_WAREHOUSE.PATIENT.RPM_ADHERENCE RPMA
+          ON 
+              PI.PATIENT_INDIVIDUAL_ID = RPMA.PATIENT_INDIVIDUAL_ID
+          LEFT JOIN (
+              SELECT 
+                  PATIENT_INDIVIDUAL_ID,
+                  MAX(ENC_CREATED_TIME) AS Latest_ENC_CREATED_TIME
+              FROM 
+                  PROD_WAREHOUSE.PATIENT.TIME_LOG
+              WHERE 
+                  PROVIDER_NAME = '{{dropdownCN.selectedOptionValue}}'
+              GROUP BY PATIENT_INDIVIDUAL_ID
+          ) TL ON PI.PATIENT_INDIVIDUAL_ID = TL.PATIENT_INDIVIDUAL_ID
+          WHERE 
+              PI.CARE_NAVIGATOR = '{{dropdownCN.selectedOptionValue}}';
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: false
+metadata:
+  id: 144538d0-ceb6-4331-8f3e-6fbe9a8c4113
+  name: getTimeAdherence
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: da5337d7-6202-4d18-bdba-9a54b3db0de2

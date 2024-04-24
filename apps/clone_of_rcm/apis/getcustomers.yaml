@@ -1,0 +1,20 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT DISTINCT Customer 
+          FROM PROD_WAREHOUSE.BILLING.CHARGES;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: c26f72c4-b312-4a2a-8057-b0e4f31e646f
+  name: getCustomers
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

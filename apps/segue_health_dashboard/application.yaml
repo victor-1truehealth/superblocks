@@ -1,0 +1,7 @@
+id: cadc2a14-3c7a-4e58-a5ff-eb2b22e7bdf0
+name: Segue Health Dashboard
+organizationId: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+pages:
+  - id: 68f41d11-273e-4684-9f40-0b9a28441940
+    isDefault: true
+settings: {}

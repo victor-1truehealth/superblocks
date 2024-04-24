@@ -1,0 +1,53 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+              CCM_INTERACTIONS.PATIENT_INDIVIDUAL_ID,
+              CCM_INTERACTIONS.PATIENT_FIRST_NAME,
+              CCM_INTERACTIONS.PATIENT_LAST_NAME,
+              PI.*,
+              CCM_INTERACTIONS.MONTH_OF,
+              CCM_INTERACTIONS.INTERACTIONS,
+              CCM_INTERACTIONS.TOTAL_DURATION_MINS + 1 AS TOTAL_DURATION_MINS,
+              CCM_INTERACTIONS.PROVIDER_NAME
+          FROM 
+              (
+                  SELECT 
+                      PATIENT_INDIVIDUAL_ID,
+                      PATIENT_FIRST_NAME,
+                      PATIENT_LAST_NAME,
+                      DATE_TRUNC('MONTH', ENC_CREATED_TIME) AS MONTH_OF,
+                      COUNT(*) AS INTERACTIONS,
+                      SUM(ENC_DURATION_MINS) + 1 AS TOTAL_DURATION_MINS,
+                      PROVIDER_NAME
+                  FROM 
+                      PROD_WAREHOUSE.PATIENT.TIME_LOG
+                  WHERE 
+                      PROVIDER_NAME = {{dropdownProvider.selectedOptionValue}}
+                      AND DATE_TRUNC('DAY', ENC_CREATED_TIME) = DATE_TRUNC('DAY', CURRENT_DATE() - INTERVAL '1 DAY')
+                  GROUP BY 
+                      PATIENT_INDIVIDUAL_ID,
+                      PATIENT_FIRST_NAME,
+                      PATIENT_LAST_NAME,
+                      MONTH_OF,
+                      PROVIDER_NAME
+              ) AS CCM_INTERACTIONS
+          LEFT JOIN 
+              PROD_WAREHOUSE.PATIENT.INFORMATION PI ON CCM_INTERACTIONS.PATIENT_INDIVIDUAL_ID = PI.PATIENT_INDIVIDUAL_ID
+          ORDER BY 
+              CCM_INTERACTIONS.MONTH_OF, CCM_INTERACTIONS.PATIENT_LAST_NAME, CCM_INTERACTIONS.PATIENT_FIRST_NAME;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 0f8d5391-cf36-454c-a65b-c684d820bc03
+  name: getCNMinutesYesterday
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4

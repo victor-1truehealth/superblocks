@@ -1,0 +1,47 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          WITH CombinedBillings AS (
+            SELECT
+              PATIENT_INDIVIDUAL_ID,
+              PROCEDURE AS CPT_CODE,
+              SERVICE_DATE
+            FROM
+              PROD_WAREHOUSE.BILLING.PAST_BILLINGS
+
+            UNION ALL
+
+            SELECT
+              PATIENT_INDIVIDUAL_ID,
+              CPT_CODE,
+              DATE_OF_SERVICE
+            FROM
+              PROD_WAREHOUSE.BILLING.CHARGES
+          )
+          SELECT
+            pi.*,
+            cb.CPT_CODE,
+            cb.SERVICE_DATE AS DATE_OF_SERVICE
+          FROM
+            PROD_WAREHOUSE.PATIENT.INFORMATION pi
+          LEFT JOIN CombinedBillings cb ON pi.PATIENT_INDIVIDUAL_ID = cb.PATIENT_INDIVIDUAL_ID
+          WHERE
+            pi.LEAD_TYPE = 'Member'
+            AND pi.CARE_NAVIGATOR = {{dropdownProvider.selectedOptionValue}}
+            AND MONTH(cb.SERVICE_DATE) = {{dropdownMonth.selectedOptionValue}}
+            AND YEAR(cb.SERVICE_DATE) = {{dropdownYear.selectedOptionValue}};
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 4f2f1158-cda0-403f-b721-f20c6cb545e0
+  name: getBillings
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4

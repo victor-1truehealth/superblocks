@@ -1,0 +1,61 @@
+blocks:
+  - name: sqlQuery
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT
+            pd.PATIENT_INDIVIDUAL_ID,
+            pd.PATIENT_FIRST_NAME,
+            pd.PATIENT_LAST_NAME,
+            pd.CREATED_ON,
+          	pd.CARE_NAVIGATOR,
+            DATEDIFF(month, pd.CREATED_ON, CURRENT_DATE()) AS Months_Since_Created,
+            adherence.CUSTOMER,
+            adherence.LAST_TIME_LOGGED,
+            adherence.DAYS_SINCE_LAST_INTERACTION,
+            adherence.TIME_LOGGED,
+            adherence.REMAINDER,
+            adherence.TIME_LEFT,
+          	adherence.READING_DAYS_LAST_THREE,
+            adherence.THREE_DAY_ADHERENCE_RATE,
+            adherence.READING_DAYS_LAST_WEEK,
+            adherence.WEEK_ADHERENCE_RATE,
+            adherence.READING_DAYS_LAST_MONTH,
+            adherence.MONTH_ADHERENCE_RATE,
+            adherence.READING_DAYS_LAST_QUARTER,
+            adherence.QUARTER_ADHERENCE_RATE,
+            latest_encounter.Latest_ENC_CREATED_TIME,
+            DATEDIFF(day, latest_encounter.Latest_ENC_CREATED_TIME, CURRENT_DATE()) AS DAYS_FROM_LAST_ENC
+          FROM
+            FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA AS pd
+          LEFT JOIN
+            FIVETRAN_DATABASE.TRUECARE.PATIENT_CCM_THRESHOLD_AND_ADHERENCE AS adherence
+          ON
+            pd.PATIENT_INDIVIDUAL_ID = adherence.PATIENT_INDIVIDUAL_ID
+          LEFT JOIN
+            (SELECT
+               PATIENT_INDIVIDUAL_ID,
+               MAX(ENC_CREATED_TIME) AS Latest_ENC_CREATED_TIME
+             FROM FIVETRAN_DATABASE.TRUECARE.CCM_TIME_VIEW
+             GROUP BY PATIENT_INDIVIDUAL_ID
+            ) AS latest_encounter
+          ON
+            pd.PATIENT_INDIVIDUAL_ID = latest_encounter.PATIENT_INDIVIDUAL_ID
+          WHERE
+            pd.LEAD_STAGE IN ('Active', 'Re-engage')
+            AND pd.RPM_STAGE = 'Active'
+            AND pd.LEAD_TYPE = 'Member'
+            AND adherence.WEEK_ADHERENCE_RATE = 0;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 4968abb4-fabd-4e81-9cf1-14f24d9c59f0
+  name: getAdherence
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 91949d78-431b-4f5f-b349-0ad5f686f35e

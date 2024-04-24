@@ -1,0 +1,13 @@
+{
+  "apis": {
+    "5e0b5918-2baf-4fbc-98cf-1630e1c40981": "getCharges",
+    "6c8de211-5dc2-4330-bccf-41b30e183ab3": "API1",
+    "cc7c10b6-fb1f-4872-9fd5-b2daa50704a7": "API2",
+    "db0c2195-43d8-4589-b059-0cb202ad6bff": "getPastCharges",
+    "e5f991a6-0b6e-46a4-9788-9fbaeccd2b0c": "submitCodes",
+    "f92bce31-11e8-437f-8e6e-17c9c5c4d0f8": "API1"
+  },
+  "configType": "APPLICATION",
+  "defaultPageId": "96ae48b6-e565-4ff7-82e0-b3c00e6ca5ee",
+  "id": "9823d11f-f535-4ca1-944b-46d06fe4df38"
+}

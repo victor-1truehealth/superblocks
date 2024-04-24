@@ -1,0 +1,9 @@
+{
+  "apis": {
+    "20f3a252-0c59-4370-bd5b-d4dcc087c86e": "getCalls",
+    "89cd3006-5458-4874-b27c-dfdff2a1de75": "getLSQData"
+  },
+  "configType": "APPLICATION",
+  "defaultPageId": "dde2a08e-6be1-4f8b-99a3-eb8984740d25",
+  "id": "0afcdb47-f368-49bc-a73a-575b552235f1"
+}

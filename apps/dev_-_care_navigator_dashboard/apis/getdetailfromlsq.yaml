@@ -1,0 +1,57 @@
+blocks:
+  - name: Variables1
+    variables:
+      items:
+        - key: turecareId
+          mode: MODE_READWRITE
+          type: TYPE_SIMPLE
+          value: '{{MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID.substring(0, 8) +
+            "-" +
+            MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID.substring(8, 12)
+            + "-" +
+            MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID.substring(12,
+            16) + "-" +
+            MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID.substring(16,
+            20) + "-" +
+            MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID.substring(20)}}'
+  - name: Variables2
+    variables:
+      items:
+        - key: turecareURL
+          mode: MODE_READWRITE
+          type: TYPE_SIMPLE
+          value: "{{`https://truecare.carium.app/participants/?id=${turecareId.value}`}}"
+  - name: Step2
+    step:
+      integration: 123695b6-e85a-4fbb-87d2-1128b5abd62e
+      restapiintegration:
+        authType: None
+        body: |-
+          {
+          "Parameter": {
+          "LookupName": "mx_trueCare_Link",
+          "LookupValue": "{{turecareURL.value}}",
+          "SqlOperator": "="
+          }
+          }
+        bodyType: jsonBody
+        fileFormKey: ""
+        fileName: ""
+        formData: []
+        headers: []
+        httpMethod: POST
+        jsonBody: ""
+        openApiAction: genericHttpRequest
+        openApiSpecRef: ""
+        params: []
+        responseType: auto
+        urlBase: ""
+        urlPath: LeadManagement.svc/Leads.Get
+metadata:
+  id: c8ad9d09-903e-4105-a738-3405b87ce062
+  name: getDetailFromLSQ
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e
+    options: {}

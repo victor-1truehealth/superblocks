@@ -1,0 +1,37 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+            BC.*,
+            PI.*,
+            CASE BC.CPT_CODE
+                WHEN '99453' THEN 19.65
+                WHEN '99454' THEN 46.50
+                WHEN '99457' THEN 48.13
+                WHEN '99458' THEN 38.64
+                WHEN '99490' THEN 61.56
+                WHEN '99439' THEN 45.15
+            END AS Charge
+          FROM 
+            PROD_WAREHOUSE.BILLING.CHARGES BC
+          JOIN 
+            PROD_WAREHOUSE.PATIENT.INFORMATION PI ON BC.PATIENT_INDIVIDUAL_ID = PI.PATIENT_INDIVIDUAL_ID
+          WHERE 
+            PI.CUSTOMER = {{dropdownCustomers.selectedOptionValue}}
+            AND PREVIOUS_BILLED_DOS = false
+            AND DATE_OF_SERVICE >= '2024-01-01';
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 36621741-eed4-410a-9896-d5974871795b
+  name: getCharges
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 6a3c388b-9941-41c7-bf81-9e21f66a4089

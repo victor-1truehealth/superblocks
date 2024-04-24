@@ -1,0 +1,51 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          WITH date_series AS (
+            SELECT 
+              DATEADD(day, SEQ4(), DATE_TRUNC('month', CURRENT_DATE())) AS day
+            FROM TABLE(GENERATOR(ROWCOUNT => 31)) -- Generates up to 31 days, adjust ROWCOUNT as needed
+            WHERE 
+              day <= LAST_DAY(CURRENT_DATE())
+              AND day <= CURRENT_DATE() -- Exclude dates in the future
+          ),
+          daily_interactions AS (
+            SELECT 
+              PATIENT_INDIVIDUAL_ID,
+              ENC_CREATED_TIME,
+              ENC_DURATION_MINS,
+              PROVIDER_NAME
+            FROM 
+              FIVETRAN_DATABASE.TRUECARE.CCM_TIME_VIEW
+            WHERE 
+              PROVIDER_NAME = {{dropdownProvider.selectedOptionValue}}
+              AND ENC_CREATED_TIME BETWEEN DATE_TRUNC('month', CURRENT_DATE()) AND LAST_DAY(CURRENT_DATE())
+              AND ENC_CREATED_TIME <= CURRENT_DATE() -- Ensure no future dates are included
+          )
+          SELECT
+            ds.day AS DAY_OF_MONTH,
+            interactions.PATIENT_INDIVIDUAL_ID,
+            pi.PATIENT_FIRST_NAME,
+            pi.PATIENT_LAST_NAME,
+            ROUND(IFNULL(interactions.ENC_DURATION_MINS, 0) / 60.0, 1) AS ENC_DURATION_HOURS, -- Convert minutes to hours and round to 1 decimal
+            interactions.PROVIDER_NAME
+          FROM 
+            date_series ds
+          LEFT JOIN daily_interactions interactions ON DATE_TRUNC('day', interactions.ENC_CREATED_TIME) = ds.day
+          LEFT JOIN PROD_WAREHOUSE.PATIENT.INFORMATION pi ON pi.PATIENT_INDIVIDUAL_ID = interactions.PATIENT_INDIVIDUAL_ID
+          ORDER BY ds.day, interactions.PATIENT_INDIVIDUAL_ID;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 3bc48cae-4598-4291-ad7d-50cfddedeff2
+  name: getDailyCNMinutes
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4

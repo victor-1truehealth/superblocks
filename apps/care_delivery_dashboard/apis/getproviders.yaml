@@ -1,0 +1,19 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: SELECT DISTINCT CARE_NAVIGATOR FROM
+          PROD_WAREHOUSE.PATIENT.TIME_LOG_BY_MONTH;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 64193682-4152-4692-9568-f9511c606e1e
+  name: getProviders
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: da5337d7-6202-4d18-bdba-9a54b3db0de2

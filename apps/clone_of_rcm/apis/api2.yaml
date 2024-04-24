@@ -1,0 +1,28 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT
+              *,
+              CASE
+                  WHEN CHARGES > 0 THEN ROUND(APPLIED / CHARGES, 2)
+                  ELSE 0
+              END AS Reimbursement_Rate
+          FROM
+              FIVETRAN_DATABASE.SHARE_POINT.SEGUE_REIMBURSEMENTS_RPM_PAYMENTS
+          WHERE
+              APPLIED > 0;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: fff07e9d-a036-4aec-9685-9411004aecb4
+  name: API2
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

@@ -1,0 +1,22 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT DISTINCT VISITING_PROVIDER
+          FROM PROD_WAREHOUSE.PATIENT.INFORMATION
+          WHERE VISITING_PROVIDER IS NOT NULL
+          ORDER BY VISITING_PROVIDER;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: b539df03-c7f5-4d89-8f67-e3b1fe0d30d1
+  name: getNPs
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cadc2a14-3c7a-4e58-a5ff-eb2b22e7bdf0

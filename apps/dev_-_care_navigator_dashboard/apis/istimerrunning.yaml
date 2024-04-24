@@ -1,0 +1,19 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: |
+          const index = trackTimeDataArr.value.findIndex(item => item.patient_id == MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID);
+
+          if (index < 0)
+          	return false;
+
+          return updateTimeTrack.response[index].showTime;
+metadata:
+  id: b27936a2-1094-450e-8d85-5eaae78e3ce1
+  name: isTimerRunning
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

@@ -1,0 +1,2129 @@
+applicationId: 9823d11f-f535-4ca1-944b-46d06fe4df38
+id: 96ae48b6-e565-4ff7-82e0-b3c00e6ca5ee
+isHidden: false
+layouts:
+  - dsl:
+      apis:
+        apiMap:
+          5e0b5918-2baf-4fbc-98cf-1630e1c40981:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 5e0b5918-2baf-4fbc-98cf-1630e1c40981
+            onError:
+              - id: be40520a-4e6c-46c7-b67f-622c906556b5
+                message: "{{getCharges.error}}"
+                style: error
+                type: showAlert
+          cc7c10b6-fb1f-4872-9fd5-b2daa50704a7:
+            dynamicTriggerPathList:
+              - key: onError
+            id: cc7c10b6-fb1f-4872-9fd5-b2daa50704a7
+            onError:
+              - id: ccaa429d-5257-4947-9602-eaea67eac051
+                message: "{{API2.error}}"
+                style: error
+                type: showAlert
+          db0c2195-43d8-4589-b059-0cb202ad6bff:
+            dynamicTriggerPathList:
+              - key: onError
+            id: db0c2195-43d8-4589-b059-0cb202ad6bff
+            onError:
+              - id: 8d950aaf-1767-4dbc-8c34-62f15108154e
+                message: "{{getPastCharges.error}}"
+                style: error
+                type: showAlert
+          e5f991a6-0b6e-46a4-9788-9fbaeccd2b0c:
+            dynamicTriggerPathList:
+              - key: onError
+            id: e5f991a6-0b6e-46a4-9788-9fbaeccd2b0c
+            onError:
+              - id: 358e3f99-8ca3-4b96-98ea-ebd2c78faba9
+                message: "{{submitCodes.error}}"
+                style: error
+                type: showAlert
+          f92bce31-11e8-437f-8e6e-17c9c5c4d0f8:
+            dynamicTriggerPathList:
+              - key: onError
+            id: f92bce31-11e8-437f-8e6e-17c9c5c4d0f8
+            onError:
+              - id: fe4a8357-6645-4326-a5b1-3ec2b2647f4f
+                message: "{{API1.error}}"
+                style: error
+                type: showAlert
+      backgroundColor: none
+      cachedData:
+        pageLoadActions:
+          apiDeps:
+            getCharges: []
+            getPastCharges: []
+          apiNames:
+            - getPastCharges
+            - getCharges
+      canExtend: true
+      children:
+        - canExtend: true
+          children:
+            - backgroundColor: none
+              canExtend: true
+              children:
+                - animateLoading: true
+                  cachedColumnSettings:
+                    CARE_NAVIGATOR:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CARE_NAVIGATOR })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CARE_NAVIGATOR
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 0
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CARE_NAVIGATOR
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CARE_NAVIGATOR })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CARE_NAVIGATOR })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CARE_SERVICES:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CARE_SERVICES })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CARE_SERVICES
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 1
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CARE_SERVICES
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CARE_SERVICES })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CARE_SERVICES })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CCM_PAYER:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CCM_PAYER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CCM_PAYER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 2
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CCM_PAYER
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CCM_PAYER })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CCM_PAYER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CCM_STAGE:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CCM_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CCM_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 3
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CCM_STAGE
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CCM_STAGE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CCM_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CHARGE:
+                      columnType: currency
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CHARGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: CHARGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 0
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Charge
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CHARGE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CHARGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CREATED_ON:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CREATED_ON })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CREATED_ON
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 6
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CREATED_ON
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CREATED_ON })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CREATED_ON })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CUSTOMER_FACILITY:
+                      columnType: tags
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER_FACILITY })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CUSTOMER_FACILITY
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 8
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Customer Facility
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER_FACILITY })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER_FACILITY })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LEADSQUARED_ID:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEADSQUARED_ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LEADSQUARED_ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 10
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: LEADSQUARED_ID
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEADSQUARED_ID })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEADSQUARED_ID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LEAD_STAGE:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEAD_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LEAD_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 11
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: LEAD_STAGE
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEAD_STAGE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEAD_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LEAD_TYPE:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEAD_TYPE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LEAD_TYPE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 12
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: LEAD_TYPE
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEAD_TYPE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.LEAD_TYPE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PREVIOUS_BILLED_DOS:
+                      booleanStyleFalse: CLOSE
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PREVIOUS_BILLED_DOS })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PREVIOUS_BILLED_DOS
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 17
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Prev. DoS
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PREVIOUS_BILLED_DOS })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PREVIOUS_BILLED_DOS })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    RPM_PAYER:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.RPM_PAYER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: RPM_PAYER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 17
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: RPM_PAYER
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.RPM_PAYER })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.RPM_PAYER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    RPM_STAGE:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.RPM_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: RPM_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 18
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: RPM_STAGE
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.RPM_STAGE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.RPM_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TRUE_CARE_LINK:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TRUE_CARE_LINK })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TRUE_CARE_LINK
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 19
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TRUE_CARE_LINK
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TRUE_CARE_LINK })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TRUE_CARE_LINK })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    VISITING_PROVIDER:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.VISITING_PROVIDER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: VISITING_PROVIDER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 19
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: VISITING_PROVIDER
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.VISITING_PROVIDER })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.VISITING_PROVIDER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    WELLNESS_PAYER:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.WELLNESS_PAYER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: WELLNESS_PAYER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 20
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: WELLNESS_PAYER
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.WELLNESS_PAYER })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.WELLNESS_PAYER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    WELLNESS_STAGE:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.WELLNESS_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: WELLNESS_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 21
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: WELLNESS_STAGE
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.WELLNESS_STAGE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.WELLNESS_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    action:
+                      buttonLabel: Approve
+                      columnType: button
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: action
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 5
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: action
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      notation: standard
+                      onClick:
+                        - code: showAlert(currentRow.name + ' is approved!', 'success')
+                          id: id0
+                          newWindow: true
+                          type: runJs
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    date_joined:
+                      columnType: date
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: date_joined
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 2
+                      inputFormat: YYYY-MM-DD
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: date joined
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      outputFormat: MM-DD-YYYY
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    photo:
+                      columnType: image
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: photo
+                      imageBorderRadius:
+                        mode: "%"
+                        value: 50
+                      imageSize: FIXED
+                      index: 3
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: photo
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    twitter:
+                      columnType: link
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.twitter })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: twitter
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 1
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: twitter
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return '@' +
+                        currentRow.twitter?.split('/').pop()})}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.twitter })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                  collapseWhenHidden: false
+                  columnOrder:
+                    - CUSTOMER
+                    - PATIENT_FIRST_NAME
+                    - PATIENT_LAST_NAME
+                    - PATIENT_DOB
+                    - CPT_CODE
+                    - DATE_OF_SERVICE
+                    - PATIENT_INDIVIDUAL_ID
+                    - PREVIOUSLY_BILLED_DOS
+                  columnSizeMap:
+                    CHARGE: 60
+                    CPT_CODE: 70
+                    CUSTOMER: 92
+                    CUSTOMER_FACILITY: 152.61360737179484
+                    DATE_OF_SERVICE: 101.73854166666666
+                    PATIENT_DOB: 100.98315393518519
+                    PATIENT_FIRST_NAME: 60
+                    PATIENT_LAST_NAME: 66.00000000000006
+                    PREVIOUS_BILLED_DOS: 58.337914440883196
+                  compactMode: VERY_SHORT
+                  configuredPageSize: 50
+                  defaultFilters: "{}"
+                  defaultSelectedRow: "0"
+                  derivedColumns: {}
+                  dynamicBindingPathList:
+                    - key: tableData
+                    - key: primaryColumns.CPT_CODE.computedValue
+                    - key: primaryColumns.CPT_CODE.linkUrl
+                    - key: primaryColumns.CPT_CODE.linkLabel
+                    - key: primaryColumns.CUSTOMER.computedValue
+                    - key: primaryColumns.CUSTOMER.linkUrl
+                    - key: primaryColumns.CUSTOMER.linkLabel
+                    - key: primaryColumns.DATE_OF_SERVICE.computedValue
+                    - key: primaryColumns.DATE_OF_SERVICE.linkUrl
+                    - key: primaryColumns.DATE_OF_SERVICE.linkLabel
+                    - key: primaryColumns.PATIENT_DOB.computedValue
+                    - key: primaryColumns.PATIENT_DOB.linkUrl
+                    - key: primaryColumns.PATIENT_DOB.linkLabel
+                    - key: primaryColumns.PATIENT_FIRST_NAME.computedValue
+                    - key: primaryColumns.PATIENT_FIRST_NAME.linkUrl
+                    - key: primaryColumns.PATIENT_FIRST_NAME.linkLabel
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.computedValue
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.linkUrl
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.linkLabel
+                    - key: primaryColumns.PATIENT_LAST_NAME.computedValue
+                    - key: primaryColumns.PATIENT_LAST_NAME.linkUrl
+                    - key: primaryColumns.PATIENT_LAST_NAME.linkLabel
+                    - key: primaryColumns.PREVIOUSLY_BILLED_DOS.computedValue
+                    - key: primaryColumns.PREVIOUSLY_BILLED_DOS.linkUrl
+                    - key: primaryColumns.PREVIOUSLY_BILLED_DOS.linkLabel
+                  dynamicPropertyPathList:
+                    - key: primaryColumns.PATIENT_DOB.isEditable
+                  dynamicTriggerPathList:
+                    - key: onRowClicked
+                    - key: onSaveChanges
+                    - key: onCancelChanges
+                  gridColumns: 64
+                  height:
+                    mode: gridUnit
+                    value: 60
+                  horizontalAlignment: LEFT
+                  isDownloadable: true
+                  isFilterable: true
+                  isLoading: false
+                  isSearchable: false
+                  isVisible: true
+                  label: Data
+                  left:
+                    mode: gridUnit
+                    value: 0
+                  multiRowSelection: false
+                  onCancelChanges:
+                    - id: vxgdy76guz
+                      newWindow: true
+                  onRowClicked:
+                    - id: 3m7fb7kvvs
+                      newWindow: true
+                  onSaveChanges:
+                    - id: jw4sjwmxnf
+                      newWindow: true
+                  pageType: NONE
+                  parentId: dwpvpsnarl
+                  primaryColumns:
+                    CPT_CODE:
+                      columnType: tags
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CPT_CODE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CPT_CODE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 0
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Code
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CPT_CODE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CPT_CODE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig:
+                        "99439":
+                          color: "#7c4ff833"
+                        "99453":
+                          color: "#27BBFF33"
+                        "99454":
+                          color: "#27bbff66"
+                        "99457":
+                          color: "#14cdb766"
+                        "99458":
+                          color: "#14cdb733"
+                        "99490":
+                          color: "#7c4ff85e"
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CUSTOMER:
+                      columnType: tags
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CUSTOMER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 1
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Customer
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    DATE_OF_SERVICE:
+                      columnType: date
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.DATE_OF_SERVICE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: CENTER
+                      id: DATE_OF_SERVICE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 2
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Date of Service
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.DATE_OF_SERVICE })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.DATE_OF_SERVICE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      outputFormat: MM-DD-YYYY
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_DOB:
+                      columnType: date
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_DOB })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: CENTER
+                      id: PATIENT_DOB
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 3
+                      isDerived: false
+                      isEditable: ""
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: DOB
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_DOB })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_DOB })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      outputFormat: MM-DD-YYYY
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_FIRST_NAME:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_FIRST_NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: PATIENT_FIRST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 4
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: First
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_FIRST_NAME })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_FIRST_NAME })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_INDIVIDUAL_ID:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_INDIVIDUAL_ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 5
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PATIENT_INDIVIDUAL_ID
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_LAST_NAME:
+                      booleanStyleFalse: EMPTY_CHECKBOX
+                      columnType: link
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_LAST_NAME })}}"
+                      editInputType: CHECKBOX
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_LAST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 6
+                      isDerived: false
+                      isEditable: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Last
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_LAST_NAME })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TRUE_CARE_LINK })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PREVIOUSLY_BILLED_DOS:
+                      columnType: text
+                      computedValue: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PREVIOUSLY_BILLED_DOS })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PREVIOUSLY_BILLED_DOS
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 17
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PREVIOUSLY_BILLED_DOS
+                      linkLabel: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PREVIOUSLY_BILLED_DOS })}}"
+                      linkUrl: "{{Charges.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PREVIOUSLY_BILLED_DOS })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                  tableData: "{{getCharges.response}}"
+                  tableHeader: ""
+                  textSize: PARAGRAPH
+                  top:
+                    mode: gridUnit
+                    value: 4
+                  type: TABLE_WIDGET
+                  verticalAlignment: CENTER
+                  widgetId: aqeballhky
+                  widgetName: Charges
+                  width:
+                    mode: gridUnit
+                    value: 64
+                - animateLoading: true
+                  chartData: "{{getCharges.response}}"
+                  chartDefinition: ui
+                  chartType: COLUMN_CHART
+                  collapseWhenHidden: false
+                  columnInfo:
+                    - canBeNumeric: true
+                      name: CPT_CODE
+                      type: string
+                    - canBeNumeric: false
+                      name: CUSTOMER
+                      type: string
+                    - canBeNumeric: false
+                      name: DATE_OF_SERVICE
+                      type: date
+                    - canBeNumeric: false
+                      name: PATIENT_DOB
+                      type: date
+                    - canBeNumeric: false
+                      name: PATIENT_FIRST_NAME
+                      type: string
+                    - canBeNumeric: true
+                      name: PATIENT_INDIVIDUAL_ID
+                      type: string
+                    - canBeNumeric: false
+                      name: PATIENT_LAST_NAME
+                      type: string
+                    - canBeNumeric: true
+                      name: PREVIOUSLY_BILLED_DOS
+                      type: boolean
+                  dynamicBindingPathList:
+                    - key: chartData
+                  dynamicTriggerPathList:
+                    - key: onSelectData
+                  gridColumns: 31
+                  groupBy: {}
+                  headerTitle: ""
+                  height:
+                    mode: gridUnit
+                    value: 32
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 65
+                  onSelectData:
+                    - id: 5ij2z8hp8i
+                      newWindow: true
+                  parentId: dwpvpsnarl
+                  plotlyChartJson:
+                    data:
+                      - type: bar
+                        x:
+                          - 1
+                          - 2
+                          - 3
+                        y:
+                          - 2
+                          - 5
+                          - 3
+                    layout: {}
+                  size:
+                    field: ""
+                  top:
+                    mode: gridUnit
+                    value: 38
+                  type: CHART_WIDGET
+                  widgetId: t5zxq48yne
+                  widgetName: ChartOfCharges
+                  width:
+                    mode: gridUnit
+                    value: 31
+                  x:
+                    axisTitle: ""
+                    dataType: nominal
+                    field: CPT_CODE
+                  y:
+                    aggregation: count
+                    axisTitle: ""
+                    dataType: number
+                    minimumFractionDigits: "0\t"
+                    notation: unformatted
+                    series:
+                      - field: CHARGE
+                - animateLoading: true
+                  chartData: "{{Charges.filteredTableData}}"
+                  chartDefinition: ui
+                  chartType: COLUMN_CHART
+                  collapseWhenHidden: false
+                  columnInfo:
+                    - canBeNumeric: true
+                      name: CPT_CODE
+                      type: string
+                    - canBeNumeric: false
+                      name: CUSTOMER
+                      type: string
+                    - canBeNumeric: false
+                      name: DATE_OF_SERVICE
+                      type: date
+                    - canBeNumeric: false
+                      name: PATIENT_DOB
+                      type: date
+                    - canBeNumeric: false
+                      name: PATIENT_FIRST_NAME
+                      type: string
+                    - canBeNumeric: true
+                      name: PATIENT_INDIVIDUAL_ID
+                      type: string
+                    - canBeNumeric: false
+                      name: PATIENT_LAST_NAME
+                      type: string
+                    - canBeNumeric: true
+                      name: PREVIOUSLY_BILLED_DOS
+                      type: boolean
+                  dynamicBindingPathList:
+                    - key: chartData
+                  dynamicTriggerPathList:
+                    - key: onSelectData
+                  gridColumns: 31
+                  groupBy:
+                    field: ""
+                  headerTitle: Charges to-be-billed
+                  height:
+                    mode: gridUnit
+                    value: 33
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 65
+                  onSelectData:
+                    - id: ajadlgqakc
+                      newWindow: true
+                  parentId: dwpvpsnarl
+                  plotlyChartJson:
+                    data:
+                      - type: bar
+                        x:
+                          - 1
+                          - 2
+                          - 3
+                        y:
+                          - 2
+                          - 5
+                          - 3
+                    layout: {}
+                  size:
+                    field: ""
+                  top:
+                    mode: gridUnit
+                    value: 4
+                  type: CHART_WIDGET
+                  widgetId: sonm368stv
+                  widgetName: Chart1
+                  width:
+                    mode: gridUnit
+                    value: 31
+                  x:
+                    axisTitle: ""
+                    dataType: temporal
+                    field: DATE_OF_SERVICE
+                    timeUnit: month
+                  y:
+                    aggregation: sum
+                    axisTitle: ""
+                    dataType: currency
+                    minimumFractionDigits: "0"
+                    notation: standard
+                    series:
+                      - field: CHARGE
+                - animateLoading: true
+                  collapseWhenHidden: false
+                  dynamicBindingPathList: []
+                  dynamicTriggerPathList: []
+                  gridColumns: 35
+                  height:
+                    mode: gridUnit
+                    value: 3
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 32
+                  parentId: dwpvpsnarl
+                  text: Charges-to-be-Billed
+                  textAlign: CENTER
+                  textStyle: HEADING_1
+                  textType: text
+                  top:
+                    mode: gridUnit
+                    value: 0
+                  type: TEXT_WIDGET
+                  verticalAlign: AUTO
+                  widgetId: ch4gky9df3
+                  widgetName: Text1
+                  width:
+                    mode: gridUnit
+                    value: 35
+                - animateLoading: true
+                  collapseWhenHidden: false
+                  defaultOptionValue: Segue Health
+                  dynamicBindingPathList: []
+                  dynamicTriggerPathList:
+                    - key: onOptionChange
+                    - key: onSearchTextChange
+                    - key: onClear
+                  gridColumns: 18
+                  height:
+                    mode: gridUnit
+                    value: 3
+                  isLoading: false
+                  isVertical: false
+                  isVisible: true
+                  label: "Customer\t"
+                  left:
+                    mode: gridUnit
+                    value: 0
+                  onClear:
+                    - id: eim289ksc0
+                      newWindow: true
+                  onOptionChange:
+                    - apiNames:
+                        - getCharges
+                      id: lsbxgzumat
+                      newWindow: true
+                      type: executeApi
+                  onSearchTextChange:
+                    - id: li5ikzmix3
+                      newWindow: true
+                  options: |-
+                    [
+                      {
+                        "label": "Segue Health",
+                        "value": "Segue Health"
+                      },
+                      {
+                        "label": "Austin Health Wired",
+                        "value": "Austin Health Wired"
+                      }
+                    ]
+                  parentId: dwpvpsnarl
+                  placeholderText: Select a customer
+                  top:
+                    mode: gridUnit
+                    value: 0
+                  type: DROP_DOWN_WIDGET
+                  widgetId: 25yn2qgzih
+                  widgetName: dropdownCustomers
+                  width:
+                    mode: gridUnit
+                    value: 18
+                - animateLoading: true
+                  cachedColumnSettings:
+                    action:
+                      buttonLabel: Approve
+                      columnType: button
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: action
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 5
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: action
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      notation: standard
+                      onClick:
+                        - code: showAlert(currentRow.name + ' is approved!', 'success')
+                          id: id0
+                          newWindow: true
+                          type: runJs
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    date_joined:
+                      columnType: date
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: date_joined
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 2
+                      inputFormat: YYYY-MM-DD
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: date joined
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      outputFormat: MM-DD-YYYY
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    photo:
+                      columnType: image
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: photo
+                      imageBorderRadius:
+                        mode: "%"
+                        value: 50
+                      imageSize: FIXED
+                      index: 3
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: photo
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    twitter:
+                      columnType: link
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.twitter })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: twitter
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 1
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: twitter
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return '@' +
+                        currentRow.twitter?.split('/').pop()})}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.twitter })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                  collapseWhenHidden: true
+                  columnOrder:
+                    - CUSTOMER
+                    - NAME
+                    - PROCEDURE
+                    - PATIENT_INDIVIDUAL_ID
+                    - SERVICE_DATE
+                    - CHARGES
+                    - BALANCE
+                    - DOB
+                    - PATIENT_DOB
+                    - ID
+                    - PATIENT_FIRST_NAME
+                    - PAID
+                    - PATIENT_LAST_NAME
+                  compactMode: VERY_SHORT
+                  defaultFilters: "{}"
+                  defaultSelectedRow: "0"
+                  derivedColumns: {}
+                  dynamicBindingPathList:
+                    - key: tableData
+                    - key: primaryColumns.BALANCE.computedValue
+                    - key: primaryColumns.BALANCE.linkUrl
+                    - key: primaryColumns.BALANCE.linkLabel
+                    - key: primaryColumns.CHARGES.computedValue
+                    - key: primaryColumns.CHARGES.linkUrl
+                    - key: primaryColumns.CHARGES.linkLabel
+                    - key: primaryColumns.CUSTOMER.computedValue
+                    - key: primaryColumns.CUSTOMER.linkUrl
+                    - key: primaryColumns.CUSTOMER.linkLabel
+                    - key: primaryColumns.DOB.computedValue
+                    - key: primaryColumns.DOB.linkUrl
+                    - key: primaryColumns.DOB.linkLabel
+                    - key: primaryColumns.ID.computedValue
+                    - key: primaryColumns.ID.linkUrl
+                    - key: primaryColumns.ID.linkLabel
+                    - key: primaryColumns.NAME.computedValue
+                    - key: primaryColumns.NAME.linkUrl
+                    - key: primaryColumns.NAME.linkLabel
+                    - key: primaryColumns.PAID.computedValue
+                    - key: primaryColumns.PAID.linkUrl
+                    - key: primaryColumns.PAID.linkLabel
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.computedValue
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.linkUrl
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.linkLabel
+                    - key: primaryColumns.PROCEDURE.computedValue
+                    - key: primaryColumns.PROCEDURE.linkUrl
+                    - key: primaryColumns.PROCEDURE.linkLabel
+                    - key: primaryColumns.SERVICE_DATE.computedValue
+                    - key: primaryColumns.SERVICE_DATE.linkUrl
+                    - key: primaryColumns.SERVICE_DATE.linkLabel
+                    - key: primaryColumns.PATIENT_DOB.computedValue
+                    - key: primaryColumns.PATIENT_DOB.linkUrl
+                    - key: primaryColumns.PATIENT_DOB.linkLabel
+                    - key: primaryColumns.PATIENT_FIRST_NAME.computedValue
+                    - key: primaryColumns.PATIENT_FIRST_NAME.linkUrl
+                    - key: primaryColumns.PATIENT_FIRST_NAME.linkLabel
+                    - key: primaryColumns.PATIENT_LAST_NAME.computedValue
+                    - key: primaryColumns.PATIENT_LAST_NAME.linkUrl
+                    - key: primaryColumns.PATIENT_LAST_NAME.linkLabel
+                  dynamicTriggerPathList:
+                    - key: onRowClicked
+                    - key: onSaveChanges
+                    - key: onCancelChanges
+                  gridColumns: 64
+                  height:
+                    mode: gridUnit
+                    value: 30
+                  horizontalAlignment: LEFT
+                  isDownloadable: true
+                  isFilterable: true
+                  isLoading: false
+                  isSearchable: false
+                  isVisible: true
+                  label: Data
+                  left:
+                    mode: gridUnit
+                    value: 0
+                  onCancelChanges:
+                    - id: 88kek8gr60
+                      newWindow: true
+                  onRowClicked:
+                    - id: g7jsbdba6m
+                      newWindow: true
+                  onSaveChanges:
+                    - id: 92psb5fdn4
+                      newWindow: true
+                  pageType: NONE
+                  parentId: dwpvpsnarl
+                  primaryColumns:
+                    BALANCE:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.BALANCE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: BALANCE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 0
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: BALANCE
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.BALANCE })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.BALANCE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CHARGES:
+                      columnType: currency
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CHARGES })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CHARGES
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 1
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: CHARGES
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CHARGES })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CHARGES })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CUSTOMER:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CUSTOMER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 2
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: CUSTOMER
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.CUSTOMER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    DOB:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.DOB })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: DOB
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 3
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: DOB
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.DOB })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.DOB })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    ID:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 4
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: ID
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.ID })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.ID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    NAME:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 5
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: NAME
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.NAME })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.NAME })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PAID:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PAID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PAID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 6
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PAID
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PAID })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PAID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_DOB:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_DOB })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_DOB
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 7
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: PATIENT_DOB
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_DOB })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_DOB })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_FIRST_NAME:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_FIRST_NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_FIRST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 8
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: PATIENT_FIRST_NAME
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_FIRST_NAME })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_FIRST_NAME })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_INDIVIDUAL_ID:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_INDIVIDUAL_ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 7
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PATIENT_INDIVIDUAL_ID
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_LAST_NAME:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_LAST_NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_LAST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 10
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: PATIENT_LAST_NAME
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_LAST_NAME })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PATIENT_LAST_NAME })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PROCEDURE:
+                      columnType: tags
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PROCEDURE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PROCEDURE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 8
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: PROCEDURE
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PROCEDURE })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.PROCEDURE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig:
+                        "99439":
+                          color: "#7C4FF833"
+                        "99453":
+                          color: "#27BBFF33"
+                        "99454":
+                          color: "#27BBFF33"
+                        "99457":
+                          color: "#27BBFF33"
+                        "99458":
+                          color: "#27BBFF33"
+                        "99490":
+                          color: "#7C4FF833"
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    SERVICE_DATE:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.SERVICE_DATE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: SERVICE_DATE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 9
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: SERVICE_DATE
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.SERVICE_DATE })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.SERVICE_DATE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                  tableData: "{{getPastCharges.response}}"
+                  tableHeader: Past Billings
+                  textSize: PARAGRAPH
+                  top:
+                    mode: gridUnit
+                    value: 71
+                  type: TABLE_WIDGET
+                  verticalAlignment: CENTER
+                  widgetId: fgcuxmzmak
+                  widgetName: Table1
+                  width:
+                    mode: gridUnit
+                    value: 64
+                - animateLoading: true
+                  appMode: EDIT
+                  buttonStyle: PRIMARY_BUTTON
+                  collapseWhenHidden: true
+                  docsUrl: https://docs.superblocks.com/components/button
+                  dynamicBindingPathList: []
+                  dynamicTriggerPathList:
+                    - key: onClick
+                  gridColumns: 15
+                  height:
+                    mode: gridUnit
+                    value: 4
+                  iconPosition: LEFT
+                  isDefaultClickDisabled: true
+                  isDisabled: false
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 49
+                  onClick:
+                    - apiNames:
+                        - getCharges
+                      id: uc2bsmurue
+                      state:
+                        id: 84780be0-e24f-46e2-b126-5ec83c6b7b21
+                        name: TempVar1
+                      type: setStateVar
+                      value: "{{Charges.tableData}}"
+                    - apiNames:
+                        - submitCodes
+                      id: l4qahp9t9z
+                      type: executeApi
+                  parentId: dwpvpsnarl
+                  text: Submit Codes
+                  top:
+                    mode: gridUnit
+                    value: 65
+                  type: BUTTON_WIDGET
+                  widgetId: sfwgpc28ok
+                  widgetName: Button1
+                  width:
+                    mode: gridUnit
+                    value: 15
+              collapseWhenHidden: false
+              containerStyle: none
+              detachFromLayout: true
+              dragDisabled: true
+              dynamicBindingPathList: []
+              dynamicTriggerPathList: []
+              gridColumns: 96
+              height:
+                mode: fitContent
+                value: 101
+              isLoading: false
+              isVisible: true
+              layout: FIXED_GRID
+              left:
+                mode: gridUnit
+                value: 0
+              minHeight:
+                mode: px
+                value: 1292
+              parentId: lm2jrimm2x
+              top:
+                mode: gridUnit
+                value: 0
+              type: CANVAS_WIDGET
+              widgetId: dwpvpsnarl
+              widgetName: Canvas1
+              width:
+                mode: gridUnit
+                value: 0
+          detachFromLayout: true
+          dragDisabled: true
+          gridColumns: 96
+          height:
+            mode: fitContent
+            value: 103
+          isLoading: false
+          isVisible: true
+          left:
+            mode: gridUnit
+            value: 0
+          parentId: "0"
+          shouldScrollContents: true
+          top:
+            mode: gridUnit
+            value: 0
+          type: SECTION_WIDGET
+          widgetId: lm2jrimm2x
+          widgetName: Section1
+          width:
+            mode: gridUnit
+            value: 96
+      detachFromLayout: true
+      dynamicBindingPathList: []
+      gridColumns: 96
+      height:
+        mode: gridUnit
+        value: 99
+      layoutVersion: 4
+      left:
+        mode: gridUnit
+        value: 0
+      maxWidth:
+        mode: px
+        value: 7680
+      minWidth:
+        mode: px
+        value: 840
+      stateVars:
+        stateVarMap:
+          84780be0-e24f-46e2-b126-5ec83c6b7b21:
+            createdAt: 1713792793047
+            defaultValue: ""
+            id: 84780be0-e24f-46e2-b126-5ec83c6b7b21
+            name: TempVar1
+            persistance: Temporary
+      timers:
+        timerMap: {}
+      top:
+        mode: gridUnit
+        value: 0
+      type: PAGE_WIDGET
+      version: 8
+      widgetId: "0"
+      widgetName: Page
+      width:
+        mode: gridUnit
+        value: 0
+    id: c186127b-7dab-426f-a687-f2f796e6339b
+name: Page

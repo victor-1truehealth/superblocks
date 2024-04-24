@@ -1,0 +1,64 @@
+blocks:
+  - name: Step1
+    step:
+      integration: 9739f417-ac9f-49d5-a638-a2e58a49f270
+      restapiintegration:
+        authType: None
+        body: |-
+          {
+          "Parameter": {
+          "LookupName": "CreatedOn",
+          "LookupValue": "2015-01-01 14:36:59",
+          "SqlOperator": ">"
+          },
+          "Columns": {
+          "Include_CSV": "ProspectID, FirstName, LastName, EmailAddress, mx_trueCare_Link"
+          },
+          "Sorting": {
+          "ColumnName": "CreatedOn",
+          "Direction": "1"
+          },
+          "Paging": {
+          "PageIndex": 1,
+          "PageSize": 100
+          }
+          }
+        bodyType: jsonBody
+        fileFormKey: ""
+        fileName: ""
+        formData: []
+        headers: []
+        httpMethod: POST
+        jsonBody: ""
+        openApiAction: genericHttpRequest
+        openApiSpecRef: ""
+        params: []
+        responseType: json
+        urlBase: ""
+        urlPath: LeadManagement.svc/Leads.Get
+  - name: Step2
+    step:
+      integration: python
+      python:
+        body: |
+          from urllib.parse import urlparse, parse_qs
+
+
+          cleaned_output = []
+
+          for lead in Step1.output:
+              parsed_url = urlparse(lead.mx_trueCare_Link)
+              query_params = parse_qs(parsed_url.query)
+              id_value = query_params.get('id', [None])[0]
+              lead.truecare_id = id_value
+              cleaned_output.append(lead)
+              
+          return { "step1output": cleaned_output }
+metadata:
+  id: 89cd3006-5458-4874-b27c-dfdff2a1de75
+  name: getLSQData
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0afcdb47-f368-49bc-a73a-575b552235f1
+    options: {}

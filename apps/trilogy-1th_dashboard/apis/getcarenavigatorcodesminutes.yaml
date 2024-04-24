@@ -1,0 +1,56 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+              time_view.PATIENT_INDIVIDUAL_ID,
+              time_view.PATIENT_LAST_NAME,
+              time_view.PATIENT_FIRST_NAME,
+              time_view.TOTAL_TIME,
+              charges.*,
+              patient_data.*
+          FROM
+              (SELECT 
+                  PATIENT_INDIVIDUAL_ID, 
+                  PATIENT_LAST_NAME, 
+                  PATIENT_FIRST_NAME, 
+                  SUM(ENC_DURATION_MINS) AS TOTAL_TIME
+               FROM 
+                  FIVETRAN_DATABASE.TRUECARE.CCM_TIME_VIEW
+               WHERE 
+                  PROVIDER_NAME = {{dropdownProvider.selectedOptionValue}}
+                  AND MONTH(ENC_CREATED_TIME) = {{dropdownMonth.selectedOptionValue}}
+               GROUP BY 
+                  PATIENT_INDIVIDUAL_ID, 
+                  PATIENT_LAST_NAME, 
+                  PATIENT_FIRST_NAME) AS time_view
+          JOIN
+              (SELECT
+                  charges.*,
+                  patient_data.*
+               FROM
+                  FIVETRAN_DATABASE.SHARE_POINT.SEGUE_REIMBURSEMENTS_RPM_CHARGES AS charges
+               JOIN
+                  FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA AS patient_data
+               ON
+                  CAST(charges.DOB AS DATE) = patient_data.PATIENT_DOB
+                  AND LOWER(TRIM(SPLIT_PART(charges.NAME, ',', 1))) = LOWER(patient_data.PATIENT_LAST_NAME)
+               WHERE
+                  patient_data.CARE_NAVIGATOR = {{dropdownProvider.selectedOptionValue}}
+                  AND EXTRACT(MONTH FROM charges.SRVC_DATE) = {{dropdownMonth.selectedOptionValue}}) AS charges
+          ON 
+              time_view.PATIENT_INDIVIDUAL_ID = charges.PATIENT_INDIVIDUAL_ID;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: aa3ec005-4cfb-4631-8ea8-445954d1e10e
+  name: getCareNavigatorCodesMinutes
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4

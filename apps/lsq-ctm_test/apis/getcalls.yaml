@@ -1,0 +1,46 @@
+blocks:
+  - name: Step1
+    step:
+      integration: a62339a3-b2fb-4567-801a-0a07762dd4d6
+      restapiintegration:
+        authType: basic
+        body: |-
+          {
+          "contact_number": "+12814559835"
+          }
+        bodyType: jsonBody
+        fileFormKey: ""
+        fileName: ""
+        formData: []
+        headers: []
+        httpMethod: POST
+        jsonBody: ""
+        openApiAction: genericHttpRequest
+        openApiSpecRef: ""
+        params: []
+        responseType: auto
+        urlBase: ""
+        urlPath: calls/search.json
+  - name: formatCalls
+    step:
+      integration: javascript
+      javascript:
+        body: |
+          // Ensure Step1.output.calls contains your JSON data as expected
+          const formattedData = Step1.output.calls.map(call => ({
+            "Caller Name": call.name || "N/A",  // Fallback to "N/A" if the name is missing
+            "Called At": call.called_at || "N/A",  // Format or provide a default for call time
+            "Call Status": call.call_status || "N/A",  // Indicate the call's status
+            "Duration": call.duration ? `${call.duration} seconds` : "0 seconds",  // Display duration with a unit
+            "Agent Name": call.agent && call.agent.name ? call.agent.name : "N/A"  // Extract agent name safely
+          }));
+
+          // This return statement makes the formatted data available for the next step or output
+          return formattedData;
+metadata:
+  id: 20f3a252-0c59-4370-bd5b-d4dcc087c86e
+  name: getCalls
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0afcdb47-f368-49bc-a73a-575b552235f1

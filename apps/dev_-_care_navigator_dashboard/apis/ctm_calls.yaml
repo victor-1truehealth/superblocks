@@ -1,0 +1,106 @@
+blocks:
+  - conditional:
+      else:
+        blocks:
+          - name: Return3
+            return:
+              data: "{{[]}}"
+      elseIf: []
+      if:
+        blocks:
+          - conditional:
+              else:
+                blocks:
+                  - name: Return1
+                    return:
+                      data: "{{{calls: []}}}"
+              elseIf: []
+              if:
+                blocks:
+                  - name: Call_logs_from_phone
+                    step:
+                      integration: a62339a3-b2fb-4567-801a-0a07762dd4d6
+                      restapiintegration:
+                        authType: basic
+                        body: |-
+                          {
+                          "contact_number": "{{getDetailFromLSQ.response[0].Phone}}"
+                          }
+                        bodyType: jsonBody
+                        fileFormKey: ""
+                        fileName: ""
+                        formData: []
+                        headers: []
+                        httpMethod: POST
+                        jsonBody: ""
+                        openApiAction: genericHttpRequest
+                        openApiSpecRef: ""
+                        params: []
+                        responseType: auto
+                        urlBase: ""
+                        urlPath: calls/search.json
+                condition: '{{getDetailFromLSQ.response[0].Phone != ""}}'
+            name: Condition2
+          - conditional:
+              else:
+                blocks:
+                  - name: Return2
+                    return:
+                      data: "{{{calls: []}}}"
+              elseIf: []
+              if:
+                blocks:
+                  - name: Call_logs_from_mobile
+                    step:
+                      integration: a62339a3-b2fb-4567-801a-0a07762dd4d6
+                      restapiintegration:
+                        authType: basic
+                        body: |-
+                          {
+                          "contact_number": "{{getDetailFromLSQ.response[0].Mobile}}"
+                          }
+                        bodyType: jsonBody
+                        fileFormKey: ""
+                        fileName: ""
+                        formData: []
+                        headers: []
+                        httpMethod: POST
+                        jsonBody: ""
+                        openApiAction: genericHttpRequest
+                        openApiSpecRef: ""
+                        params: []
+                        responseType: auto
+                        urlBase: ""
+                        urlPath: calls/search.json
+                condition: '{{getDetailFromLSQ.response[0].Mobile != ""}}'
+            name: Condition1
+          - name: Step3
+            step:
+              integration: javascript
+              javascript:
+                body: |
+                  /*
+                   * You can use JavaScript Functions to:
+                   *   1. Transform the output of previous Steps by referencing their output (ex. Step1.output)
+                   *   2. Write business logic referencing UI components (ex. Table1.selectedRow.id)
+                   *   3. Make http calls via axios
+                   *
+                   * Learn more in the docs: https://docs.superblocks.com/writing-code/backend-javascript
+                   */
+
+                  return [...Condition1.output.calls, ...Condition2.output.calls].map(call => ({
+                    "Caller Name": call.name || "N/A",  // Fallback to "N/A" if the name is missing
+                    "Called At": call.called_at || "N/A",  // Format or provide a default for call time
+                    "Call Status": call.call_status || "N/A",  // Indicate the call's status
+                    "Duration": call.duration ? `${call.duration} seconds` : "0 seconds",  // Display duration with a unit
+                    "Agent Name": call.agent && call.agent.name ? call.agent.name : "N/A"  // Extract agent name safely
+                  }));;
+        condition: "{{getDetailFromLSQ.response[0] != undefined}}"
+    name: Condition3
+metadata:
+  id: be272e4d-5e98-4bc1-a234-bb501e649e92
+  name: CTM_Calls
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

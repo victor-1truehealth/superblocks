@@ -1,0 +1,36 @@
+blocks:
+  - name: getPreviousMonthReimbursementsQuery
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT
+              PATIENT_NAME,
+              PROC_CODE AS PROCEDURE,
+              DOS AS SERVICE_DATE,
+              PMT_DATE,
+              DATEDIFF(DAY, DOS, PMT_DATE) AS TIME_TO_PAY,
+              SUM(APPLIED) AS Total_Paid
+          FROM
+              FIVETRAN_DATABASE.SHARE_POINT.SEGUE_REIMBURSEMENTS_RPM_PAYMENTS
+          WHERE
+              APPLIED > 0
+              AND CAST(PMT_DATE AS DATE) >= DATEADD('MONTH', -1, DATE_TRUNC('MONTH', CURRENT_DATE())) -- First day of the previous month
+              AND CAST(PMT_DATE AS DATE) < DATE_TRUNC('MONTH', CURRENT_DATE()) -- First day of the current month
+          GROUP BY
+              PATIENT_NAME,
+              PROC_CODE,
+              DOS,
+              PMT_DATE;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 46dc233d-d685-47e6-b414-c1d42ebc5441
+  name: getPreviousMonthReimbursements
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 6f7f2952-ed63-4c34-9b08-d805ed3431d7

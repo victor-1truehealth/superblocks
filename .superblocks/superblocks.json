@@ -1,0 +1,48 @@
+{
+  "configType": "ROOT",
+  "metadata": {
+    "cliVersion": "1.5.1"
+  },
+  "resources": {
+    "0628ed1a-5202-4cbe-829f-9b3976454a97": {
+      "location": "apps/clone_of_rcm",
+      "resourceType": "APPLICATION"
+    },
+    "0afcdb47-f368-49bc-a73a-575b552235f1": {
+      "location": "apps/lsq-ctm_test",
+      "resourceType": "APPLICATION"
+    },
+    "10bdbf39-31e3-4533-bf0d-3a97d729544e": {
+      "location": "apps/dev_-_care_navigator_dashboard",
+      "resourceType": "APPLICATION"
+    },
+    "6a3c388b-9941-41c7-bf81-9e21f66a4089": {
+      "location": "apps/billings",
+      "resourceType": "APPLICATION"
+    },
+    "6f7f2952-ed63-4c34-9b08-d805ed3431d7": {
+      "location": "apps/clone_of_segue_health_dashboard",
+      "resourceType": "APPLICATION"
+    },
+    "91949d78-431b-4f5f-b349-0ad5f686f35e": {
+      "location": "apps/care_navigator_dashboard",
+      "resourceType": "APPLICATION"
+    },
+    "9823d11f-f535-4ca1-944b-46d06fe4df38": {
+      "location": "apps/dev_-_billings",
+      "resourceType": "APPLICATION"
+    },
+    "cadc2a14-3c7a-4e58-a5ff-eb2b22e7bdf0": {
+      "location": "apps/segue_health_dashboard",
+      "resourceType": "APPLICATION"
+    },
+    "cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4": {
+      "location": "apps/trilogy-1th_dashboard",
+      "resourceType": "APPLICATION"
+    },
+    "da5337d7-6202-4d18-bdba-9a54b3db0de2": {
+      "location": "apps/care_delivery_dashboard",
+      "resourceType": "APPLICATION"
+    }
+  }
+}

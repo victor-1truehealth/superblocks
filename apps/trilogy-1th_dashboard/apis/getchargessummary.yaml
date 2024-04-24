@@ -1,0 +1,57 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          WITH CPT_Summary AS (
+              SELECT
+                charges.CPT_CODE,
+                COUNT(*) AS Code_Count
+              FROM
+                PROD_WAREHOUSE.BILLING.CHARGES AS charges
+              JOIN
+                PROD_WAREHOUSE.PATIENT.INFORMATION AS patient_information ON charges.PATIENT_INDIVIDUAL_ID = patient_information.PATIENT_INDIVIDUAL_ID
+              WHERE
+                patient_information.CARE_NAVIGATOR = {{dropdownProvider.selectedOptionValue}}
+                AND MONTH(charges.DATE_OF_SERVICE) = {{dropdownMonth.selectedOptionValue}}
+                AND YEAR(charges.DATE_OF_SERVICE) = {{dropdownYear.selectedOptionValue}}
+              GROUP BY
+                charges.CPT_CODE
+          ),
+          Code_Values AS (
+              SELECT
+                CPT_CODE,
+                Code_Count,
+                CASE
+                  WHEN CPT_CODE = '99490' THEN Code_Count * 28
+                  WHEN CPT_CODE = '99439' THEN Code_Count * 18
+                  WHEN CPT_CODE = '99457' THEN Code_Count * 25
+                  ELSE 0
+                END AS Total_Value
+              FROM CPT_Summary
+
+          ),
+          Grand_Total AS (
+              SELECT
+                'Grand Total' AS CPT_CODE,
+                SUM(Code_Count) AS Code_Count,
+                SUM(Total_Value) AS Total_Value
+              FROM Code_Values
+          )
+          SELECT * FROM Code_Values
+          UNION ALL
+          SELECT * FROM Grand_Total
+          ORDER BY CPT_CODE;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 2028231c-fd90-487e-9f88-de0dd571b239
+  name: getChargesSummary
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4

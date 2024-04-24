@@ -1,0 +1,49 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+              SUM(CCM_INTERACTIONS.TOTAL_DURATION_MINS) AS TOTAL_MINUTES_YESTERDAY
+          FROM 
+              (
+              SELECT 
+                  PATIENT_INDIVIDUAL_ID,
+                  DATE_TRUNC('MONTH', ENC_CREATED_TIME) AS MONTH_OF,
+                  COUNT(*) AS INTERACTIONS,
+                  SUM(ENC_DURATION_MINS) + 1 AS TOTAL_DURATION_MINS,
+                  PROVIDER_NAME
+              FROM 
+                  FIVETRAN_DATABASE.TRUECARE.CCM_TIME_VIEW
+              WHERE 
+                  PROVIDER_NAME = {{dropdownProvider.selectedOptionValue}}
+                  AND DATE_TRUNC('DAY', ENC_CREATED_TIME) = DATE_TRUNC('DAY', CURRENT_DATE() - INTERVAL '1 DAY')
+              GROUP BY 
+                  PATIENT_INDIVIDUAL_ID,
+                  DATE_TRUNC('MONTH', ENC_CREATED_TIME),
+                  PROVIDER_NAME
+              ) AS CCM_INTERACTIONS
+          LEFT JOIN 
+              PROD_WAREHOUSE.PATIENT.INFORMATION PI
+          ON 
+              CCM_INTERACTIONS.PATIENT_INDIVIDUAL_ID = PI.PATIENT_INDIVIDUAL_ID;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+  - name: Step2
+    step:
+      integration: javascript
+      javascript:
+        body: |-
+          const value = Math.round(Step1.output[0]["TOTAL_MINUTES_YESTERDAY"] / 60 * 10) / 10;
+          return value;
+metadata:
+  id: eed33350-5dd6-4296-9772-7634d6e17809
+  name: getNumberHoursYesterday
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4

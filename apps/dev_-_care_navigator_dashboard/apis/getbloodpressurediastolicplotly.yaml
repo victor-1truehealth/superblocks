@@ -1,0 +1,126 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: "/*
+
+          \ * You can use JavaScript Functions to:
+
+          \ *   1. Transform the output of previous Steps by
+          referencing their output (ex. Step1.output)
+
+          \ *   2. Write business logic referencing UI components (ex.
+          Table1.selectedRow.id)
+
+          \ *   3. Make http calls via axios
+
+          \ *
+
+          \ * Learn more in the docs:
+          https://docs.superblocks.com/writing-code/backend-javascript
+
+          \ */
+
+
+          \ const list = getBloodPressureList.response;
+
+          \ const crisis = list.filter(l => l.Diastolic >= 120);
+
+          \ const stage2 = list.filter(l => l.Diastolic >= 90 &&
+          l.Diastolic < 120 );
+
+          \ const stage1 = list.filter(l => l.Diastolic >= 80 &&
+          l.Diastolic < 90);
+
+          \ const normal = list.filter(l => l.Diastolic >= 60 &&
+          l.Diastolic < 80);
+
+          \ const b_normal = list.filter(l => l.Diastolic < 60);
+
+          \\ 
+
+          \ function generateDataPlotly(_list, name, color) {
+
+          \   return {
+
+          \       x: _list.map((l) => l.READING_TIME),
+
+          \       y: _list.map((l) => l.Diastolic),
+
+          \       mode: \"markers\",
+
+          \       type: \"scatter\",
+
+          \       name: name,
+
+          \       showlegend: true,
+
+          \       hovertemplate: \"<b>%{text}</b>\",
+
+          \       text: _list.map((l) => `${(new
+          Date(l.READING_TIME)).toLocaleDateString('en-US', { month: 'short',
+          day: 'numeric' })} | ${l.Diastolic}mmHg`),
+
+          \       marker: {
+
+          \         size: 10,
+
+          \         color: color
+
+          \       }
+
+          \     };
+
+          \ }
+
+          \\ 
+
+          \ return {
+
+          \   data: [
+
+          \     generateDataPlotly(crisis, \"Crisis\", \"#c02741\"),
+
+          \     generateDataPlotly(stage2, \"Stage 2\", \"#f47f20\"),
+
+          \     generateDataPlotly(stage1, \"Stage 1\", \"#f4c224\"),
+
+          \     generateDataPlotly(normal, \"Normal\", \"#5eb546\"),
+
+          \     generateDataPlotly(b_normal, \"Below Normal\",
+          \"#000000\"),
+
+          \   ],
+
+          \   layout:  {
+
+          \     title: 'Diastolic',
+
+          \     yaxis:{
+
+          \       range: [0, 120],
+
+          \     },
+
+          \     legend: {
+
+          \       traceorder: 'normal', // Determines the order at
+          which legend items are displayed
+
+          \       orientation: 'h' // Vertical orientation
+
+          \     }
+
+          \   }
+
+          \ };
+
+          \ "
+metadata:
+  id: 6263f368-f106-4689-9445-56c59518e085
+  name: getBloodPressureDiastolicPlotly
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

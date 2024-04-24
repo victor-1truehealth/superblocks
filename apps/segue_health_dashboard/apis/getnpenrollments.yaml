@@ -1,0 +1,24 @@
+blocks:
+  - name: getPatientsLast7DaysQuery
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT VISITING_PROVIDER, COUNT(*) AS PATIENT_COUNT
+          FROM FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA
+          WHERE LEAD_TYPE = 'Member'
+          AND CUSTOMER = 'Segue Health'
+          GROUP BY VISITING_PROVIDER
+          ORDER BY VISITING_PROVIDER;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: a6882432-fc89-404b-b6bf-ca22e8e88c06
+  name: getNPEnrollments
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cadc2a14-3c7a-4e58-a5ff-eb2b22e7bdf0

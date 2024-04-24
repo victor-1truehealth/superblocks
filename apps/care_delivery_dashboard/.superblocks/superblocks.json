@@ -1,0 +1,21 @@
+{
+  "apis": {
+    "047b7259-7485-4274-b549-2902c2732d2c": "getAdherence",
+    "144538d0-ceb6-4331-8f3e-6fbe9a8c4113": "getTimeAdherence",
+    "1d6a87ff-be55-40d8-a957-66499de7d90f": "getAllTimeTracked",
+    "64193682-4152-4692-9568-f9511c606e1e": "getProviders",
+    "81a3a7bd-c6d4-4d6b-9057-42a0a792a40f": "time_yesterday_CN",
+    "96d68736-9c3f-4ef8-9eea-5f8f16b564f2": "API1",
+    "a2175671-cb4d-412b-a5a3-dd534e4088c7": "getTimePrioritiesGlobal",
+    "a6115229-d484-417e-9002-66f38ceae4ff": "getAllTime",
+    "a7e18bd8-4860-4017-87ee-bb7e1099b9bb": "getCTAvgHours",
+    "b822eec6-7a22-496e-9da7-c78e95ad3e7c": "getCareTeamTime",
+    "bd25ca9b-ed93-4003-909b-b2592b78c18f": "getPatientCohorts",
+    "bdc7f563-5ca8-45a1-966f-1f780508110a": "getYesterdayReadings",
+    "cdf5d794-eace-464c-87d4-126b39212379": "getCareTeam",
+    "dcec6721-320f-4b7c-a3c7-d7f51b2ba61a": "getTimePriorities"
+  },
+  "configType": "APPLICATION",
+  "defaultPageId": "7ea2ed48-5c6a-4c1b-bf9e-5f3a357dcb32",
+  "id": "da5337d7-6202-4d18-bdba-9a54b3db0de2"
+}

@@ -1,0 +1,23 @@
+blocks:
+  - name: sqlQuery
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT *
+          FROM FIVETRAN_DATABASE.TRUECARE.RPM_VIEW
+          WHERE READING_TIME >= DATEADD(day, -1, CURRENT_DATE())
+            AND READING_TIME < CURRENT_DATE()
+            AND READING_SOURCE LIKE '%Tenovi%';
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: c6fd3109-15da-4e71-9a76-7dfb1b116387
+  name: getYesterdayReadings
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

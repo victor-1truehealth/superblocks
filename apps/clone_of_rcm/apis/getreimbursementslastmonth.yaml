@@ -1,0 +1,33 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+            PROC_CODE AS CPT_CODE,
+            SUM(APPLIED) AS Total_Payments,
+            SUM(CHARGES) AS Total_Charges,
+            SUM(APPLIED) * 0.85 AS Fee,
+            GROUPING(PROC_CODE) AS IsTotal
+          FROM 
+            FIVETRAN_DATABASE.SHARE_POINT.SEGUE_REIMBURSEMENTS_RPM_PAYMENTS
+          WHERE 
+            CAST(PMT_DATE AS DATE) >= DATE_TRUNC('MONTH', CURRENT_DATE() - INTERVAL '1 MONTH') -- First day of last month
+            AND CAST(PMT_DATE AS DATE) < DATE_TRUNC('MONTH', CURRENT_DATE()) -- First day of current month
+          GROUP BY 
+            ROLLUP(PROC_CODE)
+          ORDER BY 
+            PROC_CODE;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 6674c23c-742b-480d-a4c9-f9d0ef5468c7
+  name: getReimbursementsLastMonth
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

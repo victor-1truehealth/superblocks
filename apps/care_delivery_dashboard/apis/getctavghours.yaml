@@ -1,0 +1,32 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+            PROVIDER_NAME AS "Care Team Member",
+            SUM(ENC_DURATION_MINS) / 5 / 60 AS "Avg Daily Hrs"
+          FROM 
+            FIVETRAN_DATABASE.TRUECARE.CCM_TIME_VIEW
+          WHERE 
+            ENC_CREATED_TIME >= CURRENT_DATE - INTERVAL '8 days'
+            AND ENC_CREATED_TIME < CURRENT_DATE
+          GROUP BY 
+            PROVIDER_NAME
+          HAVING 
+            SUM(ENC_DURATION_MINS) > 0
+            AND "Avg Daily Hrs" >= 0.25
+          ORDER BY "Avg Daily Hrs" DESC;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: a7e18bd8-4860-4017-87ee-bb7e1099b9bb
+  name: getCTAvgHours
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: da5337d7-6202-4d18-bdba-9a54b3db0de2

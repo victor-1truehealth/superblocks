@@ -1,0 +1,25 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: |
+          /*
+           * You can use JavaScript Functions to:
+           *   1. Transform the output of previous Steps by referencing their output (ex. Step1.output)
+           *   2. Write business logic referencing UI components (ex. Table1.selectedRow.id)
+           *   3. Make http calls via axios
+           *
+           * Learn more in the docs: https://docs.superblocks.com/writing-code/backend-javascript
+           */
+
+          return getReadingLogs.response.filter(log => {
+          	return log.READING_TYPE == "BloodGlucose";
+          });
+metadata:
+  id: e3397b97-555b-4b12-b8e7-6f8c57b9a126
+  name: getBloodGlucoseList
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

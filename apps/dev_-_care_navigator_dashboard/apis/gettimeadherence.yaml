@@ -1,0 +1,55 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+              PI.*,
+              TLM.*,
+              RA.*,
+              -- Calculating MONTHS_SINCE_CREATED
+              CASE 
+                  WHEN DATEDIFF('day', PI.CREATED_ON, CURRENT_DATE()) < 30 THEN 0
+                  ELSE FLOOR(DATEDIFF('month', PI.CREATED_ON, CURRENT_DATE()))
+              END AS MONTHS_SINCE_CREATED,
+              -- Calculating TIME_LEFT
+              20 - MOD(TOTAL_TIME_LOGGED_ROUNDED, 20) AS TIME_LEFT,
+              -- Adding new fields based on TIME_LOG table
+              TL.Latest_ENC_CREATED_TIME,
+              DATEDIFF(day, TL.Latest_ENC_CREATED_TIME, CURRENT_DATE()) AS DAYS_FROM_LAST_ENC
+          FROM 
+              PROD_WAREHOUSE.PATIENT.INFORMATION PI
+          LEFT JOIN 
+              PROD_WAREHOUSE.PATIENT.TIME_LOG_BY_MONTH TLM
+          ON 
+              PI.PATIENT_INDIVIDUAL_ID = TLM.PATIENT_INDIVIDUAL_ID
+              AND EXTRACT(YEAR FROM TLM.MONTH_OF) = EXTRACT(YEAR FROM CURRENT_DATE())
+              AND EXTRACT(MONTH FROM TLM.MONTH_OF) = EXTRACT(MONTH FROM CURRENT_DATE())
+          LEFT JOIN 
+              PROD_WAREHOUSE.PATIENT.RPM_ADHERENCE RA
+          ON 
+              PI.PATIENT_INDIVIDUAL_ID = RA.PATIENT_INDIVIDUAL_ID
+          LEFT JOIN (
+              SELECT 
+                  PATIENT_INDIVIDUAL_ID,
+                  MAX(ENC_CREATED_TIME) AS Latest_ENC_CREATED_TIME
+              FROM 
+                  PROD_WAREHOUSE.PATIENT.TIME_LOG
+              GROUP BY PATIENT_INDIVIDUAL_ID
+          ) TL ON PI.PATIENT_INDIVIDUAL_ID = TL.PATIENT_INDIVIDUAL_ID
+          WHERE 
+              PI.CARE_NAVIGATOR = '{{dropdownCN.selectedOptionValue}}'
+          ORDER BY PI.PATIENT_INDIVIDUAL_ID;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: false
+metadata:
+  id: 626ac93c-ecfe-4451-a22c-0bc8e7eb4d1d
+  name: getTimeAdherence
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e

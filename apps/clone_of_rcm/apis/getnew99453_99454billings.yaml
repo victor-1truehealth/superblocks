@@ -1,0 +1,29 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+              combined.*,
+              pd.*
+          FROM 
+              FIVETRAN_DATABASE.BILLING.GENERATE_99453_99454_BILLING_REPORT_COMBINED combined
+          JOIN 
+              FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA pd
+          ON 
+              combined.PATIENT_INDIVIDUAL_ID = pd.PATIENT_INDIVIDUAL_ID
+          WHERE 
+              pd.CUSTOMER = {{Customer.selectedOptionValue}};
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: d1f16cf9-214f-41fc-a8a1-54bc1b6020ea
+  name: getNew99453_99454Billings
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

@@ -1,0 +1,7 @@
+id: 10bdbf39-31e3-4533-bf0d-3a97d729544e
+name: DEV - Care Navigator Dashboard
+organizationId: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+pages:
+  - id: fb932ce3-3224-47d8-b095-8c17c5c352e3
+    isDefault: true
+settings: {}

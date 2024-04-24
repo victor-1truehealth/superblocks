@@ -1,0 +1,2867 @@
+applicationId: da5337d7-6202-4d18-bdba-9a54b3db0de2
+id: 7ea2ed48-5c6a-4c1b-bf9e-5f3a357dcb32
+isHidden: false
+layouts:
+  - dsl:
+      apis:
+        apiMap:
+          047b7259-7485-4274-b549-2902c2732d2c:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 047b7259-7485-4274-b549-2902c2732d2c
+            onError:
+              - id: a96e645a-5efd-40e6-a3d2-c2d190034190
+                message: "{{getAdherence.error}}"
+                style: error
+                type: showAlert
+          144538d0-ceb6-4331-8f3e-6fbe9a8c4113:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 144538d0-ceb6-4331-8f3e-6fbe9a8c4113
+            onError:
+              - id: 30995297-d31f-46f7-b425-75cd0715a503
+                message: "{{getTimeAdherence.error}}"
+                style: error
+                type: showAlert
+          1d6a87ff-be55-40d8-a957-66499de7d90f:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 1d6a87ff-be55-40d8-a957-66499de7d90f
+            onError:
+              - id: c81fbdcb-69ff-47b7-a1f4-99df916c10ba
+                message: "{{getAllTimeTracked.error}}"
+                style: error
+                type: showAlert
+          64193682-4152-4692-9568-f9511c606e1e:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 64193682-4152-4692-9568-f9511c606e1e
+            onError:
+              - id: 03ff2b01-9440-45db-8e2b-e4d889784111
+                message: "{{getProviders.error}}"
+                style: error
+                type: showAlert
+          81a3a7bd-c6d4-4d6b-9057-42a0a792a40f:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 81a3a7bd-c6d4-4d6b-9057-42a0a792a40f
+            onError:
+              - id: 4eba8232-6f8e-4db7-a2fd-976e8582be70
+                message: "{{time_yesterday_CN.error}}"
+                style: error
+                type: showAlert
+          96d68736-9c3f-4ef8-9eea-5f8f16b564f2:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 96d68736-9c3f-4ef8-9eea-5f8f16b564f2
+            onError:
+              - id: d30089d3-c771-426b-8867-3edf1b568d60
+                message: "{{API1.error}}"
+                style: error
+                type: showAlert
+          a2175671-cb4d-412b-a5a3-dd534e4088c7:
+            dynamicTriggerPathList:
+              - key: onError
+            id: a2175671-cb4d-412b-a5a3-dd534e4088c7
+            onError:
+              - id: 2ac641cb-cbd1-4067-9f7a-07f1a01c0357
+                message: "{{getTimePrioritiesGlobal.error}}"
+                style: error
+                type: showAlert
+          a6115229-d484-417e-9002-66f38ceae4ff:
+            dynamicTriggerPathList:
+              - key: onError
+            id: a6115229-d484-417e-9002-66f38ceae4ff
+            onError:
+              - id: 10a929a8-4d1a-4a4b-9279-b097d6ba9ee2
+                message: "{{getAllTime.error}}"
+                style: error
+                type: showAlert
+          a7e18bd8-4860-4017-87ee-bb7e1099b9bb:
+            dynamicTriggerPathList:
+              - key: onError
+            id: a7e18bd8-4860-4017-87ee-bb7e1099b9bb
+            onError:
+              - id: bd385316-bf42-4840-a34e-30b4792d4466
+                message: "{{getCTAvgHours.error}}"
+                style: error
+                type: showAlert
+          b822eec6-7a22-496e-9da7-c78e95ad3e7c:
+            dynamicBindingPathList: []
+            dynamicTriggerPathList:
+              - key: onError
+              - key: onSuccess
+              - key: onCancel
+            id: b822eec6-7a22-496e-9da7-c78e95ad3e7c
+            onCancel:
+              - id: hkk63sucaf
+                newWindow: true
+            onError:
+              - id: db7cc771-9191-4720-899e-844f3a3a82d2
+                message: "{{getCareTeamTime.error}}"
+                style: error
+                type: showAlert
+            onSuccess:
+              - id: p9pp1li357
+                newWindow: true
+          bd25ca9b-ed93-4003-909b-b2592b78c18f:
+            dynamicTriggerPathList:
+              - key: onError
+            id: bd25ca9b-ed93-4003-909b-b2592b78c18f
+            onError:
+              - id: c73d547e-2746-4a97-a243-b84fa6f06000
+                message: "{{getPatientCohorts.error}}"
+                style: error
+                type: showAlert
+          bdc7f563-5ca8-45a1-966f-1f780508110a:
+            dynamicTriggerPathList:
+              - key: onError
+            id: bdc7f563-5ca8-45a1-966f-1f780508110a
+            onError:
+              - id: 65854146-aac2-4a00-bb6c-e3bc24c404a7
+                message: "{{getYesterdayReadings.error}}"
+                style: error
+                type: showAlert
+          cdf5d794-eace-464c-87d4-126b39212379:
+            dynamicTriggerPathList:
+              - key: onError
+            id: cdf5d794-eace-464c-87d4-126b39212379
+            onError:
+              - id: 32d4ea10-7b38-4e25-a97e-b2af0482d988
+                message: "{{getCareTeam.error}}"
+                style: error
+                type: showAlert
+          dcec6721-320f-4b7c-a3c7-d7f51b2ba61a:
+            dynamicTriggerPathList:
+              - key: onError
+            id: dcec6721-320f-4b7c-a3c7-d7f51b2ba61a
+            onError:
+              - id: fce16301-b28e-419a-b8cc-b4c6b5de6cd5
+                message: "{{getTimePriorities.error}}"
+                style: error
+                type: showAlert
+      backgroundColor: none
+      cachedData:
+        pageLoadActions:
+          apiDeps:
+            getCTAvgHours: []
+            getCareTeamTime: []
+            getPatientCohorts: []
+            getProviders: []
+            getTimeAdherence:
+              - getProviders
+          apiNames:
+            - getPatientCohorts
+            - getCareTeamTime
+            - getCTAvgHours
+            - getProviders
+            - getTimeAdherence
+      canExtend: true
+      children:
+        - canExtend: true
+          children:
+            - backgroundColor: none
+              canExtend: true
+              children:
+                - animateLoading: true
+                  collapseWhenHidden: false
+                  dynamicBindingPathList: []
+                  dynamicTriggerPathList: []
+                  gridColumns: 25
+                  height:
+                    mode: gridUnit
+                    value: 3
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 71
+                  parentId: dwpvpsnarl
+                  text: Reading Adherence Rates
+                  textAlign: CENTER
+                  textStyle: HEADING_2
+                  textType: text
+                  top:
+                    mode: gridUnit
+                    value: 3
+                  type: TEXT_WIDGET
+                  verticalAlign: AUTO
+                  widgetId: 8u1823cse3
+                  widgetName: Text5
+                  width:
+                    mode: gridUnit
+                    value: 25
+                - animateLoading: true
+                  chartData: "{{getCareTeamTime.response}}"
+                  chartDefinition: ui
+                  chartType: COLUMN_CHART
+                  columnInfo:
+                    - canBeNumeric: false
+                      name: DATE_LOGGED
+                      type: date
+                    - canBeNumeric: false
+                      name: PROVIDER_NAME
+                      type: string
+                    - canBeNumeric: true
+                      name: TIME_LOGGED_HOURS
+                      type: number
+                  dynamicBindingPathList:
+                    - key: chartData
+                    - key: plotlyChartJson
+                  dynamicPropertyPathList: []
+                  dynamicTriggerPathList:
+                    - key: onSelectData
+                  gridColumns: 50
+                  groupBy:
+                    field: PROVIDER_NAME
+                  headerTitle: Weekly Care Team Hours
+                  height:
+                    mode: gridUnit
+                    value: 32
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 0
+                  onSelectData:
+                    - id: ul2fra33u5
+                      newWindow: true
+                  parentId: dwpvpsnarl
+                  plotlyChartJson: "{{getCareTeamTime.response}}"
+                  size:
+                    field: ""
+                  top:
+                    mode: gridUnit
+                    value: 59
+                  type: CHART_WIDGET
+                  widgetId: 7njf5n9njv
+                  widgetName: CareTeamHours
+                  width:
+                    mode: gridUnit
+                    value: 50
+                  x:
+                    axisTitle: ""
+                    dataType: nominal
+                    field: DATE_LOGGED
+                    timeUnit: yearmonthdate
+                  y:
+                    aggregation: sum
+                    axisTitle: Hours
+                    dataType: number
+                    notation: standard
+                    series:
+                      - field: TIME_LOGGED_HOURS
+                - animateLoading: true
+                  chartData: "{{getCTAvgHours.response}}"
+                  chartDefinition: ui
+                  chartType: BAR_CHART
+                  collapseWhenHidden: false
+                  columnInfo:
+                    - canBeNumeric: true
+                      name: Avg_Daily_Hrs
+                      type: number
+                    - canBeNumeric: false
+                      name: Care_Team_Member
+                      type: string
+                  dynamicBindingPathList:
+                    - key: chartData
+                  dynamicTriggerPathList:
+                    - key: onSelectData
+                  gridColumns: 45
+                  groupBy: {}
+                  headerTitle: Avg. Daily Hrs. (Last 7 Days)
+                  height:
+                    mode: gridUnit
+                    value: 32
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 51
+                  onSelectData:
+                    - id: a1lenybocy
+                      newWindow: true
+                  parentId: dwpvpsnarl
+                  plotlyChartJson:
+                    data:
+                      - type: bar
+                        x:
+                          - 1
+                          - 2
+                          - 3
+                        y:
+                          - 2
+                          - 5
+                          - 3
+                    layout: {}
+                  size:
+                    field: ""
+                  top:
+                    mode: gridUnit
+                    value: 59
+                  type: CHART_WIDGET
+                  widgetId: 55071gf0y3
+                  widgetName: AverageMinutesPerDay
+                  width:
+                    mode: gridUnit
+                    value: 45
+                  x:
+                    axisTitle: ""
+                    dataType: auto
+                    field: Care_Team_Member
+                  y:
+                    axisTitle: Hours
+                    dataType: number
+                    notation: standard
+                    series:
+                      - field: Avg_Daily_Hrs
+                - animateLoading: true
+                  cachedColumnSettings:
+                    DAYS_SINCE_LAST_INTERACTION:
+                      columnType: number
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.DAYS_SINCE_LAST_INTERACTION })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: DAYS_SINCE_LAST_INTERACTION
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 8
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Days Since...
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.DAYS_SINCE_LAST_INTERACTION })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.DAYS_SINCE_LAST_INTERACTION })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    FINAL_TOTAL_TIME_LOGGED:
+                      columnType: number
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.FINAL_TOTAL_TIME_LOGGED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: FINAL_TOTAL_TIME_LOGGED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 9
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Billable
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.FINAL_TOTAL_TIME_LOGGED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.FINAL_TOTAL_TIME_LOGGED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LAST_TIME_LOGGED:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.LAST_TIME_LOGGED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LAST_TIME_LOGGED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 19
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: LAST_TIME_LOGGED
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LAST_TIME_LOGGED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LAST_TIME_LOGGED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    REMAINDER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.REMAINDER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: REMAINDER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 38
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: REMAINDER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.REMAINDER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.REMAINDER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TIME_LOGGED:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TIME_LOGGED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TIME_LOGGED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 43
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TIME_LOGGED
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TIME_LOGGED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TIME_LOGGED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    action:
+                      buttonLabel: Approve
+                      columnType: button
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: action
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 5
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: action
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.action })}}"
+                      notation: standard
+                      onClick:
+                        - code: showAlert(currentRow.name + ' is approved!', 'success')
+                          id: id0
+                          newWindow: true
+                          type: runJs
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    date_joined:
+                      columnType: date
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: date_joined
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 2
+                      inputFormat: YYYY-MM-DD
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: date joined
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.date_joined })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      outputFormat: MM-DD-YYYY
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    photo:
+                      columnType: image
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: photo
+                      imageBorderRadius:
+                        mode: "%"
+                        value: 50
+                      imageSize: FIXED
+                      index: 3
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: photo
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.photo })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    twitter:
+                      columnType: link
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.twitter })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: twitter
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 1
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: twitter
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return '@' +
+                        currentRow.twitter?.split('/').pop()})}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.twitter })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                  collapseWhenHidden: false
+                  columnOrder:
+                    - MONTH_OF
+                    - CARE_NAVIGATOR
+                    - PATIENT_FIRST_NAME
+                    - PATIENT_LAST_NAME
+                    - FIRST_NAME
+                    - LAST_NAME
+                    - LEAD_STAGE
+                    - MONTHS_SINCE_CREATED
+                    - RPM_STAGE
+                    - CCM_STAGE
+                    - DAYS_FROM_LAST_ENC
+                    - INDIVIDUAL_TIME_LOGGED
+                    - ASSIGNED_NAVIGATOR_TIME_LOGGED
+                    - TIME_LEFT
+                    - TOTAL_BILLABLE_BLOCKS
+                    - PROPORTION_INDIVIDUAL
+                    - PROPORTION_GROUP
+                    - THREE_DAY_ADHERENCE_RATE
+                    - WEEK_ADHERENCE_RATE
+                    - MONTH_ADHERENCE_RATE
+                    - QUARTER_ADHERENCE_RATE
+                    - LATEST_ENC_CREATED_TIME
+                    - TOTAL_TIME_LOGGED_ROUNDED
+                    - TOTAL_BILLABLE
+                    - PROPORTION_GLOBAL
+                    - GROUP_PROPORTIONAL_MULTIPLIER
+                    - GLOBAL_PROPORTIONAL_MULTIPLIER
+                    - TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED
+                    - AT_LEAST_ONE_BILLABLE_BLOCK
+                    - CARE_SERVICES
+                    - CCM_PAYER
+                    - CREATED_ON
+                    - CUSTOMER
+                    - CUSTOMER_FACILITY
+                    - DOB
+                    - READING_DAYS_LAST_THREE
+                    - READING_DAYS_LAST_WEEK
+                    - READING_DAYS_LAST_MONTH
+                    - READING_DAYS_LAST_QUARTER
+                    - GLOBAL_OUTLIER
+                    - GROUP_OUTLIER
+                    - INDIVIDUALLY_BILLABLE_BLOCKS
+                    - LEADSQUARED_ID
+                    - LEAD_TYPE
+                    - PATIENT_DOB
+                    - PATIENT_INDIVIDUAL_ID
+                    - PROPORTION_INDIVIDUAL_WITH_GLOBAL
+                    - RPM_PAYER
+                    - TOTAL_TIME_LOGGED
+                    - TOTAL_TIME_LOGGED_WITH_GLOBAL
+                    - VISITING_PROVIDER
+                    - TRUE_CARE_LINK
+                    - WELLNESS_PAYER
+                    - WELLNESS_STAGE
+                  columnSizeMap:
+                    ASSIGNED_NAVIGATOR_TIME_LOGGED: 118
+                    CARE_NAVIGATOR: 113
+                    CCM_STAGE: 88
+                    DAYS_FROM_LAST_ENC: 128
+                    FIRST_NAME: 112
+                    INDIVIDUAL_TIME_LOGGED: 77
+                    LAST_NAME: 99
+                    LEAD_STAGE: 106
+                    MONTHS_SINCE_CREATED: 89
+                    MONTH_ADHERENCE_RATE: 86
+                    MONTH_OF: 119
+                    PATIENT_FIRST_NAME: 137
+                    PATIENT_LAST_NAME: 99
+                    PROPORTION_GROUP: 60
+                    PROPORTION_INDIVIDUAL: 74
+                    QUARTER_ADHERENCE_RATE: 86
+                    RPM_STAGE: 78
+                    THREE_DAY_ADHERENCE_RATE: 80
+                    TIME_LEFT: 100
+                    TOTAL_BILLABLE_BLOCKS: 104
+                    TOTAL_TIME_LOGGED_ROUNDED: 88
+                    TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED: 168
+                    WEEK_ADHERENCE_RATE: 80
+                  compactMode: VERY_SHORT
+                  defaultFilters: "{}"
+                  defaultSelectedRow: "0"
+                  derivedColumns: {}
+                  dynamicBindingPathList:
+                    - key: tableData
+                    - key: primaryColumns.AT_LEAST_ONE_BILLABLE_BLOCK.computedValue
+                    - key: primaryColumns.AT_LEAST_ONE_BILLABLE_BLOCK.linkUrl
+                    - key: primaryColumns.AT_LEAST_ONE_BILLABLE_BLOCK.linkLabel
+                    - key: primaryColumns.CARE_NAVIGATOR.computedValue
+                    - key: primaryColumns.CARE_NAVIGATOR.linkUrl
+                    - key: primaryColumns.CARE_NAVIGATOR.linkLabel
+                    - key: primaryColumns.CARE_SERVICES.computedValue
+                    - key: primaryColumns.CARE_SERVICES.linkUrl
+                    - key: primaryColumns.CARE_SERVICES.linkLabel
+                    - key: primaryColumns.CCM_PAYER.computedValue
+                    - key: primaryColumns.CCM_PAYER.linkUrl
+                    - key: primaryColumns.CCM_PAYER.linkLabel
+                    - key: primaryColumns.CCM_STAGE.computedValue
+                    - key: primaryColumns.CCM_STAGE.linkUrl
+                    - key: primaryColumns.CCM_STAGE.linkLabel
+                    - key: primaryColumns.CREATED_ON.computedValue
+                    - key: primaryColumns.CREATED_ON.linkUrl
+                    - key: primaryColumns.CREATED_ON.linkLabel
+                    - key: primaryColumns.CUSTOMER.computedValue
+                    - key: primaryColumns.CUSTOMER.linkUrl
+                    - key: primaryColumns.CUSTOMER.linkLabel
+                    - key: primaryColumns.CUSTOMER_FACILITY.computedValue
+                    - key: primaryColumns.CUSTOMER_FACILITY.linkUrl
+                    - key: primaryColumns.CUSTOMER_FACILITY.linkLabel
+                    - key: primaryColumns.DOB.computedValue
+                    - key: primaryColumns.DOB.linkUrl
+                    - key: primaryColumns.DOB.linkLabel
+                    - key: primaryColumns.FIRST_NAME.computedValue
+                    - key: primaryColumns.FIRST_NAME.linkUrl
+                    - key: primaryColumns.FIRST_NAME.linkLabel
+                    - key: primaryColumns.GLOBAL_OUTLIER.computedValue
+                    - key: primaryColumns.GLOBAL_OUTLIER.linkUrl
+                    - key: primaryColumns.GLOBAL_OUTLIER.linkLabel
+                    - key: primaryColumns.GLOBAL_PROPORTIONAL_MULTIPLIER.computedValue
+                    - key: primaryColumns.GLOBAL_PROPORTIONAL_MULTIPLIER.linkUrl
+                    - key: primaryColumns.GLOBAL_PROPORTIONAL_MULTIPLIER.linkLabel
+                    - key: primaryColumns.GROUP_OUTLIER.computedValue
+                    - key: primaryColumns.GROUP_OUTLIER.linkUrl
+                    - key: primaryColumns.GROUP_OUTLIER.linkLabel
+                    - key: primaryColumns.GROUP_PROPORTIONAL_MULTIPLIER.computedValue
+                    - key: primaryColumns.GROUP_PROPORTIONAL_MULTIPLIER.linkUrl
+                    - key: primaryColumns.GROUP_PROPORTIONAL_MULTIPLIER.linkLabel
+                    - key: primaryColumns.INDIVIDUALLY_BILLABLE_BLOCKS.computedValue
+                    - key: primaryColumns.INDIVIDUALLY_BILLABLE_BLOCKS.linkUrl
+                    - key: primaryColumns.INDIVIDUALLY_BILLABLE_BLOCKS.linkLabel
+                    - key: primaryColumns.INDIVIDUAL_TIME_LOGGED.computedValue
+                    - key: primaryColumns.INDIVIDUAL_TIME_LOGGED.linkUrl
+                    - key: primaryColumns.INDIVIDUAL_TIME_LOGGED.linkLabel
+                    - key: primaryColumns.LAST_NAME.computedValue
+                    - key: primaryColumns.LAST_NAME.linkUrl
+                    - key: primaryColumns.LAST_NAME.linkLabel
+                    - key: primaryColumns.LEADSQUARED_ID.computedValue
+                    - key: primaryColumns.LEADSQUARED_ID.linkUrl
+                    - key: primaryColumns.LEADSQUARED_ID.linkLabel
+                    - key: primaryColumns.LEAD_STAGE.computedValue
+                    - key: primaryColumns.LEAD_STAGE.linkUrl
+                    - key: primaryColumns.LEAD_STAGE.linkLabel
+                    - key: primaryColumns.LEAD_TYPE.computedValue
+                    - key: primaryColumns.LEAD_TYPE.linkUrl
+                    - key: primaryColumns.LEAD_TYPE.linkLabel
+                    - key: primaryColumns.MONTH_OF.computedValue
+                    - key: primaryColumns.MONTH_OF.linkUrl
+                    - key: primaryColumns.MONTH_OF.linkLabel
+                    - key: primaryColumns.PATIENT_DOB.computedValue
+                    - key: primaryColumns.PATIENT_DOB.linkUrl
+                    - key: primaryColumns.PATIENT_DOB.linkLabel
+                    - key: primaryColumns.PATIENT_FIRST_NAME.computedValue
+                    - key: primaryColumns.PATIENT_FIRST_NAME.linkUrl
+                    - key: primaryColumns.PATIENT_FIRST_NAME.linkLabel
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.computedValue
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.linkUrl
+                    - key: primaryColumns.PATIENT_INDIVIDUAL_ID.linkLabel
+                    - key: primaryColumns.PATIENT_LAST_NAME.computedValue
+                    - key: primaryColumns.PATIENT_LAST_NAME.linkUrl
+                    - key: primaryColumns.PATIENT_LAST_NAME.linkLabel
+                    - key: primaryColumns.PROPORTION_GLOBAL.computedValue
+                    - key: primaryColumns.PROPORTION_GLOBAL.linkUrl
+                    - key: primaryColumns.PROPORTION_GLOBAL.linkLabel
+                    - key: primaryColumns.PROPORTION_GROUP.computedValue
+                    - key: primaryColumns.PROPORTION_GROUP.linkUrl
+                    - key: primaryColumns.PROPORTION_GROUP.linkLabel
+                    - key: primaryColumns.PROPORTION_INDIVIDUAL.computedValue
+                    - key: primaryColumns.PROPORTION_INDIVIDUAL.linkUrl
+                    - key: primaryColumns.PROPORTION_INDIVIDUAL.linkLabel
+                    - key: primaryColumns.PROPORTION_INDIVIDUAL_WITH_GLOBAL.computedValue
+                    - key: primaryColumns.PROPORTION_INDIVIDUAL_WITH_GLOBAL.linkUrl
+                    - key: primaryColumns.PROPORTION_INDIVIDUAL_WITH_GLOBAL.linkLabel
+                    - key: primaryColumns.RPM_PAYER.computedValue
+                    - key: primaryColumns.RPM_PAYER.linkUrl
+                    - key: primaryColumns.RPM_PAYER.linkLabel
+                    - key: primaryColumns.RPM_STAGE.computedValue
+                    - key: primaryColumns.RPM_STAGE.linkUrl
+                    - key: primaryColumns.RPM_STAGE.linkLabel
+                    - key: primaryColumns.TOTAL_BILLABLE.computedValue
+                    - key: primaryColumns.TOTAL_BILLABLE.linkUrl
+                    - key: primaryColumns.TOTAL_BILLABLE.linkLabel
+                    - key: primaryColumns.TOTAL_BILLABLE_BLOCKS.computedValue
+                    - key: primaryColumns.TOTAL_BILLABLE_BLOCKS.linkUrl
+                    - key: primaryColumns.TOTAL_BILLABLE_BLOCKS.linkLabel
+                    - key: primaryColumns.TOTAL_TIME_LOGGED.computedValue
+                    - key: primaryColumns.TOTAL_TIME_LOGGED.linkUrl
+                    - key: primaryColumns.TOTAL_TIME_LOGGED.linkLabel
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_ROUNDED.computedValue
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_ROUNDED.linkUrl
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_ROUNDED.linkLabel
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_WITH_GLOBAL.computedValue
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_WITH_GLOBAL.linkUrl
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_WITH_GLOBAL.linkLabel
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED.computedValue
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED.linkUrl
+                    - key: primaryColumns.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED.linkLabel
+                    - key: primaryColumns.VISITING_PROVIDER.computedValue
+                    - key: primaryColumns.VISITING_PROVIDER.linkUrl
+                    - key: primaryColumns.VISITING_PROVIDER.linkLabel
+                    - key: primaryColumns.WELLNESS_PAYER.computedValue
+                    - key: primaryColumns.WELLNESS_PAYER.linkUrl
+                    - key: primaryColumns.WELLNESS_PAYER.linkLabel
+                    - key: primaryColumns.WELLNESS_STAGE.computedValue
+                    - key: primaryColumns.WELLNESS_STAGE.linkUrl
+                    - key: primaryColumns.WELLNESS_STAGE.linkLabel
+                    - key: primaryColumns.MONTH_OF.outputFormat
+                    - key: primaryColumns.MONTH_ADHERENCE_RATE.computedValue
+                    - key: primaryColumns.MONTH_ADHERENCE_RATE.linkUrl
+                    - key: primaryColumns.MONTH_ADHERENCE_RATE.linkLabel
+                    - key: primaryColumns.QUARTER_ADHERENCE_RATE.computedValue
+                    - key: primaryColumns.QUARTER_ADHERENCE_RATE.linkUrl
+                    - key: primaryColumns.QUARTER_ADHERENCE_RATE.linkLabel
+                    - key: primaryColumns.READING_DAYS_LAST_MONTH.computedValue
+                    - key: primaryColumns.READING_DAYS_LAST_MONTH.linkUrl
+                    - key: primaryColumns.READING_DAYS_LAST_MONTH.linkLabel
+                    - key: primaryColumns.READING_DAYS_LAST_QUARTER.computedValue
+                    - key: primaryColumns.READING_DAYS_LAST_QUARTER.linkUrl
+                    - key: primaryColumns.READING_DAYS_LAST_QUARTER.linkLabel
+                    - key: primaryColumns.READING_DAYS_LAST_THREE.computedValue
+                    - key: primaryColumns.READING_DAYS_LAST_THREE.linkUrl
+                    - key: primaryColumns.READING_DAYS_LAST_THREE.linkLabel
+                    - key: primaryColumns.READING_DAYS_LAST_WEEK.computedValue
+                    - key: primaryColumns.READING_DAYS_LAST_WEEK.linkUrl
+                    - key: primaryColumns.READING_DAYS_LAST_WEEK.linkLabel
+                    - key: primaryColumns.THREE_DAY_ADHERENCE_RATE.computedValue
+                    - key: primaryColumns.THREE_DAY_ADHERENCE_RATE.linkUrl
+                    - key: primaryColumns.THREE_DAY_ADHERENCE_RATE.linkLabel
+                    - key: primaryColumns.TIME_LEFT.computedValue
+                    - key: primaryColumns.TIME_LEFT.linkUrl
+                    - key: primaryColumns.TIME_LEFT.linkLabel
+                    - key: primaryColumns.WEEK_ADHERENCE_RATE.computedValue
+                    - key: primaryColumns.WEEK_ADHERENCE_RATE.linkUrl
+                    - key: primaryColumns.WEEK_ADHERENCE_RATE.linkLabel
+                    - key: primaryColumns.MONTHS_SINCE_CREATED.computedValue
+                    - key: primaryColumns.MONTHS_SINCE_CREATED.linkUrl
+                    - key: primaryColumns.MONTHS_SINCE_CREATED.linkLabel
+                    - key: primaryColumns.ASSIGNED_NAVIGATOR_TIME_LOGGED.computedValue
+                    - key: primaryColumns.ASSIGNED_NAVIGATOR_TIME_LOGGED.linkUrl
+                    - key: primaryColumns.ASSIGNED_NAVIGATOR_TIME_LOGGED.linkLabel
+                    - key: primaryColumns.TRUE_CARE_LINK.computedValue
+                    - key: primaryColumns.TRUE_CARE_LINK.linkUrl
+                    - key: primaryColumns.TRUE_CARE_LINK.linkLabel
+                    - key: primaryColumns.DAYS_FROM_LAST_ENC.computedValue
+                    - key: primaryColumns.DAYS_FROM_LAST_ENC.linkUrl
+                    - key: primaryColumns.DAYS_FROM_LAST_ENC.linkLabel
+                    - key: primaryColumns.LATEST_ENC_CREATED_TIME.computedValue
+                    - key: primaryColumns.LATEST_ENC_CREATED_TIME.linkUrl
+                    - key: primaryColumns.LATEST_ENC_CREATED_TIME.linkLabel
+                  dynamicPropertyPathList:
+                    - key: primaryColumns.MONTH_OF.outputFormat
+                  dynamicTriggerPathList:
+                    - key: onRowClicked
+                    - key: onSaveChanges
+                    - key: onCancelChanges
+                  gridColumns: 96
+                  height:
+                    mode: gridUnit
+                    value: 52
+                  horizontalAlignment: LEFT
+                  isDownloadable: true
+                  isFilterable: true
+                  isLoading: false
+                  isSearchable: false
+                  isVisible: true
+                  label: Data
+                  left:
+                    mode: gridUnit
+                    value: 0
+                  onCancelChanges:
+                    - id: d3qag7isi0
+                      newWindow: true
+                  onRowClicked:
+                    - id: b7pa0ql142
+                      newWindow: true
+                  onSaveChanges:
+                    - id: xowve3qe8z
+                      newWindow: true
+                  pageType: NONE
+                  parentId: dwpvpsnarl
+                  primaryColumns:
+                    ASSIGNED_NAVIGATOR_TIME_LOGGED:
+                      columnType: number
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.ASSIGNED_NAVIGATOR_TIME_LOGGED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: ASSIGNED_NAVIGATOR_TIME_LOGGED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 0
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Care Navigator
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.ASSIGNED_NAVIGATOR_TIME_LOGGED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.ASSIGNED_NAVIGATOR_TIME_LOGGED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    AT_LEAST_ONE_BILLABLE_BLOCK:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.AT_LEAST_ONE_BILLABLE_BLOCK })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: AT_LEAST_ONE_BILLABLE_BLOCK
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 0
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: AT_LEAST_ONE_BILLABLE_BLOCK
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.AT_LEAST_ONE_BILLABLE_BLOCK })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.AT_LEAST_ONE_BILLABLE_BLOCK })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CARE_NAVIGATOR:
+                      columnType: tags
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.CARE_NAVIGATOR })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CARE_NAVIGATOR
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 1
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Care Navigator
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CARE_NAVIGATOR })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CARE_NAVIGATOR })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CARE_SERVICES:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.CARE_SERVICES })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CARE_SERVICES
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 2
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CARE_SERVICES
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CARE_SERVICES })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CARE_SERVICES })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CCM_PAYER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.CCM_PAYER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CCM_PAYER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 3
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CCM_PAYER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CCM_PAYER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CCM_PAYER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CCM_STAGE:
+                      columnType: tags
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.CCM_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CCM_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 4
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: CCM
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CCM_STAGE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CCM_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CREATED_ON:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.CREATED_ON })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CREATED_ON
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 5
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CREATED_ON
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CREATED_ON })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CREATED_ON })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CUSTOMER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.CUSTOMER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CUSTOMER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 6
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CUSTOMER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CUSTOMER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CUSTOMER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    CUSTOMER_FACILITY:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.CUSTOMER_FACILITY })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: CUSTOMER_FACILITY
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 7
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CUSTOMER_FACILITY
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CUSTOMER_FACILITY })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.CUSTOMER_FACILITY })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    DAYS_FROM_LAST_ENC:
+                      columnType: number
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.DAYS_FROM_LAST_ENC })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: DAYS_FROM_LAST_ENC
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 9
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Last Touch (Days)
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.DAYS_FROM_LAST_ENC })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.DAYS_FROM_LAST_ENC })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    DOB:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.DOB })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: DOB
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 8
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: DOB
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.DOB })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.DOB })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    FIRST_NAME:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.FIRST_NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: FIRST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 9
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: First
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.FIRST_NAME })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.FIRST_NAME })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    GLOBAL_OUTLIER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.GLOBAL_OUTLIER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: GLOBAL_OUTLIER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 10
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: GLOBAL_OUTLIER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GLOBAL_OUTLIER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GLOBAL_OUTLIER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    GLOBAL_PROPORTIONAL_MULTIPLIER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.GLOBAL_PROPORTIONAL_MULTIPLIER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: GLOBAL_PROPORTIONAL_MULTIPLIER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 11
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: GLOBAL_PROPORTIONAL_MULTIPLIER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GLOBAL_PROPORTIONAL_MULTIPLIER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GLOBAL_PROPORTIONAL_MULTIPLIER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    GROUP_OUTLIER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.GROUP_OUTLIER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: GROUP_OUTLIER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 12
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: GROUP_OUTLIER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GROUP_OUTLIER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GROUP_OUTLIER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    GROUP_PROPORTIONAL_MULTIPLIER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.GROUP_PROPORTIONAL_MULTIPLIER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: GROUP_PROPORTIONAL_MULTIPLIER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 13
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: GROUP_PROPORTIONAL_MULTIPLIER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GROUP_PROPORTIONAL_MULTIPLIER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.GROUP_PROPORTIONAL_MULTIPLIER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    INDIVIDUALLY_BILLABLE_BLOCKS:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.INDIVIDUALLY_BILLABLE_BLOCKS })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: INDIVIDUALLY_BILLABLE_BLOCKS
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 14
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: INDIVIDUALLY_BILLABLE_BLOCKS
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.INDIVIDUALLY_BILLABLE_BLOCKS })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.INDIVIDUALLY_BILLABLE_BLOCKS })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    INDIVIDUAL_TIME_LOGGED:
+                      columnType: number
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.INDIVIDUAL_TIME_LOGGED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: INDIVIDUAL_TIME_LOGGED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 15
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Logged
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.INDIVIDUAL_TIME_LOGGED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.INDIVIDUAL_TIME_LOGGED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LAST_NAME:
+                      columnType: link
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.LAST_NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      fontStyle: BOLD
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LAST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 16
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Last
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LAST_NAME })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TRUE_CARE_LINK })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LATEST_ENC_CREATED_TIME:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.LATEST_ENC_CREATED_TIME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LATEST_ENC_CREATED_TIME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 19
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: LATEST_ENC_CREATED_TIME
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LATEST_ENC_CREATED_TIME })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LATEST_ENC_CREATED_TIME })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LEADSQUARED_ID:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.LEADSQUARED_ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LEADSQUARED_ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 17
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: LEADSQUARED_ID
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LEADSQUARED_ID })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LEADSQUARED_ID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LEAD_STAGE:
+                      columnType: tags
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.LEAD_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LEAD_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 18
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Stage
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LEAD_STAGE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LEAD_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    LEAD_TYPE:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.LEAD_TYPE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: LEAD_TYPE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 19
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: LEAD_TYPE
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LEAD_TYPE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.LEAD_TYPE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    MONTHS_SINCE_CREATED:
+                      columnType: tags
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.MONTHS_SINCE_CREATED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: MONTHS_SINCE_CREATED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 23
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Months
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.MONTHS_SINCE_CREATED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.MONTHS_SINCE_CREATED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig:
+                        "0":
+                          color: "#90e789b3"
+                        "1":
+                          color: "#95d090b3"
+                        "10":
+                          color: "#000000"
+                        "2":
+                          color: "#9dc09ab3"
+                        "3":
+                          color: "#97a896b3"
+                        "4":
+                          color: "#878f86b3"
+                        "5":
+                          color: "#6c706cb3"
+                        "6":
+                          color: "#444444b3"
+                        "7":
+                          color: "#262626b3"
+                        "8":
+                          color: "#000000b3"
+                        "9":
+                          color: "#000000"
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    MONTH_ADHERENCE_RATE:
+                      columnType: percentage
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.MONTH_ADHERENCE_RATE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: MONTH_ADHERENCE_RATE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 23
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: 30-Day
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.MONTH_ADHERENCE_RATE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.MONTH_ADHERENCE_RATE })}}"
+                      maximumFractionDigits: "0"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    MONTH_OF:
+                      columnType: date
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.MONTH_OF })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: MONTH_OF
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 20
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Month Of
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.MONTH_OF })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.MONTH_OF })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      outputFormat: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return 'MM-YYYY'})}}"
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_DOB:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PATIENT_DOB })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_DOB
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 21
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PATIENT_DOB
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PATIENT_DOB })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PATIENT_DOB })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_FIRST_NAME:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PATIENT_FIRST_NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: PATIENT_FIRST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 22
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: First
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PATIENT_FIRST_NAME })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PATIENT_FIRST_NAME })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_INDIVIDUAL_ID:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_INDIVIDUAL_ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 23
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PATIENT_INDIVIDUAL_ID
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PATIENT_INDIVIDUAL_ID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PATIENT_LAST_NAME:
+                      columnType: link
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PATIENT_LAST_NAME })}}"
+                      enableFilter: true
+                      enableSort: true
+                      fontStyle: BOLD
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PATIENT_LAST_NAME
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 24
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: Last
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PATIENT_LAST_NAME })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TRUE_CARE_LINK })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PROPORTION_GLOBAL:
+                      columnType: percentage
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PROPORTION_GLOBAL })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PROPORTION_GLOBAL
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 25
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PROPORTION_GLOBAL
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_GLOBAL })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_GLOBAL })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PROPORTION_GROUP:
+                      columnType: percentage
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PROPORTION_GROUP })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: PROPORTION_GROUP
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 26
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: CN
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_GROUP })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_GROUP })}}"
+                      maximumFractionDigits: "0"
+                      minimumFractionDigits: "0"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PROPORTION_INDIVIDUAL:
+                      columnType: percentage
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PROPORTION_INDIVIDUAL })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: PROPORTION_INDIVIDUAL
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 27
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Patient
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_INDIVIDUAL })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_INDIVIDUAL })}}"
+                      maximumFractionDigits: "0"
+                      minimumFractionDigits: "0"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    PROPORTION_INDIVIDUAL_WITH_GLOBAL:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.PROPORTION_INDIVIDUAL_WITH_GLOBAL
+                        })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: PROPORTION_INDIVIDUAL_WITH_GLOBAL
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 28
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: PROPORTION_INDIVIDUAL_WITH_GLOBAL
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_INDIVIDUAL_WITH_GLOBAL
+                        })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.PROPORTION_INDIVIDUAL_WITH_GLOBAL
+                        })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    QUARTER_ADHERENCE_RATE:
+                      columnType: percentage
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.QUARTER_ADHERENCE_RATE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: QUARTER_ADHERENCE_RATE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 33
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: 90-Day
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.QUARTER_ADHERENCE_RATE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.QUARTER_ADHERENCE_RATE })}}"
+                      maximumFractionDigits: "0"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    READING_DAYS_LAST_MONTH:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.READING_DAYS_LAST_MONTH })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: READING_DAYS_LAST_MONTH
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 34
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: READING_DAYS_LAST_MONTH
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_MONTH })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_MONTH })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    READING_DAYS_LAST_QUARTER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.READING_DAYS_LAST_QUARTER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: READING_DAYS_LAST_QUARTER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 35
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: READING_DAYS_LAST_QUARTER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_QUARTER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_QUARTER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    READING_DAYS_LAST_THREE:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.READING_DAYS_LAST_THREE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: READING_DAYS_LAST_THREE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 36
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: READING_DAYS_LAST_THREE
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_THREE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_THREE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    READING_DAYS_LAST_WEEK:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.READING_DAYS_LAST_WEEK })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: READING_DAYS_LAST_WEEK
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 37
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: READING_DAYS_LAST_WEEK
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_WEEK })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.READING_DAYS_LAST_WEEK })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    RPM_PAYER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.RPM_PAYER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: RPM_PAYER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 29
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: RPM_PAYER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.RPM_PAYER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.RPM_PAYER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    RPM_STAGE:
+                      columnType: tags
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.RPM_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: RPM_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 30
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: RPM
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.RPM_STAGE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.RPM_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    THREE_DAY_ADHERENCE_RATE:
+                      columnType: percentage
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.THREE_DAY_ADHERENCE_RATE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: THREE_DAY_ADHERENCE_RATE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 41
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: 3-Day
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.THREE_DAY_ADHERENCE_RATE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.THREE_DAY_ADHERENCE_RATE })}}"
+                      maximumFractionDigits: "0"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TIME_LEFT:
+                      columnType: number
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TIME_LEFT })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: TIME_LEFT
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 42
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: "# Left to Bill"
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TIME_LEFT })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TIME_LEFT })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TOTAL_BILLABLE:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TOTAL_BILLABLE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TOTAL_BILLABLE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 31
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TOTAL_BILLABLE
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_BILLABLE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_BILLABLE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TOTAL_BILLABLE_BLOCKS:
+                      columnType: tags
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TOTAL_BILLABLE_BLOCKS })}}"
+                      enableFilter: true
+                      enableSort: true
+                      fontStyle: BOLD
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: TOTAL_BILLABLE_BLOCKS
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 32
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: Billable Codes
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_BILLABLE_BLOCKS })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_BILLABLE_BLOCKS })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig:
+                        "0":
+                          color: "#0000001a"
+                        "1":
+                          color: "#1ac93026"
+                        "2":
+                          color: "#1ac9304d"
+                        "3":
+                          color: "#1ac93073"
+                        "4":
+                          color: "#1ac93099"
+                        "5":
+                          color: "#1ac930bf"
+                        customTag1:
+                          color: "#1ac930e6"
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TOTAL_TIME_LOGGED:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TOTAL_TIME_LOGGED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TOTAL_TIME_LOGGED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 33
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TOTAL_TIME_LOGGED
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TOTAL_TIME_LOGGED_ROUNDED:
+                      columnType: number
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TOTAL_TIME_LOGGED_ROUNDED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: TOTAL_TIME_LOGGED_ROUNDED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 34
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TOTAL_TIME_LOGGED_ROUNDED
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED_ROUNDED })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED_ROUNDED })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TOTAL_TIME_LOGGED_WITH_GLOBAL:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TOTAL_TIME_LOGGED_WITH_GLOBAL })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TOTAL_TIME_LOGGED_WITH_GLOBAL
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 35
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TOTAL_TIME_LOGGED_WITH_GLOBAL
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED_WITH_GLOBAL })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED_WITH_GLOBAL })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return
+                        currentRow.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 36
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED
+                        })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TOTAL_TIME_LOGGED_WITH_GLOBAL_ROUNDED
+                        })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TRUE_CARE_LINK:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.TRUE_CARE_LINK })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TRUE_CARE_LINK
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 52
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TRUE_CARE_LINK
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TRUE_CARE_LINK })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.TRUE_CARE_LINK })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    VISITING_PROVIDER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.VISITING_PROVIDER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: VISITING_PROVIDER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 37
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: VISITING_PROVIDER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.VISITING_PROVIDER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.VISITING_PROVIDER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    WEEK_ADHERENCE_RATE:
+                      columnType: percentage
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.WEEK_ADHERENCE_RATE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: RIGHT
+                      id: WEEK_ADHERENCE_RATE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 51
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: 7-Day
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.WEEK_ADHERENCE_RATE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.WEEK_ADHERENCE_RATE })}}"
+                      maximumFractionDigits: "0"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    WELLNESS_PAYER:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.WELLNESS_PAYER })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: WELLNESS_PAYER
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 38
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: WELLNESS_PAYER
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.WELLNESS_PAYER })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.WELLNESS_PAYER })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    WELLNESS_STAGE:
+                      columnType: text
+                      computedValue: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) =>
+                        { return currentRow.WELLNESS_STAGE })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: WELLNESS_STAGE
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 39
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: WELLNESS_STAGE
+                      linkLabel: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.WELLNESS_STAGE })}}"
+                      linkUrl: "{{tableMinutesAdherence.tableDataWithInserts.map((currentRow) => {
+                        return currentRow.WELLNESS_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH2
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                  tableData: "{{getTimeAdherence.response}}"
+                  tableHeader: ""
+                  textSize: PARAGRAPH2
+                  top:
+                    mode: gridUnit
+                    value: 6
+                  type: TABLE_WIDGET
+                  verticalAlignment: CENTER
+                  widgetId: hmhk022xau
+                  widgetName: tableMinutesAdherence
+                  width:
+                    mode: gridUnit
+                    value: 96
+                - allowClearing: false
+                  animateLoading: true
+                  collapseWhenHidden: false
+                  defaultOptionValue: "{{new Date().getMonth() + 1}}"
+                  dynamicBindingPathList:
+                    - key: defaultOptionValue
+                    - key: options
+                  dynamicTriggerPathList:
+                    - key: onOptionChange
+                    - key: onSearchTextChange
+                    - key: onClear
+                  gridColumns: 13
+                  height:
+                    mode: gridUnit
+                    value: 3
+                  isLoading: false
+                  isMultiple: false
+                  isVertical: false
+                  isVisible: true
+                  label: Month
+                  left:
+                    mode: gridUnit
+                    value: 20
+                  onClear:
+                    - id: emc3mp3ean
+                      newWindow: true
+                  onOptionChange:
+                    - apiNames:
+                        - getTimeAdherence
+                      id: g5ya7atfa2
+                      newWindow: true
+                      type: executeApi
+                  onSearchTextChange:
+                    - id: 5krdkv3yne
+                      newWindow: true
+                  options: "{{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}}"
+                  parentId: dwpvpsnarl
+                  placeholderText: Select Month
+                  top:
+                    mode: gridUnit
+                    value: 1
+                  type: DROP_DOWN_WIDGET
+                  widgetId: 4390xymty5
+                  widgetName: dropdownMonth
+                  width:
+                    mode: gridUnit
+                    value: 13
+                - animateLoading: true
+                  collapseWhenHidden: false
+                  defaultOptionValue: "{{new Date().getFullYear()}}"
+                  dynamicBindingPathList:
+                    - key: options
+                    - key: defaultOptionValue
+                  dynamicTriggerPathList:
+                    - key: onOptionChange
+                    - key: onSearchTextChange
+                    - key: onClear
+                  gridColumns: 13
+                  height:
+                    mode: gridUnit
+                    value: 3
+                  isLoading: false
+                  isMultiple: false
+                  isVertical: false
+                  isVisible: true
+                  label: Year
+                  left:
+                    mode: gridUnit
+                    value: 34
+                  onClear:
+                    - id: h8iai0z9z4
+                      newWindow: true
+                  onOptionChange:
+                    - id: tc63w3xz0h
+                      newWindow: true
+                  onSearchTextChange:
+                    - id: 8xihnfab25
+                      newWindow: true
+                  options: "{{[2023, 2024]}}"
+                  parentId: dwpvpsnarl
+                  placeholderText: Select Year
+                  top:
+                    mode: gridUnit
+                    value: 1
+                  type: DROP_DOWN_WIDGET
+                  widgetId: xqf49rskot
+                  widgetName: dropdownYear
+                  width:
+                    mode: gridUnit
+                    value: 13
+                - animateLoading: true
+                  collapseWhenHidden: false
+                  defaultOptionValue: Barbara Aubry
+                  dynamicBindingPathList:
+                    - key: options
+                  dynamicTriggerPathList:
+                    - key: onOptionChange
+                    - key: onSearchTextChange
+                    - key: onClear
+                  gridColumns: 18
+                  height:
+                    mode: gridUnit
+                    value: 3
+                  isLoading: false
+                  isMultiple: false
+                  isVertical: false
+                  isVisible: true
+                  label: Care Navigator
+                  left:
+                    mode: gridUnit
+                    value: 1
+                  onClear:
+                    - id: s4lgtg260b
+                      newWindow: true
+                  onOptionChange:
+                    - apiNames:
+                        - getTimeAdherence
+                      id: rvberpzvd0
+                      newWindow: true
+                      type: executeApi
+                  onSearchTextChange:
+                    - id: k2iux6jmvy
+                      newWindow: true
+                  options: "{{getProviders.response}}"
+                  parentId: dwpvpsnarl
+                  placeholderText: Select a Care Team Member
+                  top:
+                    mode: gridUnit
+                    value: 1
+                  type: DROP_DOWN_WIDGET
+                  widgetId: v4wokxl8es
+                  widgetName: dropdownCN
+                  width:
+                    mode: gridUnit
+                    value: 18
+                - animateLoading: true
+                  collapseWhenHidden: false
+                  dynamicBindingPathList: []
+                  dynamicTriggerPathList: []
+                  gridColumns: 17
+                  height:
+                    mode: gridUnit
+                    value: 3
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 54
+                  parentId: dwpvpsnarl
+                  text: Minutes
+                  textAlign: CENTER
+                  textStyle: HEADING_2
+                  textType: text
+                  top:
+                    mode: gridUnit
+                    value: 3
+                  type: TEXT_WIDGET
+                  verticalAlign: AUTO
+                  widgetId: zqxbnxtbw9
+                  widgetName: Text4
+                  width:
+                    mode: gridUnit
+                    value: 17
+              containerStyle: none
+              detachFromLayout: true
+              dragDisabled: true
+              dynamicBindingPathList: []
+              dynamicTriggerPathList: []
+              gridColumns: 96
+              height:
+                mode: fitContent
+                value: 193
+              isLoading: false
+              isVisible: true
+              layout: FIXED_GRID
+              left:
+                mode: gridUnit
+                value: 0
+              minHeight:
+                mode: px
+                value: 1292
+              parentId: lm2jrimm2x
+              top:
+                mode: gridUnit
+                value: 0
+              type: CANVAS_WIDGET
+              widgetId: dwpvpsnarl
+              widgetName: Canvas1
+              width:
+                mode: gridUnit
+                value: 0
+          detachFromLayout: true
+          dragDisabled: true
+          gridColumns: 96
+          height:
+            mode: gridUnit
+            value: 195
+          isLoading: false
+          isVisible: true
+          left:
+            mode: gridUnit
+            value: 0
+          parentId: "0"
+          shouldScrollContents: true
+          top:
+            mode: gridUnit
+            value: 0
+          type: SECTION_WIDGET
+          widgetId: lm2jrimm2x
+          widgetName: Section1
+          width:
+            mode: gridUnit
+            value: 96
+      detachFromLayout: true
+      dynamicBindingPathList: []
+      gridColumns: 96
+      height:
+        mode: gridUnit
+        value: 99
+      left:
+        mode: gridUnit
+        value: 0
+      stateVars:
+        stateVarMap: {}
+      timers:
+        timerMap: {}
+      top:
+        mode: gridUnit
+        value: 0
+      type: PAGE_WIDGET
+      version: 8
+      widgetId: "0"
+      widgetName: Page
+      width:
+        mode: gridUnit
+        value: 0
+    id: 184aed59-8f87-4b59-9fe6-45fb54886044
+name: Page1

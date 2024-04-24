@@ -1,0 +1,42 @@
+blocks:
+  - name: getSegueChargesPaid
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+            NAME as Row_Labels,
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 5 THEN PAID ELSE 0 END) AS "Sum of Paid - May",
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 6 THEN PAID ELSE 0 END) AS "Sum of Paid - Jun",
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 7 THEN PAID ELSE 0 END) AS "Sum of Paid - Jul",
+          	SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 8 THEN PAID ELSE 0 END) AS "Sum of Paid - Aug",
+          	SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 9 THEN PAID ELSE 0 END) AS "Sum of Paid - Sep",
+          	SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 10 THEN PAID ELSE 0 END) AS "Sum of Paid - Oct",
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 11 THEN PAID ELSE 0 END) AS "Sum of Paid - Nov",
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 5 THEN CHARGES ELSE 0 END) AS "Sum of Charges - May",
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 6 THEN CHARGES ELSE 0 END) AS "Sum of Charges - Jun",
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 7 THEN CHARGES ELSE 0 END) AS "Sum of Charges - Jul",
+          	SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 8 THEN CHARGES ELSE 0 END) AS "Sum of Charges - Aug",
+          	SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 9 THEN CHARGES ELSE 0 END) AS "Sum of Charges - Sep",
+          	SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 10 THEN CHARGES ELSE 0 END) AS "Sum of Charges - Oct",
+            SUM(CASE WHEN EXTRACT(MONTH FROM SRVC_DATE) = 11 THEN CHARGES ELSE 0 END) AS "Sum of Charges - Nov",
+            SUM(PAID) AS "Total Sum of Paid",
+            SUM(CHARGES) AS "Total Sum of Charges"
+          FROM 
+            FIVETRAN_DATABASE.SHARE_POINT.SEGUE_REIMBURSEMENTS_RPM_PATIENTS
+          GROUP BY 
+            NAME
+          ORDER BY 
+            NAME;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 4e82d4c7-ea7b-4121-8e3a-e18846b801a1
+  name: getSegueReimbursementsByCohort
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: cadc2a14-3c7a-4e58-a5ff-eb2b22e7bdf0

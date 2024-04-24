@@ -1,0 +1,37 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT 
+            PROCEDURE,
+            EXTRACT(YEAR FROM SERVICE_DATE) AS Year,
+            EXTRACT(MONTH FROM SERVICE_DATE) AS Month,
+            SUM(ADJS) AS Total_Adjustments,
+            SUM(BALANCE) AS Total_Balance,
+            SUM(CHARGES) AS Total_Charges,
+            SUM(PAID) AS Total_Paid,
+            SUM(PAID) * 0.8 AS Fee
+          FROM 
+            FIVETRAN_DATABASE.BILLING.SEGUE_HISTORICAL_BILLINGS
+          GROUP BY 
+            PROCEDURE, 
+            EXTRACT(YEAR FROM SERVICE_DATE), 
+            EXTRACT(MONTH FROM SERVICE_DATE)
+          ORDER BY 
+            Year, 
+            Month, 
+            PROCEDURE;
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: d2ffc3cd-ca90-4822-9e24-f0d4fb593586
+  name: getInvoice
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

@@ -1,0 +1,21 @@
+blocks:
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          SELECT p.CUSTOMER, h.* FROM FIVETRAN_DATABASE.BILLING.NEW_BILLINGS_NOT_MATCHING_HISTORICAL h
+          JOIN FIVETRAN_DATABASE.TRUECARE.PATIENT_DATA p
+          ON p.PATIENT_INDIVIDUAL_ID = h.PATIENT_INDIVIDUAL_ID
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 84531c23-ed63-470b-ab92-08ed55b3479f
+  name: getMismatchedPatients
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 0628ed1a-5202-4cbe-829f-9b3976454a97

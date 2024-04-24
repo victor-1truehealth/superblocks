@@ -1,0 +1,40 @@
+blocks:
+  - name: Step1
+    step:
+      integration: javascript
+      javascript:
+        body: |
+          /*
+           * You can use JavaScript Functions to:
+           *   1. Transform the output of previous Steps by referencing their output (ex. Step1.output)
+           *   2. Write business logic referencing UI components (ex. Table1.selectedRow.id)
+           *   3. Make http calls via axios
+           *
+           * Learn more in the docs: https://docs.superblocks.com/writing-code/backend-javascript
+           */
+          /*
+           * You can use JavaScript Functions to:
+           *   1. Transform the output of previous Steps by referencing their output (ex. Step1.output)
+           *   2. Write business logic referencing UI components (ex. Table1.selectedRow.id)
+           *   3. Make http calls via axios
+           *
+           * Learn more in the docs: https://docs.superblocks.com/writing-code/backend-javascript
+           */
+
+          return getReadingLogs.response.filter(log => {
+          	return log.READING_TYPE == "BloodPressure";
+          }).map(log => {
+          	return {
+          		...log,
+          		Systolic: log.READING_VALUE.split("/")[0],
+          		Diastolic: log.READING_VALUE.split("/")[1],
+          	}
+          });
+metadata:
+  id: c32a0258-a132-4291-ba1b-60b2f71554f4
+  name: getBloodPressureList
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e
+    options: {}
