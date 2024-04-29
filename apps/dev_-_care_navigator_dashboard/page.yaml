@@ -32,6 +32,15 @@ layouts:
                 message: "{{getWeightList.error}}"
                 style: error
                 type: showAlert
+          1bfee298-c550-4c19-975e-daf9ab67fed3:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 1bfee298-c550-4c19-975e-daf9ab67fed3
+            onError:
+              - id: 170a9816-738f-4767-bed8-f0bfa94d7ae9
+                message: "{{startTimeTracked.error}}"
+                style: error
+                type: showAlert
           1e692082-ea9d-40e9-9d9b-14aa02784d18:
             dynamicTriggerPathList:
               - key: onError
@@ -48,6 +57,24 @@ layouts:
             onError:
               - id: d30089d3-c771-426b-8867-3edf1b568d60
                 message: "{{API1.error}}"
+                style: error
+                type: showAlert
+          28a6c9b9-c9bb-4563-8e13-9e1a878d8fd1:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 28a6c9b9-c9bb-4563-8e13-9e1a878d8fd1
+            onError:
+              - id: d3b017ee-2ec8-41f7-8e01-e597e33e9c62
+                message: "{{endTimeTracked.error}}"
+                style: error
+                type: showAlert
+          3e5f50c7-9d71-4b85-9134-4da212f8d8f3:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 3e5f50c7-9d71-4b85-9134-4da212f8d8f3
+            onError:
+              - id: 0e2b6f14-8e21-4088-998b-eede8cfc5223
+                message: "{{getTimeTracksForNav.error}}"
                 style: error
                 type: showAlert
           6263f368-f106-4689-9445-56c59518e085:
@@ -195,7 +222,7 @@ layouts:
               - id: 9mmbslla6l
             onError:
               - id: 5bed86c6-8c6f-4207-844f-28552a8712e6
-                message: "{{getTimeRunning.error}}"
+                message: "{{getCurrentPanelTime.error}}"
                 style: error
                 type: showAlert
             onMessage:
@@ -316,8 +343,9 @@ layouts:
               - getReadingLogs
             getBloodPressureSystolicPlotly:
               - getBloodPressureList
-            getDetailFromLSQ:
-              - getTimeAdherence
+            getCurrentPanelTime:
+              - updateTimeTrack
+            getDetailFromLSQ: []
             getOxygenSaturationList:
               - getReadingLogs
             getPatientCohorts: []
@@ -325,18 +353,15 @@ layouts:
               - updateTimeTrack
             getPulseList:
               - getReadingLogs
-            getReadingLogs:
-              - getTimeAdherence
+            getReadingLogs: []
             getTimeAdherence: []
-            getTimeRunning:
-              - updateTimeTrack
-              - getTimeAdherence
+            getTimeTracksForNav: []
             getWeightList:
               - getReadingLogs
-            updateTimeTrack: []
+            updateTimeTrack:
+              - getTimeTracksForNav
           apiNames:
             - getWeightList
-            - getTimeAdherence
             - getOxygenSaturationList
             - getReadingLogs
             - getPatientCohorts
@@ -347,9 +372,11 @@ layouts:
             - getPulseList
             - getBloodGlucoseList
             - getBloodPressureDiastolicPlotly
-            - getTimeRunning
+            - getCurrentPanelTime
             - getPatientToStop
+            - getTimeAdherence
             - updateTimeTrack
+            - getTimeTracksForNav
       canExtend: true
       children:
         - canExtend: true
@@ -827,7 +854,7 @@ layouts:
                     - WELLNESS_STAGE
                   columnSizeMap:
                     ASSIGNED_NAVIGATOR_TIME_LOGGED: 95.5697677880024
-                    CARE_NAVIGATOR: 100
+                    CARE_NAVIGATOR: 134
                     CCM_STAGE: 81
                     DAYS_FROM_LAST_ENC: 137.12792841506632
                     FIRST_NAME: 98
@@ -1050,7 +1077,7 @@ layouts:
                     - apiNames: []
                       direction: open
                       id: 9gbsc2ql4n
-                      name: Slideout2
+                      name: detail_slide
                       newWindow: true
                       type: controlSlideout
                     - id: i608m56syq
@@ -1139,7 +1166,7 @@ layouts:
                       index: 1
                       isDerived: false
                       isEditableOnInsertion: true
-                      isVisible: false
+                      isVisible: true
                       label: Care Navigator
                       linkLabel: "{{MonthlyPatientLog.tableDataWithInserts.map((currentRow) => {
                         return currentRow.CARE_NAVIGATOR })}}"
@@ -2867,20 +2894,30 @@ layouts:
                       newWindow: true
                   onOptionChange:
                     - apiNames:
-                        - getPatientToStop
-                      id: 1q6item8ds
-                      propertyName: selectedCellIndex
-                      type: resetComponent
-                      widget:
-                        id: cxj6rg4lsc
-                        name: timeTrackStatusGrid
-                        type: GRID_WIDGET
-                    - apiNames:
                         - getTimeAdherence
                       id: 5iagr61zbl
                       newWindow: true
                       type: executeApi
-                    - id: 739825j2rp
+                    - apiNames:
+                        - getTimeTracksForNav
+                      id: 730mdyzydw
+                      type: executeApi
+                    - apiNames:
+                        - updateTimeTrack
+                      id: 96yi39rn7a
+                      state:
+                        id: b1cfc6a6-8e9c-4d7e-910b-297e61bedfd7
+                        name: trackTimeDataArr
+                      type: executeApi
+                      value: |-
+                        {{getTimeTracksForNav.response.map(track => ({
+                        	id: track.ID,
+                        	patient_id: track.PATIENT_ID,
+                        	first_name: track.PATIENT_FIRSTNAME,
+                        	last_name: track.PATIENT_LASTNAME,
+                        	navigator: track.NAVIGATOR,
+                        	start_time: (new Date(track.START_TIME)).toISOString()
+                        }))}}
                   onSearchTextChange:
                     - id: rw4qwocmux
                       newWindow: true
@@ -2989,7 +3026,7 @@ layouts:
                                       id: r54kokllvi
                                       type: runJs
                                   parentId: mff495zoy0
-                                  text: "{{!currentCell.blank ? currentCell.showTime + ':' +
+                                  text: "{{!currentCell.blank ? currentCell.showTime + ' - ' +
                                     currentCell.first_name + ' ' +
                                     currentCell.last_name : \"No more Track\"}}"
                                   textColor: '{{currentCell.blank ? "#000" : "#FFFFFF"}}'
@@ -3121,8 +3158,8 @@ layouts:
                     - key: gridBindings.Button4.buttonStyle
                     - key: gridBindings.Button4.backgroundColor
                     - key: gridBindings.Button4.onClick[0].code
-                    - key: gridBindings.Button4.text
                     - key: gridBindings.Button4.textColor
+                    - key: gridBindings.Button4.text
                   dynamicPropertyPathList: []
                   dynamicTriggerPathList:
                     - key: onCellClicked
@@ -3190,7 +3227,7 @@ layouts:
                         {{timeTrackStatusGrid.gridData.map((currentCell, currentIndex) => {
                                       return (function(){
                                         try {
-                                          return  !currentCell.blank ? currentCell.showTime + ':' + currentCell.first_name + ' ' + currentCell.last_name : "No more Track";
+                                          return  !currentCell.blank ? currentCell.showTime + ' - ' + currentCell.first_name + ' ' + currentCell.last_name : "No more Track";
                                         } catch (err) {
                                           console.error("Error executing currentCell js in Grid component timeTrackStatusGrid", err);
                                           return "";
@@ -3334,7 +3371,8 @@ layouts:
                         value: 22
                   gridCellScrollable: false
                   gridColumns: 21
-                  gridData: "{{[...updateTimeTrack.response, {blank: true}]}}"
+                  gridData: "{{[...updateTimeTrack.response.filter(item => item.navigator ==
+                    dropdownCN.selectedOptionValue), {blank: true}]}}"
                   height:
                     mode: gridUnit
                     value: 9
@@ -4176,7 +4214,7 @@ layouts:
                                 value: 51
                             - animateLoading: false
                               appMode: EDIT
-                              backgroundColor: "{{getTimeRunning.response ? '#F45252' : '#E8EAED'}}"
+                              backgroundColor: "{{getCurrentPanelTime.response ? '#F45252' : '#E8EAED'}}"
                               buttonStyle: PRIMARY_BUTTON
                               collapseWhenHidden: true
                               docsUrl: https://docs.superblocks.com/components/button
@@ -4184,21 +4222,23 @@ layouts:
                                 - key: backgroundColor
                                 - key: textColor
                                 - key: text
+                                - key: isDisabled
                                 - key: icon
                               dynamicPropertyPathList:
                                 - key: backgroundColor
                                 - key: textColor
                                 - key: icon
+                                - key: isDisabled
                               dynamicTriggerPathList:
                                 - key: onClick
                               gridColumns: 9
                               height:
                                 mode: gridUnit
                                 value: 3
-                              icon: "{{ getTimeRunning.response ?  icons.stop_circle : '' }}"
+                              icon: "{{ getCurrentPanelTime.response ?  icons.stop_circle : undefined }}"
                               iconPosition: LEFT
                               isDefaultClickDisabled: true
-                              isDisabled: false
+                              isDisabled: "{{getCurrentPanelTime.response == undefined}}"
                               isLoading: false
                               isVisible: true
                               left:
@@ -4206,18 +4246,17 @@ layouts:
                                 value: 68
                               onClick:
                                 - apiNames:
+                                    - startTimeTracked
+                                  id: 0jjmohz2x9
+                                  type: executeApi
+                                - apiNames:
                                     - start_timer
                                   code: |-
-                                    if (!getTimeRunning.response) {
-                                    	trackTimeDataArr.set([...trackTimeDataArr.value, {
-                                    		patient_id: MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID,
-                                    		first_name: MonthlyPatientLog.selectedRow.FIRST_NAME,
-                                    		last_name: MonthlyPatientLog.selectedRow.LAST_NAME,
-                                    		start_time: (new Date()).toGMTString()
-                                    	}]);
-                                    } else {
+                                    if (getCurrentPanelTime.response) {
                                     currentTrackeToStop.set(MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID);
                                     	timeTrackModal.open();
+                                    } else {
+                                    	getTimeTracksForNav.run();
                                     }
                                   command: start
                                   id: r54kokllvi
@@ -4227,12 +4266,13 @@ layouts:
                                   id: zea2irbf5t
                                   type: executeApi
                                 - apiNames:
-                                    - getTimeRunning
+                                    - getCurrentPanelTime
                                   id: 4ytxr3atyr
                                   type: executeApi
                               parentId: tnn2lo74a4
-                              text: '{{getTimeRunning.response ? getTimeRunning.response : "Track Time"}}'
-                              textColor: "{{getTimeRunning.response ? '#FFFFFF' : '#1F2633'}}"
+                              text: '{{getCurrentPanelTime.response ? getCurrentPanelTime.response : "Track
+                                Time"}}'
+                              textColor: "{{getCurrentPanelTime.response ? '#FFFFFF' : '#1F2633'}}"
                               top:
                                 mode: gridUnit
                                 value: 0
@@ -9846,7 +9886,7 @@ layouts:
             - id: frctusqy6e
           onOpen:
             - apiNames:
-                - getTimeRunning
+                - getCurrentPanelTime
               id: 8qa0y5ekpb
               type: executeApi
             - apiNames:
@@ -9907,7 +9947,7 @@ layouts:
             value: 0
           type: SLIDEOUT_WIDGET
           widgetId: pejhx1pa8s
-          widgetName: Slideout2
+          widgetName: detail_slide
           width:
             mode: gridUnit
             value: 80
@@ -9936,9 +9976,7 @@ layouts:
                         mode: gridUnit
                         value: 3
                       parentId: rlypax6u3l
-                      text: "Tracked Duration:
-                        <b>{{getPatientToStop.response.showTime}}:{{getPatientT\
-                        oStop.response.showSeconds}}</b>"
+                      text: "Tracked Duration: <b>{{getPatientToStop.response.showTime}}</b>"
                       textAlign: LEFT
                       textStyle: LABEL
                       textType: text
@@ -9968,7 +10006,8 @@ layouts:
                         mode: gridUnit
                         value: 3
                       parentId: rlypax6u3l
-                      text: "End Time: <b>{{(new Date().toGMTString())}}</b>"
+                      text: "End Time: <b>{{moment(getPatientToStop.response.end_time).format('D MMMM
+                        YYYY, h:mm:ss A')}}</b>"
                       textAlign: LEFT
                       textStyle: LABEL
                       textType: text
@@ -9998,7 +10037,8 @@ layouts:
                         mode: gridUnit
                         value: 3
                       parentId: rlypax6u3l
-                      text: "Start Time: <b>{{getPatientToStop.response.start_time}}</b>"
+                      text: "Start Time: <b>{{moment(getPatientToStop.response.start_time).format('D
+                        MMMM YYYY, h:mm:ss A')}}</b>"
                       textAlign: LEFT
                       textStyle: LABEL
                       textType: text
@@ -10015,7 +10055,8 @@ layouts:
                     - animateLoading: true
                       appMode: EDIT
                       collapseWhenHidden: true
-                      dynamicBindingPathList: []
+                      dynamicBindingPathList:
+                        - key: text
                       dynamicTriggerPathList: []
                       gridColumns: 91
                       height:
@@ -10027,7 +10068,7 @@ layouts:
                         mode: gridUnit
                         value: 0
                       parentId: rlypax6u3l
-                      text: Time Tracking
+                      text: "{{getPatientToStop.response.navigator}}'s Time Tracking"
                       textAlign: LEFT
                       textStyle: HEADING_2
                       textType: text
@@ -10100,16 +10141,13 @@ layouts:
                         value: 65
                       onClick:
                         - apiNames:
-                            - getPatientToStop
-                          code: |-
-                            const index = updateTimeTrack.response.findIndex(item => item.patient_id == currentTrackeToStop.value);
-
-                            if (index > -1) {
-                            	trackTimeDataArr.value.splice(index, 1)
-                            	trackTimeDataArr.set(trackTimeDataArr.value);
-                            }
-                          id: 26cwsy448d
-                          type: runJs
+                            - endTimeTracked
+                          id: ct6gi3uy6y
+                          type: executeApi
+                        - apiNames:
+                            - getTimeTracksForNav
+                          id: fhj6v6d659
+                          type: executeApi
                         - apiNames:
                             - updateTimeTrack
                           id: xh7occuj0f
@@ -10118,18 +10156,6 @@ layouts:
                           id: 1lhdgwtlg0
                           name: timeTrackModal
                           type: controlModal
-                        - apiNames:
-                            - getPatientToStop
-                          id: c5jxbrswfe
-                          propertyName: selectedCellIndex
-                          propertyValue: "0"
-                          type: setComponentProperty
-                          widget:
-                            id: cxj6rg4lsc
-                            name: timeTrackStatusGrid
-                            type: GRID_WIDGET
-                        - id: ct6gi3uy6y
-                        - id: fhj6v6d659
                       parentId: rlypax6u3l
                       text: Stop
                       top:
@@ -10234,7 +10260,7 @@ layouts:
                         value: 4
                       type: DROP_DOWN_WIDGET
                       widgetId: uuumf1d4lt
-                      widgetName: Dropdown1
+                      widgetName: serviceType
                       width:
                         mode: gridUnit
                         value: 40
@@ -10348,14 +10374,6 @@ layouts:
             id: 96396dd2-8804-43ae-8f82-a590f4c16cdb
             name: currentTrackeToStop
             persistance: Temporary
-          b1cfc6a6-8e9c-4d7e-910b-297e61bedfd7:
-            createdAt: 1713774158453
-            defaultValue: "[]"
-            dynamicBindingPathList: []
-            dynamicTriggerPathList: []
-            id: b1cfc6a6-8e9c-4d7e-910b-297e61bedfd7
-            name: trackTimeDataArr
-            persistance: Local Storage
           df015d7d-4d6d-4157-a193-15503a2185b5:
             createdAt: 1712885637358
             defaultValue: "{endDate: new Date(), startDate: new Date()}"
@@ -10378,6 +10396,10 @@ layouts:
               - apiNames:
                   - updateTimeTrack
                 id: z83wyftr9u
+                type: executeApi
+              - apiNames:
+                  - getCurrentPanelTime
+                id: jg1sr7wssn
                 type: executeApi
       top:
         mode: gridUnit

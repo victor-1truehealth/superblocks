@@ -15,7 +15,7 @@ blocks:
 
           const index = updateTimeTrack.response.findIndex(item => item.patient_id == currentTrackeToStop.value);
 
-          return updateTimeTrack.response[index];
+          return {...updateTimeTrack.response[index], end_time: (new Date()).toISOString()};
 
 
 

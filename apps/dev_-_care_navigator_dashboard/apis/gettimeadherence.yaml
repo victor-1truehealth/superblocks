@@ -38,7 +38,7 @@ blocks:
                   PROD_WAREHOUSE.PATIENT.TIME_LOG
               GROUP BY PATIENT_INDIVIDUAL_ID
           ) TL ON PI.PATIENT_INDIVIDUAL_ID = TL.PATIENT_INDIVIDUAL_ID
-          WHERE 
+           WHERE 
               PI.CARE_NAVIGATOR = '{{dropdownCN.selectedOptionValue}}'
           ORDER BY PI.PATIENT_INDIVIDUAL_ID;
         filterBy: []
