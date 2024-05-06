@@ -345,7 +345,9 @@ layouts:
               - getBloodPressureList
             getCurrentPanelTime:
               - updateTimeTrack
-            getDetailFromLSQ: []
+              - getTimeAdherence
+            getDetailFromLSQ:
+              - getTimeAdherence
             getOxygenSaturationList:
               - getReadingLogs
             getPatientCohorts: []
@@ -353,7 +355,8 @@ layouts:
               - updateTimeTrack
             getPulseList:
               - getReadingLogs
-            getReadingLogs: []
+            getReadingLogs:
+              - getTimeAdherence
             getTimeAdherence: []
             getTimeTracksForNav: []
             getWeightList:
@@ -361,6 +364,9 @@ layouts:
             updateTimeTrack:
               - getTimeTracksForNav
           apiNames:
+            - getPatientToStop
+            - getTimeTracksForNav
+            - updateTimeTrack
             - getWeightList
             - getOxygenSaturationList
             - getReadingLogs
@@ -373,10 +379,7 @@ layouts:
             - getBloodGlucoseList
             - getBloodPressureDiastolicPlotly
             - getCurrentPanelTime
-            - getPatientToStop
             - getTimeAdherence
-            - updateTimeTrack
-            - getTimeTracksForNav
       canExtend: true
       children:
         - canExtend: true
@@ -1437,7 +1440,8 @@ layouts:
                     FIRST_NAME:
                       columnType: text
                       computedValue: "{{MonthlyPatientLog.tableDataWithInserts.map((currentRow) => {
-                        return currentRow.FIRST_NAME })}}"
+                        return currentRow.PATIENT_FIRST_NAME })}}"
+                      editInputType: TEXT
                       enableFilter: true
                       enableSort: true
                       headerIcon: ""
@@ -1450,6 +1454,7 @@ layouts:
                       imageSize: FIT
                       index: 9
                       isDerived: false
+                      isEditable: false
                       isEditableOnInsertion: true
                       isVisible: true
                       label: FIRST_NAME
@@ -1654,7 +1659,7 @@ layouts:
                     LAST_NAME:
                       columnType: text
                       computedValue: "{{MonthlyPatientLog.tableDataWithInserts.map((currentRow) => {
-                        return currentRow.LAST_NAME })}}"
+                        return currentRow.PATIENT_LAST_NAME })}}"
                       enableFilter: true
                       enableSort: true
                       fontStyle: BOLD
@@ -10352,6 +10357,14 @@ layouts:
           widthPreset: SMALL
       detachFromLayout: true
       dynamicBindingPathList: []
+      events:
+        eventMap:
+          b9ac6bc0-5292-4491-be66-88eef77877f5:
+            arguments: []
+            id: b9ac6bc0-5292-4491-be66-88eef77877f5
+            name: Event1
+            onTrigger:
+              - id: tt40snxbhy
       gridColumns: 96
       height:
         mode: gridUnit
