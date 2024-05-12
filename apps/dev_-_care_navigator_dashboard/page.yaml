@@ -32,6 +32,15 @@ layouts:
                 message: "{{getWeightList.error}}"
                 style: error
                 type: showAlert
+          1bfee298-c550-4c19-975e-daf9ab67fed3:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 1bfee298-c550-4c19-975e-daf9ab67fed3
+            onError:
+              - id: 170a9816-738f-4767-bed8-f0bfa94d7ae9
+                message: "{{startTimeTracked.error}}"
+                style: error
+                type: showAlert
           1e692082-ea9d-40e9-9d9b-14aa02784d18:
             dynamicTriggerPathList:
               - key: onError
@@ -48,6 +57,24 @@ layouts:
             onError:
               - id: d30089d3-c771-426b-8867-3edf1b568d60
                 message: "{{API1.error}}"
+                style: error
+                type: showAlert
+          28a6c9b9-c9bb-4563-8e13-9e1a878d8fd1:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 28a6c9b9-c9bb-4563-8e13-9e1a878d8fd1
+            onError:
+              - id: d3b017ee-2ec8-41f7-8e01-e597e33e9c62
+                message: "{{endTimeTracked.error}}"
+                style: error
+                type: showAlert
+          3e5f50c7-9d71-4b85-9134-4da212f8d8f3:
+            dynamicTriggerPathList:
+              - key: onError
+            id: 3e5f50c7-9d71-4b85-9134-4da212f8d8f3
+            onError:
+              - id: 0e2b6f14-8e21-4088-998b-eede8cfc5223
+                message: "{{getTimeTracksForNav.error}}"
                 style: error
                 type: showAlert
           6263f368-f106-4689-9445-56c59518e085:
@@ -149,6 +176,22 @@ layouts:
                 message: "{{getTimePrioritiesGlobal.error}}"
                 style: error
                 type: showAlert
+          a80ca822-3c9e-45ac-aca9-4e23f2ccd54f:
+            dynamicBindingPathList: []
+            dynamicTriggerPathList:
+              - key: onError
+              - key: onSuccess
+              - key: onCancel
+            id: a80ca822-3c9e-45ac-aca9-4e23f2ccd54f
+            onCancel:
+              - id: qysvvtpf4j
+            onError:
+              - id: 863b42bb-2898-4dab-b9f2-d97eeb8a2d29
+                message: "{{getPatientToStop.error}}"
+                style: error
+                type: showAlert
+            onSuccess:
+              - id: 41vdf5i4t5
           af1fe603-66bd-4dd7-aaee-c70a87febafb:
             dynamicBindingPathList: []
             dynamicTriggerPathList:
@@ -179,7 +222,7 @@ layouts:
               - id: 9mmbslla6l
             onError:
               - id: 5bed86c6-8c6f-4207-844f-28552a8712e6
-                message: "{{isTimerRunning.error}}"
+                message: "{{getCurrentPanelTime.error}}"
                 style: error
                 type: showAlert
             onMessage:
@@ -300,33 +343,42 @@ layouts:
               - getReadingLogs
             getBloodPressureSystolicPlotly:
               - getBloodPressureList
-            getDetailFromLSQ: []
+            getCurrentPanelTime:
+              - updateTimeTrack
+              - getTimeAdherence
+            getDetailFromLSQ:
+              - getTimeAdherence
             getOxygenSaturationList:
               - getReadingLogs
             getPatientCohorts: []
+            getPatientToStop:
+              - updateTimeTrack
             getPulseList:
               - getReadingLogs
-            getReadingLogs: []
+            getReadingLogs:
+              - getTimeAdherence
             getTimeAdherence: []
+            getTimeTracksForNav: []
             getWeightList:
               - getReadingLogs
-            isTimerRunning:
-              - updateTimeTrack
-            updateTimeTrack: []
+            updateTimeTrack:
+              - getTimeTracksForNav
           apiNames:
+            - getPatientToStop
+            - getTimeTracksForNav
             - updateTimeTrack
-            - isTimerRunning
-            - CTM_Calls
-            - getOxygenSaturationList
             - getWeightList
+            - getOxygenSaturationList
+            - getReadingLogs
+            - getPatientCohorts
+            - getBloodPressureSystolicPlotly
+            - CTM_Calls
+            - getBloodPressureList
+            - getDetailFromLSQ
             - getPulseList
             - getBloodGlucoseList
-            - getReadingLogs
-            - getBloodPressureList
-            - getBloodPressureSystolicPlotly
             - getBloodPressureDiastolicPlotly
-            - getDetailFromLSQ
-            - getPatientCohorts
+            - getCurrentPanelTime
             - getTimeAdherence
       canExtend: true
       children:
@@ -337,7 +389,8 @@ layouts:
               children:
                 - animateLoading: true
                   collapseWhenHidden: false
-                  dynamicBindingPathList: []
+                  dynamicBindingPathList:
+                    - key: textColor
                   dynamicTriggerPathList: []
                   gridColumns: 26
                   height:
@@ -351,11 +404,12 @@ layouts:
                   parentId: dwpvpsnarl
                   text: Minutes Tracked
                   textAlign: CENTER
+                  textColor: "{{ theme.colors.neutral900 }}"
                   textStyle: HEADING_2
                   textType: text
                   top:
                     mode: gridUnit
-                    value: 6
+                    value: 10
                   type: TEXT_WIDGET
                   verticalAlign: AUTO
                   widgetId: roxcuamfjs
@@ -803,7 +857,7 @@ layouts:
                     - WELLNESS_STAGE
                   columnSizeMap:
                     ASSIGNED_NAVIGATOR_TIME_LOGGED: 95.5697677880024
-                    CARE_NAVIGATOR: 100
+                    CARE_NAVIGATOR: 134
                     CCM_STAGE: 81
                     DAYS_FROM_LAST_ENC: 137.12792841506632
                     FIRST_NAME: 98
@@ -1026,9 +1080,10 @@ layouts:
                     - apiNames: []
                       direction: open
                       id: 9gbsc2ql4n
-                      name: Slideout2
+                      name: detail_slide
                       newWindow: true
                       type: controlSlideout
+                    - id: i608m56syq
                   onSaveChanges:
                     - id: xowve3qe8z
                       newWindow: true
@@ -1114,7 +1169,7 @@ layouts:
                       index: 1
                       isDerived: false
                       isEditableOnInsertion: true
-                      isVisible: false
+                      isVisible: true
                       label: Care Navigator
                       linkLabel: "{{MonthlyPatientLog.tableDataWithInserts.map((currentRow) => {
                         return currentRow.CARE_NAVIGATOR })}}"
@@ -1385,7 +1440,8 @@ layouts:
                     FIRST_NAME:
                       columnType: text
                       computedValue: "{{MonthlyPatientLog.tableDataWithInserts.map((currentRow) => {
-                        return currentRow.FIRST_NAME })}}"
+                        return currentRow.PATIENT_FIRST_NAME })}}"
+                      editInputType: TEXT
                       enableFilter: true
                       enableSort: true
                       headerIcon: ""
@@ -1398,6 +1454,7 @@ layouts:
                       imageSize: FIT
                       index: 9
                       isDerived: false
+                      isEditable: false
                       isEditableOnInsertion: true
                       isVisible: true
                       label: FIRST_NAME
@@ -1602,7 +1659,7 @@ layouts:
                     LAST_NAME:
                       columnType: text
                       computedValue: "{{MonthlyPatientLog.tableDataWithInserts.map((currentRow) => {
-                        return currentRow.LAST_NAME })}}"
+                        return currentRow.PATIENT_LAST_NAME })}}"
                       enableFilter: true
                       enableSort: true
                       fontStyle: BOLD
@@ -2810,7 +2867,7 @@ layouts:
                   textSize: PARAGRAPH
                   top:
                     mode: gridUnit
-                    value: 10
+                    value: 13
                   type: TABLE_WIDGET
                   verticalAlignment: CENTER
                   widgetId: hmhk022xau
@@ -2846,6 +2903,26 @@ layouts:
                       id: 5iagr61zbl
                       newWindow: true
                       type: executeApi
+                    - apiNames:
+                        - getTimeTracksForNav
+                      id: 730mdyzydw
+                      type: executeApi
+                    - apiNames:
+                        - updateTimeTrack
+                      id: 96yi39rn7a
+                      state:
+                        id: b1cfc6a6-8e9c-4d7e-910b-297e61bedfd7
+                        name: trackTimeDataArr
+                      type: executeApi
+                      value: |-
+                        {{getTimeTracksForNav.response.map(track => ({
+                        	id: track.ID,
+                        	patient_id: track.PATIENT_ID,
+                        	first_name: track.PATIENT_FIRSTNAME,
+                        	last_name: track.PATIENT_LASTNAME,
+                        	navigator: track.NAVIGATOR,
+                        	start_time: (new Date(track.START_TIME)).toISOString()
+                        }))}}
                   onSearchTextChange:
                     - id: rw4qwocmux
                       newWindow: true
@@ -2892,7 +2969,7 @@ layouts:
                   textType: text
                   top:
                     mode: gridUnit
-                    value: 6
+                    value: 10
                   type: TEXT_WIDGET
                   verticalAlign: AUTO
                   widgetId: zll8fl5amp
@@ -2912,18 +2989,28 @@ layouts:
                             - appMode: EDIT
                               canExtend: false
                               children:
-                                - animateLoading: true
+                                - animateLoading: false
                                   appMode: EDIT
+                                  backgroundColor: '{{ currentCell.blank ? "#00000000" : theme.colors.danger }}'
                                   buttonStyle: PRIMARY_BUTTON
                                   collapseWhenHidden: true
                                   docsUrl: https://docs.superblocks.com/components/button
-                                  dynamicBindingPathList: []
+                                  dynamicBindingPathList:
+                                    - key: icon
+                                    - key: text
+                                    - key: backgroundColor
+                                    - key: textColor
+                                  dynamicPropertyPathList:
+                                    - key: icon
+                                    - key: backgroundColor
+                                    - key: textColor
                                   dynamicTriggerPathList:
                                     - key: onClick
-                                  gridColumns: 12
+                                  gridColumns: 14
                                   height:
                                     mode: gridUnit
                                     value: 3
+                                  icon: "{{currentCell.blank ? '' : icons.stop_circle}}"
                                   iconPosition: LEFT
                                   isDefaultClickDisabled: true
                                   isDisabled: false
@@ -2931,29 +3018,41 @@ layouts:
                                   isVisible: true
                                   left:
                                     mode: gridUnit
-                                    value: 9
+                                    value: 0
                                   onClick:
-                                    - id: jfy60njbmt
+                                    - apiNames:
+                                        - start_timer
+                                      code: |-
+                                        if (!timeTrackStatusGrid.selectedCell.blank) {
+                                        	currentTrackeToStop.set(timeTrackStatusGrid.selectedCell.patient_id);
+                                        	timeTrackModal.open()
+                                        }
+                                      command: start
+                                      id: r54kokllvi
+                                      type: runJs
                                   parentId: mff495zoy0
-                                  text: Submit
+                                  text: "{{!currentCell.blank ? currentCell.showTime + ' - ' +
+                                    currentCell.first_name + ' ' +
+                                    currentCell.last_name : \"No more Track\"}}"
+                                  textColor: '{{currentCell.blank ? "#000" : "#FFFFFF"}}'
                                   top:
                                     mode: gridUnit
-                                    value: 6
+                                    value: 0
                                   type: BUTTON_WIDGET
-                                  widgetId: o9zfrfdpie
-                                  widgetName: Button3
+                                  widgetId: 8uj5s8ql4n
+                                  widgetName: Button4
                                   width:
                                     mode: gridUnit
-                                    value: 12
+                                    value: 14
                               collapseWhenHidden: true
                               containerStyle: none
                               detachFromLayout: true
                               disablePropertyPane: true
                               dragDisabled: true
-                              gridColumns: 31
+                              gridColumns: 14
                               height:
                                 mode: gridUnit
-                                value: 0
+                                value: 3
                               ignoreCollision: true
                               isLoading: false
                               isVisible: true
@@ -2971,16 +3070,16 @@ layouts:
                               widgetName: Canvas16
                               width:
                                 mode: gridUnit
-                                value: 31
+                                value: 14
                           collapseWhenHidden: true
                           containerStyle: none
                           disablePropertyPane: true
                           disallowCopy: true
                           dragDisabled: true
-                          gridColumns: 31
+                          gridColumns: 14
                           height:
                             mode: gridUnit
-                            value: 21
+                            value: 5
                           isDeletable: false
                           isLoading: false
                           isVisible: true
@@ -3012,16 +3111,16 @@ layouts:
                           widgetName: Container3
                           width:
                             mode: gridUnit
-                            value: 31
+                            value: 14
                       collapseWhenHidden: true
                       containerStyle: none
                       detachFromLayout: true
                       disablePropertyPane: true
                       dropDisabled: true
-                      gridColumns: 48
+                      gridColumns: 21
                       height:
                         mode: gridUnit
-                        value: 26
+                        value: 9
                       isLoading: false
                       isVisible: true
                       left:
@@ -3051,22 +3150,106 @@ layouts:
                       widgetName: Canvas15
                       width:
                         mode: gridUnit
-                        value: 48
+                        value: 21
                   collapseWhenHidden: true
                   columnCount: 1
                   containerStyle: none
+                  defaultSelectedCell: "0"
                   dynamicBindingPathList:
+                    - key: gridBindings.Button4.onClick[1].type
+                    - key: gridBindings.Button4.onClick[1].name
                     - key: gridData
-                    - key: isVisible
-                  dynamicPropertyPathList:
-                    - key: isVisible
+                    - key: gridBindings.Button4.icon
+                    - key: gridBindings.Button4.buttonStyle
+                    - key: gridBindings.Button4.backgroundColor
+                    - key: gridBindings.Button4.onClick[0].code
+                    - key: gridBindings.Button4.textColor
+                    - key: gridBindings.Button4.text
+                  dynamicPropertyPathList: []
                   dynamicTriggerPathList:
                     - key: onCellClicked
                   enhancements: true
                   gridBindings:
-                    Button3:
+                    Button4:
+                      backgroundColor: |-
+                        {{timeTrackStatusGrid.gridData.map((currentCell, currentIndex) => {
+                                      return (function(){
+                                        try {
+                                          return   currentCell.blank ? "#00000000" : theme.colors.danger ;
+                                        } catch (err) {
+                                          console.error("Error executing currentCell js in Grid component timeTrackStatusGrid", err);
+                                          return "";
+                                        }
+                                      })();
+                                    })}}
+                      buttonStyle: |-
+                        {{timeTrackStatusGrid.gridData.map((currentCell, currentIndex) => {
+                                      return (function(){
+                                        try {
+                                          return  'PRIMARY_BUTTON';
+                                        } catch (err) {
+                                          console.error("Error executing currentCell js in Grid component timeTrackStatusGrid", err);
+                                          return "";
+                                        }
+                                      })();
+                                    })}}
+                      dynamicPropertyPathList:
+                        - key: icon
+                        - key: backgroundColor
+                        - key: textColor
+                      icon: |-
+                        {{timeTrackStatusGrid.gridData.map((currentCell, currentIndex) => {
+                                      return (function(){
+                                        try {
+                                          return  currentCell.blank ? '' : icons.stop_circle;
+                                        } catch (err) {
+                                          console.error("Error executing currentCell js in Grid component timeTrackStatusGrid", err);
+                                          return "";
+                                        }
+                                      })();
+                                    })}}
                       onClick:
-                        - id: jfy60njbmt
+                        - apiNames:
+                            - start_timer
+                          code: |-
+                            {{timeTrackStatusGrid.gridData.map((currentCell, currentIndex) => {
+                                          return (function(){
+                                            try {
+                                              return  'if (!timeTrackStatusGrid.selectedCell.blank) {
+                            	currentTrackeToStop.set(timeTrackStatusGrid.selectedCell.patient_id);
+                            	timeTrackModal.open()
+                            }';
+                                            } catch (err) {
+                                              console.error("Error executing currentCell js in Grid component timeTrackStatusGrid", err);
+                                              return "";
+                                            }
+                                          })();
+                                        })}}
+                          command: start
+                          id: r54kokllvi
+                          type: runJs
+                      text: |-
+                        {{timeTrackStatusGrid.gridData.map((currentCell, currentIndex) => {
+                                      return (function(){
+                                        try {
+                                          return  !currentCell.blank ? currentCell.showTime + ' - ' + currentCell.first_name + ' ' + currentCell.last_name : "No more Track";
+                                        } catch (err) {
+                                          console.error("Error executing currentCell js in Grid component timeTrackStatusGrid", err);
+                                          return "";
+                                        }
+                                      })();
+                                    })}}
+                      textColor: |-
+                        {{timeTrackStatusGrid.gridData.map((currentCell, currentIndex) => {
+                                      return (function(){
+                                        try {
+                                          return  currentCell.blank ? "#000" : "#FFFFFF";
+                                        } catch (err) {
+                                          console.error("Error executing currentCell js in Grid component timeTrackStatusGrid", err);
+                                          return "";
+                                        }
+                                      })();
+                                    })}}
                     Canvas15:
                       appMode: EDIT
                       canExtend: false
@@ -3192,30 +3375,31 @@ layouts:
                         mode: gridUnit
                         value: 22
                   gridCellScrollable: false
-                  gridColumns: 48
-                  gridData: "{{trackTimeDataArr.value}}"
+                  gridColumns: 21
+                  gridData: "{{[...updateTimeTrack.response.filter(item => item.navigator ==
+                    dropdownCN.selectedOptionValue), {blank: true}]}}"
                   height:
                     mode: gridUnit
-                    value: 26
+                    value: 9
                   isLoading: false
                   isSearchable: false
-                  isVisible: "{{trackTimeDataArr.value.length > 0}}"
+                  isVisible: true
                   left:
                     mode: gridUnit
-                    value: 25
+                    value: 75
                   onCellClicked:
-                    - id: mfhu88q4b4
+                    - id: 3xiw4h4knn
                   parentId: dwpvpsnarl
                   title: ""
                   top:
                     mode: gridUnit
-                    value: 80
+                    value: 0
                   type: GRID_WIDGET
                   widgetId: cxj6rg4lsc
-                  widgetName: Grid2
+                  widgetName: timeTrackStatusGrid
                   width:
                     mode: gridUnit
-                    value: 48
+                    value: 21
               collapseWhenHidden: false
               containerStyle: none
               detachFromLayout: true
@@ -3244,7 +3428,7 @@ layouts:
               widgetName: Canvas1
               width:
                 mode: gridUnit
-                value: 0
+                value: 96
           detachFromLayout: true
           dragDisabled: true
           dynamicBindingPathList: []
@@ -4035,7 +4219,7 @@ layouts:
                                 value: 51
                             - animateLoading: false
                               appMode: EDIT
-                              backgroundColor: "{{isTimerRunning.response ? '#F45252' : '#E8EAED'}}"
+                              backgroundColor: "{{getCurrentPanelTime.response ? '#F45252' : '#E8EAED'}}"
                               buttonStyle: PRIMARY_BUTTON
                               collapseWhenHidden: true
                               docsUrl: https://docs.superblocks.com/components/button
@@ -4043,21 +4227,23 @@ layouts:
                                 - key: backgroundColor
                                 - key: textColor
                                 - key: text
+                                - key: isDisabled
                                 - key: icon
                               dynamicPropertyPathList:
                                 - key: backgroundColor
                                 - key: textColor
                                 - key: icon
+                                - key: isDisabled
                               dynamicTriggerPathList:
                                 - key: onClick
                               gridColumns: 9
                               height:
                                 mode: gridUnit
                                 value: 3
-                              icon: "{{ isTimerRunning.response ?  icons.stop_circle : '' }}"
+                              icon: "{{ getCurrentPanelTime.response ?  icons.stop_circle : undefined }}"
                               iconPosition: LEFT
                               isDefaultClickDisabled: true
-                              isDisabled: false
+                              isDisabled: "{{getCurrentPanelTime.response == undefined}}"
                               isLoading: false
                               isVisible: true
                               left:
@@ -4065,15 +4251,17 @@ layouts:
                                 value: 68
                               onClick:
                                 - apiNames:
+                                    - startTimeTracked
+                                  id: 0jjmohz2x9
+                                  type: executeApi
+                                - apiNames:
                                     - start_timer
                                   code: |-
-                                    if (!isTimerRunning.response) {
-                                    	trackTimeDataArr.set([...trackTimeDataArr.value, {
-                                    		patient_id: MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID,
-                                    		first_name: MonthlyPatientLog.selectedRow.FIRST_NAME,
-                                    		last_name: MonthlyPatientLog.selectedRow.LAST_NAME,
-                                    		start_time: (new Date()).toGMTString()
-                                    	}]);
+                                    if (getCurrentPanelTime.response) {
+                                    currentTrackeToStop.set(MonthlyPatientLog.selectedRow.PATIENT_INDIVIDUAL_ID);
+                                    	timeTrackModal.open();
+                                    } else {
+                                    	getTimeTracksForNav.run();
                                     }
                                   command: start
                                   id: r54kokllvi
@@ -4083,12 +4271,13 @@ layouts:
                                   id: zea2irbf5t
                                   type: executeApi
                                 - apiNames:
-                                    - isTimerRunning
+                                    - getCurrentPanelTime
                                   id: 4ytxr3atyr
                                   type: executeApi
                               parentId: tnn2lo74a4
-                              text: '{{isTimerRunning.response ? isTimerRunning.response : "Track Time"}}'
-                              textColor: "{{isTimerRunning.response ? '#FFFFFF' : '#1F2633'}}"
+                              text: '{{getCurrentPanelTime.response ? getCurrentPanelTime.response : "Track
+                                Time"}}'
+                              textColor: "{{getCurrentPanelTime.response ? '#FFFFFF' : '#1F2633'}}"
                               top:
                                 mode: gridUnit
                                 value: 0
@@ -9702,7 +9891,7 @@ layouts:
             - id: frctusqy6e
           onOpen:
             - apiNames:
-                - isTimerRunning
+                - getCurrentPanelTime
               id: 8qa0y5ekpb
               type: executeApi
             - apiNames:
@@ -9763,12 +9952,419 @@ layouts:
             value: 0
           type: SLIDEOUT_WIDGET
           widgetId: pejhx1pa8s
-          widgetName: Slideout2
+          widgetName: detail_slide
           width:
             mode: gridUnit
             value: 80
+        - appMode: EDIT
+          canOutsideClickClose: true
+          children:
+            - appMode: EDIT
+              canExtend: true
+              children:
+                - appMode: EDIT
+                  canExtend: true
+                  children:
+                    - animateLoading: true
+                      appMode: EDIT
+                      collapseWhenHidden: true
+                      dynamicBindingPathList:
+                        - key: text
+                      dynamicTriggerPathList: []
+                      gridColumns: 53
+                      height:
+                        mode: gridUnit
+                        value: 3
+                      isLoading: false
+                      isVisible: true
+                      left:
+                        mode: gridUnit
+                        value: 3
+                      parentId: rlypax6u3l
+                      text: "Tracked Duration: <b>{{getPatientToStop.response.showTime}}</b>"
+                      textAlign: LEFT
+                      textStyle: LABEL
+                      textType: text
+                      top:
+                        mode: gridUnit
+                        value: 17
+                      type: TEXT_WIDGET
+                      verticalAlign: AUTO
+                      widgetId: 9xxzdfdyxx
+                      widgetName: Text20
+                      width:
+                        mode: gridUnit
+                        value: 53
+                    - animateLoading: true
+                      appMode: EDIT
+                      collapseWhenHidden: true
+                      dynamicBindingPathList:
+                        - key: text
+                      dynamicTriggerPathList: []
+                      gridColumns: 53
+                      height:
+                        mode: gridUnit
+                        value: 3
+                      isLoading: false
+                      isVisible: true
+                      left:
+                        mode: gridUnit
+                        value: 3
+                      parentId: rlypax6u3l
+                      text: "End Time: <b>{{moment(getPatientToStop.response.end_time).format('D MMMM
+                        YYYY, h:mm:ss A')}}</b>"
+                      textAlign: LEFT
+                      textStyle: LABEL
+                      textType: text
+                      top:
+                        mode: gridUnit
+                        value: 13
+                      type: TEXT_WIDGET
+                      verticalAlign: AUTO
+                      widgetId: 7pawcr052i
+                      widgetName: Text19
+                      width:
+                        mode: gridUnit
+                        value: 53
+                    - animateLoading: true
+                      appMode: EDIT
+                      collapseWhenHidden: true
+                      dynamicBindingPathList:
+                        - key: text
+                      dynamicTriggerPathList: []
+                      gridColumns: 53
+                      height:
+                        mode: gridUnit
+                        value: 3
+                      isLoading: false
+                      isVisible: true
+                      left:
+                        mode: gridUnit
+                        value: 3
+                      parentId: rlypax6u3l
+                      text: "Start Time: <b>{{moment(getPatientToStop.response.start_time).format('D
+                        MMMM YYYY, h:mm:ss A')}}</b>"
+                      textAlign: LEFT
+                      textStyle: LABEL
+                      textType: text
+                      top:
+                        mode: gridUnit
+                        value: 9
+                      type: TEXT_WIDGET
+                      verticalAlign: AUTO
+                      widgetId: r1ez0oh526
+                      widgetName: Text18
+                      width:
+                        mode: gridUnit
+                        value: 53
+                    - animateLoading: true
+                      appMode: EDIT
+                      collapseWhenHidden: true
+                      dynamicBindingPathList:
+                        - key: text
+                      dynamicTriggerPathList: []
+                      gridColumns: 91
+                      height:
+                        mode: gridUnit
+                        value: 3
+                      isLoading: false
+                      isVisible: true
+                      left:
+                        mode: gridUnit
+                        value: 0
+                      parentId: rlypax6u3l
+                      text: "{{getPatientToStop.response.navigator}}'s Time Tracking"
+                      textAlign: LEFT
+                      textStyle: HEADING_2
+                      textType: text
+                      top:
+                        mode: gridUnit
+                        value: 0
+                      type: TEXT_WIDGET
+                      verticalAlign: AUTO
+                      widgetId: 9z2uu733cp
+                      widgetName: Text16
+                      width:
+                        mode: gridUnit
+                        value: 91
+                    - animateLoading: true
+                      appMode: EDIT
+                      buttonStyle: SECONDARY_BUTTON
+                      collapseWhenHidden: true
+                      docsUrl: https://docs.superblocks.com/components/button
+                      dynamicTriggerPathList:
+                        - key: onClick
+                      gridColumns: 20
+                      height:
+                        mode: gridUnit
+                        value: 3
+                      iconPosition: LEFT
+                      isDefaultClickDisabled: true
+                      isDisabled: false
+                      isLoading: false
+                      isVisible: true
+                      left:
+                        mode: gridUnit
+                        value: 65
+                      onClick:
+                        - direction: close
+                          id: en6j795yuj
+                          name: timeTrackModal
+                          type: controlModal
+                      parentId: rlypax6u3l
+                      text: Cancel
+                      top:
+                        mode: gridUnit
+                        value: 11
+                      type: BUTTON_WIDGET
+                      widgetId: nc0uxjygou
+                      widgetName: Button5
+                      width:
+                        mode: gridUnit
+                        value: 20
+                    - animateLoading: true
+                      appMode: EDIT
+                      backgroundColor: "{{ theme.colors.danger }}"
+                      buttonStyle: PRIMARY_BUTTON
+                      collapseWhenHidden: true
+                      docsUrl: https://docs.superblocks.com/components/button
+                      dynamicBindingPathList:
+                        - key: backgroundColor
+                      dynamicTriggerPathList:
+                        - key: onClick
+                      gridColumns: 20
+                      height:
+                        mode: gridUnit
+                        value: 3
+                      iconPosition: LEFT
+                      isDefaultClickDisabled: true
+                      isDisabled: false
+                      isLoading: false
+                      isVisible: true
+                      left:
+                        mode: gridUnit
+                        value: 65
+                      onClick:
+                        - apiNames:
+                            - endTimeTracked
+                          id: ct6gi3uy6y
+                          type: executeApi
+                        - apiNames:
+                            - getTimeTracksForNav
+                          id: fhj6v6d659
+                          type: executeApi
+                        - apiNames:
+                            - updateTimeTrack
+                          id: xh7occuj0f
+                          type: executeApi
+                        - direction: close
+                          id: 1lhdgwtlg0
+                          name: timeTrackModal
+                          type: controlModal
+                      parentId: rlypax6u3l
+                      text: Stop
+                      top:
+                        mode: gridUnit
+                        value: 16
+                      type: BUTTON_WIDGET
+                      widgetId: cyjo8xl30k
+                      widgetName: Button6
+                      width:
+                        mode: gridUnit
+                        value: 20
+                    - animateLoading: true
+                      appMode: EDIT
+                      collapseWhenHidden: true
+                      dynamicBindingPathList:
+                        - key: text
+                      dynamicTriggerPathList: []
+                      gridColumns: 53
+                      height:
+                        mode: gridUnit
+                        value: 3
+                      isLoading: false
+                      isVisible: true
+                      left:
+                        mode: gridUnit
+                        value: 3
+                      parentId: rlypax6u3l
+                      text: "Patient Name: <b>{{getPatientToStop.response.first_name}}
+                        {{getPatientToStop.response.last_name}}</b>"
+                      textAlign: LEFT
+                      textStyle: LABEL
+                      textType: text
+                      top:
+                        mode: gridUnit
+                        value: 5
+                      type: TEXT_WIDGET
+                      verticalAlign: AUTO
+                      widgetId: g1crjkd04m
+                      widgetName: Text17
+                      width:
+                        mode: gridUnit
+                        value: 53
+                    - animateLoading: true
+                      appMode: EDIT
+                      collapseWhenHidden: true
+                      defaultOptionValue: Care Navigation
+                      dynamicBindingPathList:
+                        - key: icon
+                      dynamicTriggerPathList:
+                        - key: onOptionChange
+                        - key: onSearchTextChange
+                        - key: onClear
+                      gridColumns: 53
+                      height:
+                        mode: gridUnit
+                        value: 5
+                      icon: "{{ icons.info }}"
+                      isLoading: false
+                      isVertical: true
+                      isVisible: true
+                      label: Time Spent on
+                      left:
+                        mode: gridUnit
+                        value: 56
+                      onClear:
+                        - id: 5hco5rgwkt
+                      onOptionChange:
+                        - id: shodi3vopl
+                      onSearchTextChange:
+                        - id: 4s17mdoy4y
+                      options: |-
+                        [
+                          {
+                            "label": "Care Navigation",
+                            "value": "Care Navigation"
+                          },
+                          {
+                            "label": "Clinical Services",
+                            "value": "Clinical Services"
+                          },
+                          {
+                            "label": "Device Support",
+                            "value": "Device Support"
+                          },
+                          {
+                            "label": "Enrollment",
+                            "value": "Enrollment"
+                          },
+                          {
+                            "label": "Other",
+                            "value": "Other"
+                          },
+                          {
+                            "label": "Records & Admin",
+                            "value": "Records & Admin"
+                          }
+                        ]
+                      parentId: rlypax6u3l
+                      placeholderText: Select an option
+                      top:
+                        mode: gridUnit
+                        value: 4
+                      type: DROP_DOWN_WIDGET
+                      widgetId: uuumf1d4lt
+                      widgetName: serviceType
+                      width:
+                        mode: gridUnit
+                        value: 40
+                  collapseWhenHidden: true
+                  detachFromLayout: true
+                  gridColumns: 96
+                  height:
+                    mode: fitContent
+                    value: 21
+                  isDisabled: false
+                  isInModal: true
+                  isLoading: false
+                  isVisible: true
+                  left:
+                    mode: gridUnit
+                    value: 0
+                  minHeight:
+                    mode: gridUnit
+                    value: 33
+                  parentId: ov97v82o91
+                  shouldScrollContents: true
+                  top:
+                    mode: gridUnit
+                    value: 0
+                  type: CANVAS_WIDGET
+                  widgetId: rlypax6u3l
+                  widgetName: Canvas17
+                  width:
+                    mode: gridUnit
+                    value: 96
+              collapseWhenHidden: true
+              detachFromLayout: true
+              dragDisabled: true
+              gridColumns: 96
+              height:
+                mode: fitContent
+                value: 23
+              isLoading: false
+              isVisible: true
+              left:
+                mode: gridUnit
+                value: 0
+              minHeight:
+                mode: gridUnit
+                value: 23
+              parentId: en6j795yuj
+              top:
+                mode: gridUnit
+                value: 0
+              type: SECTION_WIDGET
+              widgetId: ov97v82o91
+              widgetName: Section5
+              width:
+                mode: gridUnit
+                value: 0
+          detachFromLayout: true
+          dynamicBindingPathList: []
+          dynamicTriggerPathList:
+            - key: onOpen
+            - key: onClose
+          gridColumns: 96
+          hasBackdrop: true
+          height:
+            mode: gridUnit
+            value: 0
+          heightPreset: MEDIUM
+          isLoading: false
+          left:
+            mode: gridUnit
+            value: 0
+          onClose:
+            - id: w9kq2a4kq6
+          onOpen:
+            - apiNames:
+                - getPatientToStop
+              id: g55nhdoalh
+              type: executeApi
+          parentId: "0"
+          shouldScrollContents: true
+          top:
+            mode: gridUnit
+            value: 0
+          type: MODAL_WIDGET
+          widgetId: en6j795yuj
+          widgetName: timeTrackModal
+          width:
+            mode: gridUnit
+            value: 96
+          widthPreset: SMALL
       detachFromLayout: true
       dynamicBindingPathList: []
+      events:
+        eventMap:
+          b9ac6bc0-5292-4491-be66-88eef77877f5:
+            arguments: []
+            id: b9ac6bc0-5292-4491-be66-88eef77877f5
+            name: Event1
+            onTrigger:
+              - id: tt40snxbhy
       gridColumns: 96
       height:
         mode: gridUnit
@@ -9785,14 +10381,12 @@ layouts:
         value: 840
       stateVars:
         stateVarMap:
-          b1cfc6a6-8e9c-4d7e-910b-297e61bedfd7:
-            createdAt: 1713774158453
-            defaultValue: "[]"
-            dynamicBindingPathList: []
-            dynamicTriggerPathList: []
-            id: b1cfc6a6-8e9c-4d7e-910b-297e61bedfd7
-            name: trackTimeDataArr
-            persistance: Local Storage
+          96396dd2-8804-43ae-8f82-a590f4c16cdb:
+            createdAt: 1713932508882
+            defaultValue: ""
+            id: 96396dd2-8804-43ae-8f82-a590f4c16cdb
+            name: currentTrackeToStop
+            persistance: Temporary
           df015d7d-4d6d-4157-a193-15503a2185b5:
             createdAt: 1712885637358
             defaultValue: "{endDate: new Date(), startDate: new Date()}"
@@ -9815,6 +10409,10 @@ layouts:
               - apiNames:
                   - updateTimeTrack
                 id: z83wyftr9u
+                type: executeApi
+              - apiNames:
+                  - getCurrentPanelTime
+                id: jg1sr7wssn
                 type: executeApi
       top:
         mode: gridUnit

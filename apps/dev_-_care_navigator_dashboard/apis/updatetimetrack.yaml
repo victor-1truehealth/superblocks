@@ -3,20 +3,28 @@ blocks:
     step:
       integration: javascript
       javascript:
-        body: |
-          const getTimeDifference = (start_time) => {
-            const startTime = moment(start_time, "ddd, DD MMM YYYY HH:mm:ss [GMT]");
+        body: |-
+          const moment = require('moment');
+
+          return getTimeTracksForNav.response.map(track => ({
+          	id: track.ID,
+          	patient_id: track.PATIENT_ID,
+          	first_name: track.PATIENT_FIRSTNAME,
+          	last_name: track.PATIENT_LASTNAME,
+          	navigator: track.NAVIGATOR,
+          	start_time: (new Date(track.START_TIME)).toISOString(),
+          	showTime: getDuration((new Date(track.START_TIME)).toISOString())
+          }))
+
+          function getDuration(start_time) {
+          	const startTime = moment(start_time);
             const currentTime = moment();
             const duration = moment.duration(currentTime.diff(startTime));
             const hours = Math.floor(duration.asHours());
             const minutes = Math.floor(duration.asMinutes()) % 60;
-            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-          };
-
-          for (let item of trackTimeDataArr.value) {
-          	item.showTime = getTimeDifference(item.start_time);
+          	const seconds = Math.floor(duration.asSeconds()) % 60;
+          	return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
           }
-          return trackTimeDataArr.value;
 metadata:
   id: edb5266f-c066-4b7b-8b6f-16917df01519
   name: updateTimeTrack

@@ -1,0 +1,34 @@
+blocks:
+  - name: Variables1
+    variables:
+      items:
+        - key: trackInfo
+          mode: MODE_READWRITE
+          type: TYPE_SIMPLE
+          value: "{{getPatientToStop.response}}"
+  - name: Step1
+    step:
+      integration: c00652f8-5dd0-499b-9f0e-c48909251229
+      snowflake:
+        body: |-
+          UPDATE PROD_WAREHOUSE.SUPERBLOCKS.TIME_TRACK 
+          SET PATIENT_ID = {{trackInfo.value.patient_id}}, 
+              PATIENT_FIRSTNAME = {{trackInfo.value.first_name}}, 
+              PATIENT_LASTNAME = {{trackInfo.value.last_name}}, 
+              NAVIGATOR = {{trackInfo.value.navigator}}, 
+              START_TIME = {{trackInfo.value.start_time}}, 
+              END_TIME = {{trackInfo.value.end_time}}, 
+              SERVICE_TYPE = {{serviceType.selectedOptionValue}}
+          WHERE ID = {{trackInfo.value.id}};
+        filterBy: []
+        mappedColumns: []
+        newValues: []
+        oldValues: []
+        usePreparedSql: true
+metadata:
+  id: 28a6c9b9-c9bb-4563-8e13-9e1a878d8fd1
+  name: endTimeTracked
+  organization: 220afb9e-bf20-40ef-9f76-b8fe766a8630
+trigger:
+  application:
+    id: 10bdbf39-31e3-4533-bf0d-3a97d729544e
