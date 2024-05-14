@@ -50,15 +50,6 @@ layouts:
                 message: "{{getAllTimeTracked.error}}"
                 style: error
                 type: showAlert
-          20ed69ab-62d2-46b8-a20e-8b754f2ebf9f:
-            dynamicTriggerPathList:
-              - key: onError
-            id: 20ed69ab-62d2-46b8-a20e-8b754f2ebf9f
-            onError:
-              - id: d30089d3-c771-426b-8867-3edf1b568d60
-                message: "{{API1.error}}"
-                style: error
-                type: showAlert
           28a6c9b9-c9bb-4563-8e13-9e1a878d8fd1:
             dynamicTriggerPathList:
               - key: onError
@@ -102,15 +93,6 @@ layouts:
             onError:
               - id: b7d6fa48-0ab3-4dca-bd48-ebebf9613424
                 message: "{{getOxygenSaturationList.error}}"
-                style: error
-                type: showAlert
-          6db2219c-e2db-473c-8928-085c68f5a2e2:
-            dynamicTriggerPathList:
-              - key: onError
-            id: 6db2219c-e2db-473c-8928-085c68f5a2e2
-            onError:
-              - id: d4a0a98d-31e5-4c19-85a7-6842640e7798
-                message: "{{API2.error}}"
                 style: error
                 type: showAlert
           784e9577-45b3-4106-a0c4-15e821018487:
@@ -345,7 +327,6 @@ layouts:
               - getBloodPressureList
             getCurrentPanelTime:
               - updateTimeTrack
-              - getTimeAdherence
             getDetailFromLSQ:
               - getTimeAdherence
             getOxygenSaturationList:
@@ -364,22 +345,22 @@ layouts:
             updateTimeTrack:
               - getTimeTracksForNav
           apiNames:
+            - getWeightList
+            - getPulseList
+            - getBloodGlucoseList
+            - getBloodPressureList
+            - getBloodPressureDiastolicPlotly
+            - getDetailFromLSQ
+            - getPatientCohorts
+            - getTimeAdherence
+            - CTM_Calls
+            - getOxygenSaturationList
+            - getReadingLogs
+            - getBloodPressureSystolicPlotly
+            - getCurrentPanelTime
             - getPatientToStop
             - getTimeTracksForNav
             - updateTimeTrack
-            - getWeightList
-            - getOxygenSaturationList
-            - getReadingLogs
-            - getPatientCohorts
-            - getBloodPressureSystolicPlotly
-            - CTM_Calls
-            - getBloodPressureList
-            - getDetailFromLSQ
-            - getPulseList
-            - getBloodGlucoseList
-            - getBloodPressureDiastolicPlotly
-            - getCurrentPanelTime
-            - getTimeAdherence
       canExtend: true
       children:
         - canExtend: true
