@@ -1,7 +1,25 @@
+configuration: {}
 id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4
 name: Trilogy-1TH Dashboard
 organizationId: 220afb9e-bf20-40ef-9f76-b8fe766a8630
-pages:
-  - id: 2514e5c0-d9e5-47ea-a536-dec2004b74fa
-    isDefault: true
-settings: {}
+settings:
+  theme:
+    borderRadius:
+      mode: px
+      value: 4
+    mode: AUTO
+    padding:
+      bottom:
+        mode: px
+        value: 11
+      left:
+        mode: px
+        value: 11
+      right:
+        mode: px
+        value: 11
+      top:
+        mode: px
+        value: 11
+    primaryColor: "#29BBFF"
+    typeFace: Roboto

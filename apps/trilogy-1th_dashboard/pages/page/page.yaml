@@ -183,14 +183,14 @@ layouts:
             getPatientMembers: []
           apiNames:
             - getCNMinutes
-            - getHoursMonthly
             - getBillings
-            - getPatientMembers
             - getCNMinutesYesterday
+            - getPatientMembers
             - getNumberHoursYesterday
             - getCNMinutesMonthly
             - getChargesSummary
             - getDailyCNMinutes
+            - getHoursMonthly
       canExtend: true
       children:
         - canExtend: true
@@ -853,6 +853,7 @@ layouts:
                     - LEAD_TYPE
                     - PATIENT_INDIVIDUAL_ID
                     - RPM_PAYER
+                    - TELLESCOPE_ID
                     - TRUE_CARE_LINK
                     - VISITING_PROVIDER
                     - WELLNESS_PAYER
@@ -937,6 +938,9 @@ layouts:
                     - key: primaryColumns.TRUE_CARE_LINK.computedValue
                     - key: primaryColumns.TRUE_CARE_LINK.linkUrl
                     - key: primaryColumns.TRUE_CARE_LINK.linkLabel
+                    - key: primaryColumns.TELLESCOPE_ID.computedValue
+                    - key: primaryColumns.TELLESCOPE_ID.linkUrl
+                    - key: primaryColumns.TELLESCOPE_ID.linkLabel
                   dynamicPropertyPathList: []
                   dynamicTriggerPathList:
                     - key: onRowClicked
@@ -1531,6 +1535,37 @@ layouts:
                         currentRow.RPM_STAGE })}}"
                       linkUrl: "{{Table2.tableDataWithInserts.map((currentRow) => { return
                         currentRow.RPM_STAGE })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
+                    TELLESCOPE_ID:
+                      columnType: text
+                      computedValue: "{{Table2.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TELLESCOPE_ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TELLESCOPE_ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 18
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: true
+                      label: TELLESCOPE_ID
+                      linkLabel: "{{Table2.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TELLESCOPE_ID })}}"
+                      linkUrl: "{{Table2.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TELLESCOPE_ID })}}"
                       notation: standard
                       openImageUrl: true
                       openInNewTab: true
@@ -2956,8 +2991,7 @@ layouts:
                 - animateLoading: true
                   collapseWhenHidden: false
                   defaultOptionValue: Cailie Smith
-                  dynamicBindingPathList:
-                    - key: options
+                  dynamicBindingPathList: []
                   dynamicTriggerPathList:
                     - key: onOptionChange
                     - key: onSearchTextChange
@@ -2995,8 +3029,16 @@ layouts:
                   onSearchTextChange:
                     - id: iuy7jn3l4h
                       newWindow: true
-                  options: "{{['Lana Ahmed', 'Natalie Aldaw', 'Barbara Aubry', 'Jewell Dykstra',
-                    'Margaret Lowe', 'Cailie Smith']}}"
+                  options: |-
+                    [
+                    	'Garrett Dunn',
+                    	'Jewell Dykstra',
+                    	'Sandy Farley',
+                    	'Hayden Geitner',
+                    	'Marc Prescott',
+                    	'Beth Sims',
+                    	'Cailie Smith'
+                    ]
                   parentId: dwpvpsnarl
                   placeholderText: Select an option
                   top:
@@ -3350,7 +3392,7 @@ layouts:
                     mode: gridUnit
                     value: 29
                   horizontalAlignment: LEFT
-                  isDownloadable: false
+                  isDownloadable: true
                   isFilterable: true
                   isLoading: false
                   isSearchable: false
@@ -3859,6 +3901,7 @@ layouts:
                     - PROVIDER_NAME
                     - RPM_PAYER
                     - RPM_STAGE
+                    - TELLESCOPE_ID
                     - TRUE_CARE_LINK
                     - VISITING_PROVIDER
                     - WELLNESS_PAYER
@@ -3949,6 +3992,9 @@ layouts:
                     - key: primaryColumns.TRUE_CARE_LINK.computedValue
                     - key: primaryColumns.TRUE_CARE_LINK.linkUrl
                     - key: primaryColumns.TRUE_CARE_LINK.linkLabel
+                    - key: primaryColumns.TELLESCOPE_ID.computedValue
+                    - key: primaryColumns.TELLESCOPE_ID.linkUrl
+                    - key: primaryColumns.TELLESCOPE_ID.linkLabel
                   dynamicTriggerPathList:
                     - key: onRowClicked
                     - key: onSaveChanges
@@ -4569,6 +4615,37 @@ layouts:
                       useLabelAsDisplayValue: true
                       verticalAlignment: CENTER
                       width: 150
+                    TELLESCOPE_ID:
+                      columnType: text
+                      computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TELLESCOPE_ID })}}"
+                      enableFilter: true
+                      enableSort: true
+                      headerIcon: ""
+                      headerIconPosition: LEFT
+                      horizontalAlignment: LEFT
+                      id: TELLESCOPE_ID
+                      imageBorderRadius:
+                        mode: px
+                        value: 0
+                      imageSize: FIT
+                      index: 19
+                      isDerived: false
+                      isEditableOnInsertion: true
+                      isVisible: false
+                      label: TELLESCOPE_ID
+                      linkLabel: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TELLESCOPE_ID })}}"
+                      linkUrl: "{{Table1.tableDataWithInserts.map((currentRow) => { return
+                        currentRow.TELLESCOPE_ID })}}"
+                      notation: standard
+                      openImageUrl: true
+                      openInNewTab: true
+                      tagDisplayConfig: {}
+                      textSize: PARAGRAPH
+                      useLabelAsDisplayValue: true
+                      verticalAlignment: CENTER
+                      width: 150
                     TOTAL_DURATION_MINS:
                       columnType: number
                       computedValue: "{{Table1.tableDataWithInserts.map((currentRow) => { return
@@ -4767,7 +4844,6 @@ layouts:
                     mode: gridUnit
                     value: 9
               collapseWhenHidden: false
-              containerStyle: none
               detachFromLayout: true
               dragDisabled: true
               dynamicBindingPathList: []
@@ -4800,7 +4876,7 @@ layouts:
           gridColumns: 96
           height:
             mode: fitContent
-            value: 101
+            value: 100.83333333333333
           isLoading: false
           isVisible: true
           left:
@@ -4823,7 +4899,7 @@ layouts:
       height:
         mode: gridUnit
         value: 99
-      layoutVersion: 4
+      layoutVersion: 5
       left:
         mode: gridUnit
         value: 0
@@ -4848,4 +4924,4 @@ layouts:
         mode: gridUnit
         value: 0
     id: 48c2048a-6461-43be-81dd-20de69664454
-name: Page1
+name: Page
