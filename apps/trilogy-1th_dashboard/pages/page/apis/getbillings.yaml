@@ -3,36 +3,30 @@ blocks:
     step:
       integration: c00652f8-5dd0-499b-9f0e-c48909251229
       snowflake:
-        body: |-
-          WITH CombinedBillings AS (
-            SELECT
-              PATIENT_INDIVIDUAL_ID,
-              PROCEDURE AS CPT_CODE,
-              SERVICE_DATE
-            FROM
-              PROD_WAREHOUSE.BILLING.PAST_BILLINGS
-
-            UNION ALL
-
-            SELECT
-              PATIENT_INDIVIDUAL_ID,
-              CPT_CODE,
-              DATE_OF_SERVICE
-            FROM
-              PROD_WAREHOUSE.BILLING.CHARGES
-          )
+        body: |
           SELECT
-            pi.*,
-            cb.CPT_CODE,
-            cb.SERVICE_DATE AS DATE_OF_SERVICE
+            -- Select columns from CODES_LOG
+            cl.PATIENT_INDIVIDUAL_ID,
+            cl.CPT_CODE,
+            cl.DATE_OF_SERVICE,
+            cl.BILLING_QTY,
+
+            -- Select columns from PATIENT.INFORMATION
+            pi.PATIENT_FIRST_NAME,
+            pi.PATIENT_LAST_NAME,
+            pi.PATIENT_DOB,
+            pi.CARE_NAVIGATOR,
+            pi.CUSTOMER,
+            
           FROM
-            PROD_WAREHOUSE.PATIENT.INFORMATION pi
-          LEFT JOIN CombinedBillings cb ON pi.PATIENT_INDIVIDUAL_ID = cb.PATIENT_INDIVIDUAL_ID
-          WHERE
-            pi.LEAD_TYPE = 'Member'
-            AND pi.CARE_NAVIGATOR = {{dropdownProvider.selectedOptionValue}}
-            AND MONTH(cb.SERVICE_DATE) = {{dropdownMonth.selectedOptionValue}}
-            AND YEAR(cb.SERVICE_DATE) = {{dropdownYear.selectedOptionValue}};
+            PROD_WAREHOUSE.BILLING.CODES_LOG AS cl
+          JOIN
+            PROD_WAREHOUSE.PATIENT.INFORMATION AS pi
+          ON
+            cl.PATIENT_INDIVIDUAL_ID = pi.PATIENT_INDIVIDUAL_ID
+          WHERE pi.CARE_NAVIGATOR = {{dropdownProvider.selectedOptionValue}}
+          AND MONTH(cl.DATE_OF_SERVICE) = {{dropdownMonth.selectedOptionValue}}
+          AND YEAR(cl.DATE_OF_SERVICE) = {{dropdownYear.selectedOptionValue}};
         filterBy: []
         mappedColumns: []
         newValues: []
@@ -45,3 +39,5 @@ metadata:
 trigger:
   application:
     id: cb6f9126-0ac9-446f-ac7f-d59b3d11e5d4
+    options:
+      executeOnPageLoad: false
